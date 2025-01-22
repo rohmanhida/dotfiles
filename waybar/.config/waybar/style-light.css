@@ -2,7 +2,7 @@
 
 * {
     border: none;
-    font-family: "IosevkaTerm Nerd Font";
+    font-family: "Iosevka Nerd Font";
     font-size: 12px;
 }
 window#waybar {
@@ -41,6 +41,7 @@ window#waybar {
 #pulseaudio,
 #custom-media,
 #custom-weather,
+#custom-norification,
 #clock,
 #cpu,
 #temperature,
@@ -103,5 +104,14 @@ window#waybar {
 }
 #tray {
     background-color: @base;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left: 5px;
+}
+#custom-notification {
+    background-color: @base;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0px 8px;
+    margin-left: -2px;
 }

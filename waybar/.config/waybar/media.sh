@@ -5,8 +5,13 @@ CURRENT_STATUS=$(playerctl status)
 
 if [ "$CURRENT_PLAYER" == "spotify" ]; then
   icon=''
+  format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "firefox" ]; then
   icon=''
+  format='{{ title }}'
+elif [ "$CURRENT_PLAYER" == "mpv" ]; then
+  icon=''
+  format='{{ title }}'
 else
   icon=''
 fi
@@ -20,4 +25,4 @@ else
   icon=''
 fi
 
-echo "${icon}   $(playerctl metadata --format='{{ artist }} - {{ title }}')"
+echo "${icon}   $(playerctl metadata --format="${format}")"

@@ -29,6 +29,7 @@ current=$(gsettings get org.gnome.desktop.interface color-scheme | tr -d "'")
 # Compare current time to sunrise and sunset times
 if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
   # hyprpaper
+  echo "changing wallpaper to light"
   WALLPAPER=$(ls ~/wallpapers/light | shuf -n 1)
   hyprctl hyprpaper preload "~/wallpapers/light/$WALLPAPER"
   hyprctl hyprpaper wallpaper ",~/wallpapers/light/$WALLPAPER"
@@ -43,6 +44,11 @@ if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds ))
     cat ~/.config/starship/rose-pine-dawn.toml > ~/.config/starship.toml
     # hyprland
     sed -i 's/rose-pine-main/rose-pine-dawn/g' ~/.config/hypr/hyprland.conf
+    # rofi
+    sed -i 's/rose-pine-main/rose-pine-dawn/g' ~/.config/rofi/launchers/type-4/shared/colors.rasi
+    # swaync
+    cat ~/.config/swaync/rose-pine-dawn.css > ~/.config/swaync/style.css
+    swaync-client -rs
     # hyprlock
     # spicetify
     # GTK
@@ -51,6 +57,7 @@ if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds ))
   fi
 else
   # hyprpaper
+  echo "changing wallpaper to dark"
   WALLPAPER=$(ls ~/wallpapers/dark | shuf -n 1)
   hyprctl hyprpaper preload "~/wallpapers/dark/$WALLPAPER"
   hyprctl hyprpaper wallpaper ",~/wallpapers/dark/$WALLPAPER"
@@ -66,6 +73,11 @@ else
     cat ~/.config/starship/rose-pine-main.toml > ~/.config/starship.toml
     # hyprland
     sed -i 's/rose-pine-dawn/rose-pine-main/g' ~/.config/hypr/hyprland.conf
+    # rofi
+    sed -i 's/rose-pine-dawn/rose-pine-main/g' ~/.config/rofi/launchers/type-4/shared/colors.rasi
+    # swaync
+    cat ~/.config/swaync/rose-pine-main.css > ~/.config/swaync/style.css
+    swaync-client -rs
     # hyprlock
     # spicetify
     # GTK

@@ -39,7 +39,17 @@ return {
 		-- high-performance color highlighter
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({
+				DEFAULT_OPTIONS = {
+					hsl_fn = true,
+					RGB_fn = true,
+					RRGGBBAA = true,
+					RRGGBB = true,
+					rgb_fn = true,
+					css = true,
+					css_fn = true,
+				},
+			})
 		end,
 	},
 }
