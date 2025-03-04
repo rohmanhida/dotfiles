@@ -2,13 +2,12 @@
 
 * {
     border: none;
-    font-family: "Iosevka Nerd Font";
-    font-size: 12px;
+    font-family: "Maple Mono NF";
+    font-size: 10px;
 }
 window#waybar {
     background: @overlay;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 /*-----module groups----*/
 .modules-right {
@@ -82,7 +81,6 @@ window#waybar {
     background-color: @base;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    margin-right: -5px;
 }
 #temperature {
     color: @gold;
@@ -94,7 +92,6 @@ window#waybar {
     background-color: @base;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    margin-left: -2px;
     margin-right: 5px;
 }
 #pulseaudio {
@@ -109,6 +106,7 @@ window#waybar {
     margin-left: 5px;
 }
 #custom-notification {
+    color: @text;
     background-color: @base;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

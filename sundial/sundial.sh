@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 # API endpoint for sunrise and sunset times
 API_URL="https://api.sunrisesunset.io/json?lat=-7.17520&lng=112.63382&time_format=24"
@@ -26,8 +26,8 @@ current_seconds=$(time_to_seconds "$current_time")
 # Get current theme
 current=$(gsettings get org.gnome.desktop.interface color-scheme | tr -d "'")
 
-# Compare current time to sunrise and sunset times
-if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
+# function to set things to light
+set_light() {
   # hyprpaper
   echo "changing wallpaper to light"
   WALLPAPER=$(ls ~/wallpapers/light | shuf -n 1)
@@ -50,12 +50,17 @@ if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds ))
     cat ~/.config/swaync/rose-pine-dawn.css > ~/.config/swaync/style.css
     swaync-client -rs
     # hyprlock
+    sed -i 's/kendal-unsplash.jpg/bird.jpg/g' ~/.config/hypr/hyprlock.conf
+    sed -i 's/dark/light/g' ~/.config/hypr/hyprlock.conf
     # spicetify
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    gsettings set org.gnome.desktop.interface gtk-theme "rose-pine-dawn-gtk"
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
   fi
-else
+}
+
+# function to set things to dark
+set_dark() {
   # hyprpaper
   echo "changing wallpaper to dark"
   WALLPAPER=$(ls ~/wallpapers/dark | shuf -n 1)
@@ -79,9 +84,26 @@ else
     cat ~/.config/swaync/rose-pine-main.css > ~/.config/swaync/style.css
     swaync-client -rs
     # hyprlock
+    sed -i 's/bird.jpg/kendal-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
+    sed -i 's/light/dark/g' ~/.config/hypr/hyprlock.conf
     # spicetify
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gnome.desktop.interface gtk-theme "rose-pine-gtk"
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  fi
+}
+
+if [ -z "$1" ] || [ "$1" = "manual" ]; then
+  if [ "$current" = "prefer-dark" ]; then
+    set_light
+  else
+    set_dark
+  fi
+else
+  # Compare current time to sunrise and sunset times
+  if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
+    set_light
+  else
+    set_dark
   fi
 fi

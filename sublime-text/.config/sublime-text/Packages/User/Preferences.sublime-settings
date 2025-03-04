@@ -1,0 +1,16 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "auto",
+	"dark_color_scheme": "Rosé Pine.sublime-color-scheme",
+	"light_color_scheme": "Rosé Pine Dawn.sublime-color-scheme",
+	"dark_theme": "Rosé Pine.sublime-theme",
+	"light_theme": "Rosé Pine Dawn.sublime-theme",
+	"theme": "auto",
+	"font_face": "Maple Mono NF",
+	"font_size": 10,
+	"tab_size": 2,
+	"highlight_line": true,
+}

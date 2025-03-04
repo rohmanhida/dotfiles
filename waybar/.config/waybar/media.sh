@@ -2,8 +2,9 @@
 
 CURRENT_PLAYER=$(playerctl metadata --format='{{playerName}}')
 CURRENT_STATUS=$(playerctl status)
+CURRENT_SONG=$(playerctl metadata --format='{{title}}')
 
-if [ "$CURRENT_PLAYER" == "spotify" ]; then
+if [[ "$CURRENT_PLAYER" =~ ^(spotify|ncspot|spotify_player)$ ]]; then
   icon=''
   format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "firefox" ]; then

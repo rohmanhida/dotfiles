@@ -15,9 +15,9 @@
         "custom/media"
     ],
     "modules-right": [
-        "network",
-        "temperature",
-        "cpu",
+        // "network",
+        // "temperature",
+        // "cpu",
         "pulseaudio",
         "tray",
         "custom/notification",
@@ -42,8 +42,6 @@
           "1": [],
           "2": [],
           "3": [],
-          "4": [],
-          "5": [],
         }
     },
     "custom/weather": {
@@ -60,11 +58,17 @@
     "clock#time": {
         "interval": 10,
         "timezone": "Asia/Jakarta",
-        "format": "  {:%H:%M}"
+        "format": "  {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%A, %d %B %Y}",
+        "on-click": "gnome-clocks"
     },
     "clock#date": {
         "format": " 󰸗  {:%d/%m}",
-        "timezone": "Asia/Jakarta"
+        "timezone": "Asia/Jakarta",
+        "tooltip": true,
+        "tooltip-format": "{:%A, %d %B %Y}",
+        "on-click": "gnome-calendar"
     },
     "temperature": {
         // "thermal-zone": 2,
