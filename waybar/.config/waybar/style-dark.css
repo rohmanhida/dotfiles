@@ -40,6 +40,7 @@ window#waybar {
 
 #pulseaudio,
 #custom-media,
+#custom-theme,
 #custom-weather,
 #custom-notification,
 #clock,
@@ -76,6 +77,12 @@ window#waybar {
 #custom-media {
     background-color: transparent;
     color: @foam;
+}
+#custom-theme {
+    color: @pine;
+    background-color: @base;
+    border-radius: 5px;
+    padding-right: 10px;
 }
 #network {
     color: @love;

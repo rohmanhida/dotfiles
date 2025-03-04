@@ -18,6 +18,7 @@
         // "network",
         // "temperature",
         // "cpu",
+        "custom/theme",
         "pulseaudio",
         "tray",
         "custom/notification",
@@ -97,6 +98,14 @@
         "tooltip": false,
         "exec": "~/.config/waybar/media.sh",
         "on-click": "playerctl play-pause",
+        "max-length": 35,
+    },
+    "custom/theme": {
+        "format": "{}",
+        "interval": 1,
+        "tooltip": false,
+        "exec": "~/.config/waybar/theme.sh",
+        "on-click": "~/sundial.sh",
         "max-length": 35,
     },
     "pulseaudio": {
