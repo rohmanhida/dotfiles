@@ -4,7 +4,6 @@
 alias n="nvim"
 alias mkdir="mkdir -p"
 alias ls="ls -la --color"
-alias yt="yt-x"
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
