@@ -4,9 +4,3 @@ include rose-pine-main.conf
 font_family   Maple Mono NF
 font_size     10.0
 font_weight   regular
-
-
-# BEGIN_KITTY_THEME
-# Nord
-include current-theme.conf
-# END_KITTY_THEME

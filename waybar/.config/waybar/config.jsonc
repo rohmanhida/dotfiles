@@ -1,25 +1,25 @@
 // -*- mode: jsonc -*-
 {
     "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    "width": 1280, // Waybar width
-    "spacing": 3, // Gaps between modules (4px)
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "clock#time",
-        "clock#date",
-        "custom/weather",
-        "hyprland/workspaces",
+        "custom/weather"
+        // "clock#date",
     ],
     "modules-center": [
-        "custom/media"
+        "hyprland/workspaces",
     ],
     "modules-right": [
         // "network",
         // "temperature",
         // "cpu",
-        "custom/theme",
+        //"custom/theme",
         "pulseaudio",
+        "custom/media",
         "tray",
         "custom/notification",
     ],
@@ -43,6 +43,8 @@
           "1": [],
           "2": [],
           "3": [],
+          "4": [],
+          "5": [],
         }
     },
     "custom/weather": {
@@ -105,11 +107,12 @@
         "interval": 1,
         "tooltip": false,
         "exec": "~/.config/waybar/theme.sh",
-        "on-click": "~/sundial.sh",
+        "on-click": "sundial",
         "max-length": 35,
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
+        // "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

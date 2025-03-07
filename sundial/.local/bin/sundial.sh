@@ -93,7 +93,14 @@ set_dark() {
   fi
 }
 
-if [ -z "$1" ] || [ "$1" = "manual" ]; then
+
+if [ ! -z "$2" ]; then
+  echo "Argument is empty"
+else
+  echo "Argument is: $1"
+fi
+
+if [ ! -z "$1" ] && [ "$1" = "manual" ]; then
   if [ "$current" = "prefer-dark" ]; then
     set_light
   else

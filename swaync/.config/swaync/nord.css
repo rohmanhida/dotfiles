@@ -1,18 +1,25 @@
-@define-color text #575279;
-@define-color surface #fffaf3;
-@define-color overlay #f2e9e1;
-@define-color muted #9893a5;
-@define-color subtle #797593;
-@define-color base #faf4ed;
-@define-color highlight-low #f4ede8;
-@define-color highlight-med #dfdad9;
-@define-color highlight-high #cecacd;
+@define-color nord0      #2e3440;
+@define-color nord1      #3b4252;
+@define-color nord2      #434c5e;
+@define-color nord3      #4c566a;
+@define-color nord4      #d8dee9;
+@define-color nord5      #e5e9f0;
+@define-color nord6      #eceff4;
+@define-color nord7      #8fbcbb;
+@define-color nord8      #88c0d0;
+@define-color nord9      #81a1c1;
+@define-color nord10     #5e81ac;
+@define-color nord11     #bf616a;
+@define-color nord12     #d08770;
+@define-color nord13     #ebcb8b;
+@define-color nord14     #a3be8c;
+@define-color nord15     #b48ead;
 
 * {
   all: unset;
-  font-family: Maple Mono NF;
+  font-family: Liga SFMonoNerdFont;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .floating-notifications.background .notification-row {
@@ -21,9 +28,9 @@
 
 .floating-notifications.background .notification-row .notification-background {
   border-radius: 0.5rem;
-  background-color: @base;
-  color: @text;
-  border: 1px solid @muted;
+  background-color: @nord0;
+  color: @nord4;
+  border: 1px solid @nord3;
 }
 
 .floating-notifications.background
@@ -38,7 +45,7 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid #b4637a;
+  border: 1px solid @nord11;
 }
 
 .floating-notifications.background
@@ -47,8 +54,8 @@
   .notification
   .notification-content
   .summary {
-  margin: 0.5rem;
-  color: @text;
+  margin: 0px 0.5rem;
+  color: @nord5;
   font-weight: bold;
 }
 
@@ -58,8 +65,8 @@
   .notification
   .notification-content
   .body {
-  margin: 0.5rem;
-  color: @subtle;
+  margin: 0px 0.5rem;
+  color: @nord4;
 }
 
 .floating-notifications.background
@@ -79,9 +86,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @surface;
-  border: 1px solid @muted;
+  color: @nord4;
+  background-color: @nord1;
+  border: 1px solid @nord3;
 }
 
 .floating-notifications.background
@@ -91,7 +98,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @overlay;
+  background-color: @nord1;
 }
 
 .floating-notifications.background
@@ -101,7 +108,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @muted;
+  background-color: @nord4;
 }
 
 .floating-notifications.background
@@ -111,60 +118,60 @@
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @text;
-  background-color: #b4637a;
+  color: @nord3;
+  background-color: @nord11;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  color: @base;
+  color: @nord0;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: #d7827e;
+  background-color: @nord11;
 }
 
 .control-center {
   border-radius: 0.5rem;
   margin: 1rem;
-  background-color: @base;
-  color: @text;
+  background-color: @nord0;
+  color: @nord4;
   padding: 1rem;
-  border: 1px solid @muted;
+  border: 1px solid @nord3;
 }
 
 .control-center .widget-title {
-  color: @text;
+  color: @nord4;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @overlay;
-  border: 1px solid @muted;
+  color: @nord4;
+  background-color: @nord1;
+  border: 1px solid @nord3;
   padding: 0.5rem;
 }
 
 .control-center .widget-title button:hover {
-  background-color: @highlight-med;
+  background-color: @nord1;
 }
 
 .control-center .widget-title button:active {
-  background-color: @highlight-high;
+  background-color: @nord2;
 }
 
 .control-center .notification-row .notification-background {
   border-radius: 0.5rem;
   margin: 0.5rem 0;
-  background-color: @surface;
-  color: @text;
-  border: 1px solid @muted;
+  background-color: @nord1;
+  color: @nord4;
+  border: 1px solid @nord3;
 }
 
 .control-center .notification-row .notification-background .notification {
@@ -176,7 +183,7 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid #b4637a;
+  border: 1px solid @nord11;
 }
 
 .control-center
@@ -184,7 +191,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: @text;
+  color: @nord4;
 }
 
 .control-center
@@ -193,8 +200,8 @@
   .notification
   .notification-content
   .summary {
-  margin: 0.5rem;
-  color: @text;
+  margin: 1rem 0.5rem 0px 0.5rem;
+  color: @nord5;
   font-weight: bold;
 }
 
@@ -204,8 +211,8 @@
   .notification
   .notification-content
   .body {
-  margin: 0.5rem;
-  color: @subtle;
+  margin: 0px 0.5rem 1rem 0.5rem;
+  color: @nord4;
 }
 
 .control-center
@@ -225,9 +232,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @surface;
-  border: 1px solid @muted;
+  color: @nord4;
+  background-color: @nord1;
+  border: 1px solid @nord3;
 }
 
 .control-center
@@ -237,7 +244,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @overlay;
+  background-color: @nord1;
 }
 
 .control-center
@@ -247,26 +254,26 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @muted;
+  background-color: @nord4;
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @text;
-  background-color: #b4637a;
+  color: @nord4;
+  background-color: @nord11;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  color: @base;
+  color: @nord0;
 }
 
 .control-center
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: #d7827e;
+  background-color: @nord11;
 }
 
 progressbar,
@@ -276,20 +283,20 @@ trough {
 }
 
 .notification.critical progress {
-  background-color: #b4637a;
+  background-color: @nord11;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: #286983;
+  background-color: @nord8;
 }
 
 trough {
-  background-color: @highlight-low;
+  background-color: @nord1;
 }
 
 .control-center trough {
-  background-color: @highlight-med;
+  background-color: @nord2;
 }
 
 .control-center-dnd {
@@ -298,57 +305,58 @@ trough {
 }
 
 .control-center-dnd slider {
-  background: @overlay;
+  background: @nord1;
   border-radius: 0.5rem;
 }
 
 .widget-dnd {
-  color: @text;
+  color: @nord4;
 }
 
 .widget-dnd > switch {
   border-radius: 0.5rem;
-  background: @surface;
-  border: 1px solid @muted;
+  background: @nord1;
+  border: 1px solid @nord3;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @highlight-high;
+  background: @nord3;
+  color: @nord4;
 }
 
 .widget-dnd > switch slider {
-  background: @highlight-med;
+  background: @nord2;
   border-radius: 0.5rem;
   margin: 0.25rem;
 }
 
 /* Music player */
 .widget-mpris {
-    background: @base;
+    background: @nord0;
     border-radius: 16px;
-    color: @text;
+    color: @nord4;
     margin:  20px 6px;
 }
 
   /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
 .widget-mpris-player {
-  background: rgba(255, 250, 243, 1);
+  background: rgba(23, 26, 32, 1);
   border-radius: 10px;
   padding: 15px 14px;
-  border: 1px solid @text;
+  border: 1px solid @nord8;
 }
 
 .widget-mpris > box > button {
-  color: @text;
+  color: @nord4;
   border-radius: 20px;
 }
  
 .widget-mpris button {
-  color: alpha(@text, .6);
+  color: alpha(@nord4, .6);
 }
 
 .widget-mpris button:hover {
-  color: @text;
+  color: @nord4;
 }
 
 .widget-mpris-album-art {

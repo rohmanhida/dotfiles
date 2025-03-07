@@ -1,6 +1,8 @@
 {
 	"file_history":
 	[
+		"/home/rohmanhida/_dotfiles/sublime-text/.config/sublime-text/Packages/Theme - Default/Adaptive.sublime-theme",
+		"/home/rohmanhida/_dotfiles/sublime-text/.config/sublime-text/Packages/User/Adaptive.sublime-theme",
 		"/home/rohmanhida/.config/sublime-text/Packages/Default/Preferences.sublime-settings",
 		"/home/rohmanhida/.config/sublime-text/Packages/User/Preferences.sublime-settings"
 	],
@@ -8,9 +10,9 @@
 	[
 	],
 	"last_version": 4192,
-	"last_window_id": 2,
+	"last_window_id": 4,
 	"log_indexing": false,
-	"next_update_check": 1740642942,
+	"next_update_check": 1741328757,
 	"settings":
 	{
 		"new_window_full_screen": false,
@@ -40,20 +42,28 @@
 				"selected_items":
 				[
 					[
-						"setting",
-						"Preferences: Settings"
-					],
-					[
 						"theme",
 						"UI: Select Theme"
 					],
 					[
-						"installpacek",
+						"color",
+						"UI: Select Color Scheme"
+					],
+					[
+						"install package",
 						"Package Control: Install Package"
 					],
 					[
 						"install",
-						"Install Package Control"
+						"Package Control: Install Package"
+					],
+					[
+						"setting",
+						"Preferences: Settings"
+					],
+					[
+						"installpacek",
+						"Package Control: Install Package"
 					]
 				],
 				"width": 0.0
@@ -165,7 +175,7 @@
 			{
 			}
 		},
-		"new_window_width": 1280.0
+		"new_window_width": 640.0
 	},
 	"windows":
 	[
@@ -191,20 +201,28 @@
 				"selected_items":
 				[
 					[
-						"setting",
-						"Preferences: Settings"
-					],
-					[
 						"theme",
 						"UI: Select Theme"
 					],
 					[
-						"installpacek",
+						"color",
+						"UI: Select Color Scheme"
+					],
+					[
+						"install package",
 						"Package Control: Install Package"
 					],
 					[
 						"install",
-						"Install Package Control"
+						"Package Control: Install Package"
+					],
+					[
+						"setting",
+						"Preferences: Settings"
+					],
+					[
+						"installpacek",
+						"Package Control: Install Package"
 					]
 				],
 				"width": 0.0
@@ -304,7 +322,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,1,0,0,0,0,0,611,1002,2560,1080,0",
+			"position": "0,1,0,0,0,0,0,626,1002,2560,1080,0",
 			"project": "",
 			"replace":
 			{

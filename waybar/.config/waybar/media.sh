@@ -15,6 +15,7 @@ elif [ "$CURRENT_PLAYER" == "mpv" ]; then
   format='{{ title }}'
 else
   icon=''
+  format='{{ title }}'
 fi
 
 if [ "$CURRENT_STATUS" == "Playing" ]; then
