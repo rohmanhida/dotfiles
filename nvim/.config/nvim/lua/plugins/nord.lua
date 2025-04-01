@@ -1,10 +1,11 @@
 return {
-  "nordtheme/vim",
+ "gbprod/nord.nvim",
+  lazy = false,
   priority = 1000,
   config = function()
-    vim.g.nord_uniform_status_lines = 1
-    vim.g.nord_bold_vertical_split_line = 0
-    vim.g.nord_borders = true
+    require('nord').setup({
+      borders = false,
+    })
     vim.cmd.colorscheme 'nord'
   end
 }
