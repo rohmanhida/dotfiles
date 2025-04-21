@@ -1,9 +1,9 @@
-# Created by newuser for 5.9
-
 # aliases
 alias n="nvim"
 alias mkdir="mkdir -p"
 alias ls="ls -la --color"
+alias v="gvim -v"
+alias vim="gvim -v"
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -20,6 +20,11 @@ setopt SHARE_HISTORY
 # starship
 eval "$(starship init zsh)"
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# php stuff from laravel
+export PATH="/home/rohmanhida/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/rohmanhida/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

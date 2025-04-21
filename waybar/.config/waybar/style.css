@@ -17,22 +17,15 @@
 
 * {
   border: none;
-  font-family: "Liga SFMonoNerdFont";
+  font-family: "Cartograph CF";
   font-size: 10px;
 }
 
 window#waybar {
-  background: @nord1;
+  background: transparent;
 }
 /*-----module groups----*/
 .modules-right {
-  margin: 5px 10px 5px 0px;
-}
-.modules-center {
-  margin: 5px;
-}
-.modules-left {
-  margin: 5px 0px 5px 10px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -61,56 +54,53 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  box-shadow: inset 0 1px 0 @nord2, /* Top highlight */
-              inset 0 -1px 0 #222, /* Bottom shading */
-              0 1px 2px rgba(0, 0, 0, 0.3); /* Outer shadow for depth */
-  background: linear-gradient(to bottom, @nord2, @nord0); /* Top to bottom gradient */
-  padding: 0px 8px;
   color: @nord4;
+  padding: 5px;
+}
+#custom-separator1 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 30px;
+  color: @nord8;
+  background-color: @nord0;
+}
+#custom-separator2 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 30px;
+  color: @nord0;
+  background-color: @nord3;
+}
+#custom-separator3 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 30px;
+  color: @nord3;
+  background-color: transparent;
 }
 #clock.time {
-  color: @nord8;
-  background-color: transparent;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  margin-right: -3px;
-  padding-right: 5px;
+  color: @nord0;
+  background-color: @nord8;
 }
 #clock.date {
-  color: @nord8;
-  background-color: transparent;
-  margin-left: -5px;
+  color: @nord0;
+  background-color: @nord8;
 }
 #custom-weather {
-  color: @nord5;
-  background-color: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-left: -2px;
-  margin-right: 5px;
+  color: @nord0;
+  background-color: @nord8;
 }
 #temperature {
   color: @nord5;
 }
 #custom-media {
-  background-color: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-left: -5px;
-  color: @nord5;
+  background-color: @nord3;
 }
 #custom-theme {
   color: @nord8;
-  background-color: transparent;
-  border-radius: 5px;
-  padding-right: 12px;
-  margin-right: 5px;
 }
 #network {
   color: @nord8;
-  background-color: transparent;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 #temperature {
   color: @nord8;
@@ -119,29 +109,14 @@ window#waybar {
 }
 #cpu {
   color: @nord8;
-  background-color: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-right: 3px;
 }
 #pulseaudio {
   color: @nord7;
-  background-color: transparent;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  margin-right: -3px;
-  padding-right: 10px;
+  background-color: @nord0;
 }
 #tray {
-  background-color: transparent;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  margin-left: 5px;
+  background-color: @nord0;
 }
 #custom-notification {
-  background-color: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 0px 8px;
-  margin-left: -4px;
+  background-color: @nord0;
 }

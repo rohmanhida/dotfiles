@@ -9,7 +9,7 @@ if [[ "$CURRENT_PLAYER" =~ ^(spotify|ncspot|spotify_player)$ ]]; then
   format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "firefox" ]; then
   icon=''
-  format='{{ title }}'
+  format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "mpv" ]; then
   icon=''
   format='{{ title }}'

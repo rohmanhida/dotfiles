@@ -11,7 +11,7 @@ highlight: true
 indent_character: '|'
 journals:
   default:
-    journal: /Volumes/Koofr/My desktop sync/jrnl/journal.txt
+    journal: ~/Koofr/jrnl/journal.txt
 linewrap: 79
 tagsymbols: '#@'
 template: false

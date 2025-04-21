@@ -3,25 +3,19 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "clock#date",
         "clock#time",
-        "custom/weather"
-        // "clock#date",
-    ],
-    "modules-center": [
-        "hyprland/workspaces",
-    ],
-    "modules-right": [
-        // "network",
-        // "temperature",
-        // "cpu",
-        //"custom/theme",
-        "pulseaudio",
-        "custom/media",
+        "custom/weather",
+        "custom/separator1",
         "tray",
         "custom/notification",
+        "pulseaudio",
+        "custom/separator2",
+        "custom/media",
+        "custom/separator3"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -46,6 +40,15 @@
           "4": [],
           "5": [],
         }
+    },
+    "custom/separator1": {
+        "format": ""
+    },
+    "custom/separator2": {
+        "format": ""
+    },
+    "custom/separator3": {
+        "format": ""
     },
     "custom/weather": {
         "format": "{}°",
