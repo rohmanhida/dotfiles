@@ -2,8 +2,7 @@
 alias n="nvim"
 alias mkdir="mkdir -p"
 alias ls="ls -la --color"
-alias v="gvim -v"
-alias vim="gvim -v"
+alias v="vim"
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -28,3 +27,7 @@ export NVM_DIR="$HOME/.nvm"
 # php stuff from laravel
 export PATH="/home/rohmanhida/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/rohmanhida/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# terminal like vim
+set -o vi
+

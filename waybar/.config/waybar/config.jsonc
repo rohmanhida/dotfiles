@@ -2,7 +2,6 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
@@ -18,29 +17,6 @@
         "custom/separator3"
     ],
     // Modules configuration
-    "hyprland/workspaces": {
-        "all-outputs": false,
-        "format": "{icon}",
-        "format-icons": {
-          "1": "١",
-          "2": "٢",
-          "3": "٣",
-          "4": "٤",
-          "5": "٥",
-          "6": "٦",
-          "7": "٧",
-          "8": "٨",
-          "9": "٩",
-          "10": "٠١",
-        },
-        "persistent-workspaces": {
-          "1": [],
-          "2": [],
-          "3": [],
-          "4": [],
-          "5": [],
-        }
-    },
     "custom/separator1": {
         "format": ""
     },

@@ -5,16 +5,19 @@ CURRENT_STATUS=$(playerctl status)
 CURRENT_SONG=$(playerctl metadata --format='{{title}}')
 
 if [[ "$CURRENT_PLAYER" =~ ^(spotify|ncspot|spotify_player)$ ]]; then
-  icon=''
+  icon=' '
   format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "firefox" ]; then
-  icon=''
+  icon=' '
   format='{{ artist }} - {{ title }}'
 elif [ "$CURRENT_PLAYER" == "mpv" ]; then
-  icon=''
+  icon=' '
   format='{{ title }}'
+elif [[ "$CURRENT_PLAYER" == "cmus" || "$CURRENT_PLAYER" == "mpd" ]]; then
+  icon=' '
+  format='{{ artist }} - {{ title }}'
 else
-  icon=''
+  icon=' '
   format='{{ title }}'
 fi
 
@@ -27,4 +30,4 @@ else
   icon=''
 fi
 
-echo "${icon}   $(playerctl metadata --format="${format}")"
+echo "${icon}  $(playerctl metadata --format="${format}")"
