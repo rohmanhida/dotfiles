@@ -1,0 +1,16 @@
+quit
+update-cache
+live-filter 
+colorscheme nord
+q
+add ~/Music/usual.pl
+save -p ~/Music/usual.pl
+queue
+set format_title=%a - %l
+:set format_title=%artist% - %album% - %tracknumber% - %title%
+set format_title %a - %l
+set %a - %l
+set format_title
+add
+format_print
+format_print %artist% - %album%

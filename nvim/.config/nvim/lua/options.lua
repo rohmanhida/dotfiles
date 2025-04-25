@@ -46,17 +46,14 @@ vim.opt.iskeyword:append '-' -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove { 'c', 'r', 'o' } -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles' -- separate vim plugins from neovim in case vim still in use
 
--- shortcuts
-
--- move files
-vim.api.nvim_create_user_command("MoveFile", function(opts)
-  local new_path = opts.args
-  local old_path = vim.fn.expand("%")
-
-  -- Save the file to the new location
-  vim.cmd("saveas " .. new_path)
-
-  -- Remove the old file and close its buffer
-  vim.fn.delete(old_path)
-  vim.cmd("bdelete #")
-end, { nargs = 1 })
+-- diagnostics
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.HINT]  = "",
+      [vim.diagnostic.severity.INFO]  = "",
+    },
+  },
+})

@@ -8,6 +8,10 @@ return {
   config = function()
     require('telekasten').setup({
       home = vim.fn.expand("~/Documents/Durr"),
+      calendar_opts = {
+        weeknm = 0,
+        calendar_mappings = false,
+      }
     })
 
     -- Launch panel if nothing is typed after <leader>z
