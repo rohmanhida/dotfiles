@@ -1,0 +1,11 @@
+[user]
+	name = rohmanhida
+	email = hodyjones99@gmail.com
+[credential]
+	helper = manager-core
+[pull]
+  rebase = false
+[alias]
+  co = checkout
+  br = branch
+  st = status
