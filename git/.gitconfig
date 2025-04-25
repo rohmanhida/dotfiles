@@ -3,9 +3,13 @@
 	email = hodyjones99@gmail.com
 [credential]
 	helper = manager-core
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
 [pull]
   rebase = false
 [alias]
   co = checkout
   br = branch
   st = status
+[credential "https://dev.azure.com"]
+	useHttpPath = true
