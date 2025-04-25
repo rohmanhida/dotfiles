@@ -1,0 +1,1529 @@
+/* ==UserStyle==
+@name Nord for YouTube
+@namespace github.com/rohmanhida/userstyles/nord
+@homepageURL https://github.com/rohmanhida/userstyles/tree/main/nord
+@updateURL https://github.com/rohmanhida/userstyles/raw/main/nord/youtube.user.less
+@description Nord theme for YouTube
+@author Rohman Hida
+@license MIT
+@version 1.0.0
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*"]
+@var select darkFlavor "Dark Flavor" ["mocha:Mocha*"]
+@var select accentColor "Accent" ["nord10:Nord*"]
+
+@var checkbox logo "Enable YouTube logo" 1
+@var checkbox oled "Enable black bars" 0
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+
+  * {
+    font-family: "Inter" !important;
+  }
+
+  :root[dark] {
+    #catppuccin(@darkFlavor);
+  }
+  :root:not([dark]) {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    @nord10: @catppuccin[@@flavor][@nord10];
+    @flamingo: @catppuccin[@@flavor][@flamingo];
+    @pink: @catppuccin[@@flavor][@pink];
+    @mauve: @catppuccin[@@flavor][@mauve];
+    @red: @catppuccin[@@flavor][@red];
+    @maroon: @catppuccin[@@flavor][@maroon];
+    @peach: @catppuccin[@@flavor][@peach];
+    @yellow: @catppuccin[@@flavor][@yellow];
+    @green: @catppuccin[@@flavor][@green];
+    @teal: @catppuccin[@@flavor][@teal];
+    @sky: @catppuccin[@@flavor][@sky];
+    @sapphire: @catppuccin[@@flavor][@sapphire];
+    @blue: @catppuccin[@@flavor][@blue];
+    @lavender: @catppuccin[@@flavor][@lavender];
+    @nord6: @catppuccin[@@flavor][@nord6];
+    @nord5: @catppuccin[@@flavor][@nord5];
+    @nord4: @catppuccin[@@flavor][@nord4];
+    @nord2: @catppuccin[@@flavor][@nord2];
+    @nord1: @catppuccin[@@flavor][@nord1];
+    @nord0: @catppuccin[@@flavor][@nord0];
+    @accent: @catppuccin[@@flavor][@@accentColor];
+
+    @nord6-filter: @catppuccin-filters[@@flavor][@nord6];
+
+    @white: if(@flavor = latte, @nord0, @nord6);
+    @black: if(@flavor = latte, @nord6, @nord0);
+
+    color-scheme: if(@flavor = latte, light, dark);
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @nord4 !important;
+      }
+    }
+
+    color: @nord6;
+    background: @nord0 !important;
+
+    &,
+    [dark],
+    [system-icons],
+    [darker-dark-theme],
+    &[dark],
+    &[system-icons],
+    &[darker-dark-theme] {
+      --yt-spec-white-1: @nord6 !important;
+      --yt-spec-white-2: @nord4 !important;
+      --yt-spec-white-3: @nord5 !important;
+      --yt-spec-white-4: darken(@nord5, 5%) !important;
+      --yt-spec-black-1: @nord2 !important;
+      --yt-spec-black-2: @nord2 !important;
+      --yt-spec-black-3: @nord1 !important;
+      --yt-spec-black-4: @nord1 !important;
+      --yt-spec-black-pure: @nord1 !important;
+      --yt-spec-grey-1: @nord6 !important;
+      --yt-spec-grey-2: @nord4 !important;
+      --yt-spec-grey-3: @nord5 !important;
+      --yt-spec-grey-4: @nord2 !important;
+      --yt-spec-grey-5: @nord2 !important;
+      --yt-brand-youtube-red: @accent !important;
+      --yt-brand-medium-red: @accent !important;
+      --yt-brand-light-red: @accent !important;
+      --yt-spec-red-30: @peach !important;
+      --yt-spec-red-70: @red !important;
+      --yt-spec-pale-blue: @sky !important;
+      --yt-spec-light-blue: @sky !important;
+      --yt-spec-dark-blue: @sapphire !important;
+      --yt-spec-navy-blue: @teal !important;
+      --yt-spec-light-green: @green !important;
+      --yt-spec-dark-green: @green !important;
+      --yt-spec-yellow: @peach !important;
+      --yt-spec-black-pure-alpha-5: @nord4 !important;
+      --yt-spec-black-pure-alpha-10: @nord2 !important;
+      --yt-spec-black-pure-alpha-15: fade(@nord0, 85%) !important;
+      --yt-spec-black-pure-alpha-30: fade(@nord0, 70%) !important;
+      --yt-spec-black-pure-alpha-60: fade(@nord0, 40%) !important;
+      --yt-spec-black-pure-alpha-80: fade(@nord0, 20%) !important;
+      --yt-spec-black-1-alpha-98: fade(@nord0, 2%) !important;
+      --yt-spec-black-1-alpha-95: fade(@nord0, 5%) !important;
+      --yt-spec-white-1-alpha-10: fade(@nord6, 90%) !important;
+      --yt-spec-white-1-alpha-20: fade(@nord6, 80%) !important;
+      --yt-spec-white-1-alpha-25: fade(@nord6, 75%) !important;
+      --yt-spec-white-1-alpha-30: fade(@nord6, 70%) !important;
+      --yt-spec-white-1-alpha-70: fade(@nord6, 30%) !important;
+      --yt-spec-white-1-alpha-95: fade(@nord6, 5%) !important;
+      --yt-spec-white-1-alpha-98: fade(@nord6, 2%) !important;
+      --yt-brand-medium-red-alpha-90: fade(@accent, 10%) !important;
+      --yt-brand-medium-red-alpha-30: fade(@accent, 70%) !important;
+      --yt-brand-light-red-alpha-30: fade(@accent, 70%) !important;
+      --yt-spec-light-blue-alpha-30: fade(@sapphire, 70%) !important;
+      --yt-spec-dark-blue-alpha-30: fade(@sapphire, 70%) !important;
+
+      --yt-spec-base-background: @nord0 !important;
+      --yt-spec-raised-background: @nord0 !important;
+      --yt-spec-menu-background: @nord0 !important;
+      --yt-spec-inverted-background: @nord6 !important;
+      --yt-spec-additive-background: fade(@nord1, 90%) !important;
+      --yt-spec-outline: @nord1 !important;
+      --yt-spec-shadow: fade(@nord0, 75%) !important;
+      --yt-spec-text-primary: @nord6 !important;
+      --yt-spec-text-secondary: @nord4 !important;
+      --yt-spec-text-disabled: @nord5 !important;
+      --yt-spec-text-primary-inverse: @nord0 !important;
+      --yt-spec-call-to-action: @accent !important;
+      --yt-spec-call-to-action-inverse: @accent !important;
+      --yt-spec-suggested-action: fade(@accent, 20%) !important;
+      --yt-spec-suggested-action-inverse: @nord6 !important;
+      --yt-spec-icon-active-other: @nord6 !important;
+      --yt-spec-button-chip-background-hover: @nord1 !important;
+      --yt-spec-touch-response: @nord1 !important;
+
+      --yt-spec-touch-response-inverse: @accent !important;
+      --yt-spec-brand-icon-active: @accent !important;
+      --yt-spec-brand-button-background: @accent !important;
+      --yt-spec-brand-link-text: @sapphire !important;
+      --yt-spec-wordmark-text: @nord6 !important;
+      --yt-spec-error-indicator: @red !important;
+      --yt-spec-themed-blue: @accent !important;
+      --yt-spec-themed-green: @green !important;
+      --yt-spec-ad-indicator: @teal !important;
+      --yt-spec-themed-overlay-background: fade(@nord0, 20%) !important;
+      --yt-spec-commerce-badge-background: @green !important;
+      --yt-spec-static-brand-red: @accent !important;
+      --yt-spec-static-brand-white: @nord6 !important;
+      --yt-spec-static-brand-black: @nord0 !important;
+      --yt-spec-static-clear-color: fade(@nord0, 100%) !important;
+      --yt-spec-static-clear-black: fade(@nord0, 100%) !important;
+      --yt-spec-static-ad-yellow: @peach !important;
+      --yt-spec-static-grey: @nord4 !important;
+      --yt-spec-static-overlay-background-solid: @nord0 !important;
+      --yt-spec-static-overlay-background-heavy: @nord0;
+      --yt-spec-static-overlay-background-medium: fade(@nord0, 50%) !important;
+      --yt-spec-static-overlay-background-medium-light: fade(
+        @nord0,
+        70%
+      ) !important;
+      --yt-spec-static-overlay-background-light: fade(
+        @nord0,
+        90%
+      ) !important;
+      --yt-spec-static-overlay-text-primary: @nord6 !important;
+      --yt-spec-static-overlay-text-secondary: fade(
+        @nord4,
+        30%
+      ) !important;
+      --yt-spec-static-overlay-text-disabled: fade(
+        @nord4,
+        70%
+      ) !important;
+      --yt-spec-static-overlay-call-to-action: @accent !important;
+      --yt-spec-static-overlay-icon-active-other: @nord0 !important;
+      --yt-spec-static-overlay-icon-inactive: @nord1 !important;
+      --yt-spec-static-overlay-icon-disabled: @nord1 !important;
+      --yt-spec-static-overlay-button-primary: @accent !important;
+      --yt-spec-static-overlay-button-secondary: @nord1 !important;
+      --yt-spec-static-overlay-touch-response: @nord2 !important;
+      --yt-spec-static-overlay-touch-response-inverse: @nord1 !important;
+      --yt-spec-static-overlay-background-brand: @accent !important;
+      --yt-spec-assistive-feed-themed-gradient-1: @nord4 !important;
+      --yt-spec-assistive-feed-themed-gradient-2: @lavender !important;
+      --yt-spec-assistive-feed-themed-gradient-3: @red !important;
+      --yt-spec-brand-background-solid: @nord0 !important;
+      --yt-spec-brand-background-primary: @nord0 !important;
+      --yt-spec-brand-background-secondary: @nord0 !important;
+      --yt-spec-general-background-a: @nord0 !important;
+      --yt-spec-general-background-b: @nord0 !important;
+      --yt-spec-general-background-c: @nord0 !important;
+      --yt-spec-error-background: @nord0 !important;
+      --yt-spec-10-percent-layer: @nord1 !important;
+      --yt-spec-snackbar-background: @nord0 !important;
+      --yt-spec-snackbar-background-updated: @nord0 !important;
+      --yt-spec-badge-chip-background: if(
+        @flavor = latte,
+        @nord0,
+        @nord1
+      ) !important;
+      --yt-spec-verified-badge-background: @nord2 !important;
+      --yt-spec-call-to-action-fadeoutd: fade(@sapphire, 70%) !important;
+      --yt-spec-call-to-action-hover: @accent !important;
+      --yt-spec-brand-button-background-hover: @accent !important;
+      --yt-spec-brand-link-text-fadeoutd: fade(
+        @accent,
+        70%
+      ) !important;
+      --yt-spec-filled-button-focus-outline: @nord1 !important;
+      --yt-spec-static-overlay-button-hover: @nord1 !important;
+      --yt-spec-mono-filled-hover: @nord1 !important;
+      --yt-spec-commerce-filled-hover: @accent !important;
+      --yt-spec-mono-tonal-hover: @nord1 !important;
+      --yt-spec-commerce-tonal-hover: @nord1 !important;
+      --yt-spec-static-overlay-filled-hover: @nord2 !important;
+      --yt-spec-static-overlay-tonal-hover: @nord1 !important;
+      --yt-spec-paper-tab-ink: fade(@nord6, 70%);
+      --yt-spec-filled-button-text: @nord6 !important;
+      --yt-spec-selected-nav-text: @nord6 !important;
+      --iron-icon-fill-color: @nord6 !important;
+
+      /* Search bar */
+      --ytd-searchbox-border-color: @nord1 !important;
+      --ytd-searchbox-legacy-border-color: @nord1 !important;
+      --ytd-searchbox-legacy-border-shadow-color: fade(
+        @nord0,
+        100%
+      ) !important;
+      --ytd-searchbox-legacy-button-color: @nord0 !important;
+      --ytd-searchbox-legacy-button-border-color: @nord1 !important;
+      --ytd-searchbox-legacy-button-focus-color: @accent !important;
+      --ytd-searchbox-legacy-button-hover-color: @nord0 !important;
+      --ytd-searchbox-legacy-button-hover-border-color: @nord1 !important;
+      --ytd-searchbox-legacy-button-icon-color: @accent !important;
+      --ytd-searchbox-background: @nord0 !important;
+      --ytd-searchbox-text-color: @nord6 !important;
+
+      /* System icons */
+      --yt-spec-icon-inactive: @nord6 !important;
+      --yt-spec-icon-disabled: @nord2 !important;
+      --yt-spec-brand-icon-inactive: @nord2 !important;
+
+      /* Yt video Page */
+      --yt-live-chat-background-color: @nord0 !important;
+      --yt-live-chat-action-panel-background-color: @nord0 !important;
+      --yt-live-chat-secondary-background-color: @nord1;
+      --yt-live-chat-toast-background-color: @nord1 !important;
+      --yt-live-chat-mode-change-background-color: @nord0 !important;
+      --yt-live-chat-secondary-text-color: @nord4 !important;
+      --yt-live-chat-tertiary-text-color: fade(@nord6, 46%) !important;
+      --yt-live-chat-text-input-field-inactive-underline-color: @nord4
+        !important;
+      --yt-live-chat-text-input-field-placeholder-color: @nord4 !important;
+      --yt-live-chat-enabled-send-button-color: @nord6 !important;
+      --yt-live-chat-disabled-icon-button-color: @nord5 !important;
+      --yt-live-chat-picker-button-hover-color: @accent !important;
+      --yt-live-chat-mention-background-color: @accent !important;
+      --yt-live-chat-mention-text-color: @nord6 !important;
+      --yt-live-chat-deleted-message-color: @nord4;
+      --yt-live-chat-deleted-message-bar-color: @nord5 !important;
+      --yt-live-chat-reconnect-message-color: @nord6 !important;
+      --yt-live-chat-disabled-button-background-color: @nord2 !important;
+      --yt-live-chat-sub-panel-background-color: @nord0 !important;
+      --yt-live-chat-sub-panel-background-color-transparent: @nord0 !important;
+      --yt-live-chat-moderator-color: @lavender !important;
+      --yt-live-chat-owner-color: @peach !important;
+      --yt-live-chat-message-highlight-background-color: @nord0 !important;
+      --yt-live-chat-sponsor-color: @green !important;
+      --yt-live-chat-overlay-color: fade(@nord0, 50%);
+      --yt-live-chat-dialog-background-color: @nord0 !important;
+      --yt-emoji-picker-variant-selector-bg-color: @nord0 !important;
+      --yt-live-chat-moderation-mode-hover-background-color: fade(
+        @nord0,
+        70%
+      ) !important;
+      --yt-grey: @nord4 !important;
+      --yt-live-chat-text-input-field-suggestion-background-color: @nord4
+        !important;
+      --yt-live-chat-text-input-field-suggestion-background-color-hover: @nord5
+        !important;
+      --yt-emoji-picker-search-background-color: @nord1 !important;
+      --yt-emoji-picker-search-color: @nord6 !important;
+      --yt-emoji-picker-search-placeholder-color: @accent !important;
+      --yt-live-chat-slider-active-color: @accent !important;
+      --yt-live-chat-slider-container-color: @nord1 !important;
+      --yt-live-chat-slider-markers-color: @nord6 !important;
+      --yt-live-chat-banner-gradient-scrim: linear-gradient(
+        @nord0,
+        transparent
+      ) !important;
+      --yt-live-chat-action-panel-gradient-scrim: linear-gradient(
+        to top,
+        @nord0,
+        transparent
+      ) !important;
+      --yt-live-chat-automod-button-background-color-hover: fade(
+        @nord0,
+        50%
+      ) !important;
+      --yt-live-chat-automod-button-explanation-color: fade(
+        @accent,
+        30%
+      ) !important;
+      --yt-live-chat-shimmer-background-color: fade(@nord0, 60%) !important;
+      --yt-live-chat-shimmer-linear-gradient: linear-gradient(
+        0deg,
+        fade(@nord6, 90%) 40%,
+        fade(@nord0, 70%) 50%,
+        fade(@nord6, 90%) 60%
+      ) !important;
+      --yt-live-chat-vem-background-color: @nord0 !important;
+      --yt-live-chat-product-picker-icon-color: fade(@nord6, 50%) !important;
+      --yt-live-chat-product-picker-hover-color: @nord2 !important;
+      --yt-live-chat-product-picker-disabled-icon-color: fade(
+        @nord6,
+        70%
+      ) !important;
+      --yt-live-chat-action-panel-background-color-transparent: (null)
+        !important;
+
+      --paper-tooltip-background: @nord2 !important;
+      --paper-tooltip-text-color: @nord6 !important;
+
+      /* Links */
+      --yt-endpoint-color: @accent !important;
+      --yt-endpoint-visited-color: @accent !important;
+      --yt-endpoint-hover-color: @accent !important;
+
+      --sb-dark-red-outline: @accent !important;
+      --sb-main-bg-color: @nord0 !important;
+      --sb-main-fg-color: @nord6 !important;
+      --sb-grey-bg-color: @nord0 !important;
+      --sb-grey-fg-color: @nord4 !important;
+      --sb-red-bg-color: @accent !important;
+    }
+
+    &:not(.style-scope) {
+      --primary-text-color: @nord6 !important;
+      --primary-background-color: @nord0 !important;
+      --secondary-text-color: @nord4 !important;
+      --disabled-text-color: @nord5 !important;
+      --divider-color: @nord2 !important;
+      --error-color: @red !important;
+      --primary-color: @accent !important;
+      --light-primary-color: @accent !important;
+      --dark-primary-color: @blue !important;
+      --accent-color: @accent !important;
+      --light-accent-color: @accent !important;
+      --dark-accent-color: @accent !important;
+      --light-theme-background-color: @nord0 !important;
+      --light-theme-base-color: @nord6 !important;
+      --light-theme-text-color: @nord6 !important;
+      --light-theme-secondary-color: @nord4 !important;
+      --light-theme-disabled-color: @nord5 !important;
+      --light-theme-divider-color: @nord2 !important;
+      --dark-theme-background-color: @nord0 !important;
+      --dark-theme-base-color: @nord6 !important;
+      --dark-theme-text-color: @nord6 !important;
+      --dark-theme-secondary-color: @nord4 !important;
+      --dark-theme-disabled-color: @nord5 !important;
+      --dark-theme-divider-color: @nord2 !important;
+    }
+
+    /* Misc */
+
+    & when (@logo = 0) {
+      ytd-topbar-logo-renderer,
+      svg.ytd-consent-bump-v2-lightbox {
+        display: none;
+      }
+    }
+
+    #channel-name.ytd-video-meta-block {
+      --yt-endpoint-color: @accent !important;
+      --yt-endpoint-visited-color: @accent !important;
+      color: @accent !important;
+    }
+
+    .yt-page-navigation-progress {
+      background: @accent !important;
+    }
+
+    /* Selected chapter */
+    ytd-macro-markers-list-item-renderer {
+      --ytd-macro-markers-list-item-background-color: @nord1 !important;
+      --ytd-macro-markers-list-item-title-color: @nord6 !important;
+      --ytd-macro-markers-list-item-secondary-color: @nord5 !important;
+      --ytd-macro-markers-list-item-timestamp-background-color: @nord1
+        !important;
+    }
+
+    ytd-playlist-panel-video-renderer {
+      --yt-lightsource-section2-color: @nord1 !important;
+      --yt-lightsource-section4-color: @nord1 !important;
+      --yt-lightsource-primary-title-color: @nord6 !important;
+      --yt-lightsource-secondary-title-color: @nord6 !important;
+      --yt-active-playlist-panel-background-color: @nord1 !important;
+    }
+
+    ytd-playlist-panel-renderer[collapsible][collapsed][use-color-palette]
+      .header.ytd-playlist-panel-renderer {
+      --iron-icon-fill-color: @nord6 !important;
+      background-color: @nord0 !important;
+    }
+
+    #container.ytd-masthead {
+      --iron-icon-fill-color: @nord6 !important;
+    }
+
+    #background.ytd-masthead {
+      --yt-frosted-glass-desktop: @nord0 !important;
+    }
+
+    ytd-feed-filter-chip-bar-renderer[expand-instead-of-scroll]
+      #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+      --iron-icon-fill-color: @nord6 !important;
+      background-color: @nord0 !important;
+    }
+
+    #ytd-player #container when (@oled = 0) {
+      background: @nord0 !important;
+    }
+
+    .ytp-progress-list when not(@flavor = latte) {
+      background: fade(@nord1, 80%);
+    }
+    .ytp-load-progress when not(@flavor = latte) {
+      background: fade(@nord2, 100%);
+    }
+
+    ytd-expandable-metadata-renderer {
+      --yt-lightsource-section1-color: @nord0 !important;
+      --yt-lightsource-section2-color: @nord1 !important;
+      --yt-lightsource-section3-color: @nord1 !important;
+      --yt-lightsource-section4-color: @nord1 !important;
+      --yt-lightsource-primary-title-color: @nord6 !important;
+      --yt-lightsource-secondary-title-color: @nord4 !important;
+    }
+
+    yt-live-chat-renderer {
+      --yt-button-default-text-color: @nord6 !important;
+      --yt-button-default-background-color: @nord0 !important;
+      --yt-button-dark-text-color: @nord0 !important;
+      --yt-button-dark-background-color: @accent !important;
+      --yt-button-payment-background-color: @accent !important;
+    }
+
+    yt-icon-button.yt-live-chat-item-list-renderer {
+      background-color: @accent;
+      color: @nord0;
+
+      &:hover {
+        background-color: darken(@accent, 5%);
+      }
+    }
+
+    ytd-author-comment-badge-renderer:not(
+      [style*="--ytd-author-comment-badge-icon-background-color: transparent;"]
+    ) {
+      --yt-basic-background-color: @nord1 !important;
+      --yt-basic-foreground-title-color: @nord1 !important;
+      --ytd-author-comment-badge-background-color: @nord1 !important;
+      --ytd-author-comment-badge-name-color: @nord6 !important;
+      --ytd-author-comment-badge-icon-color: @nord6 !important;
+    }
+
+    /* Skeleton */
+    #guide-skeleton,
+    #home-container-skeleton,
+    #home-chips {
+      background-color: @nord0;
+      z-index: -1;
+    }
+
+    #guide-skeleton .guide-ghost-icon,
+    #guide-skeleton .guide-ghost-text,
+    .masthead-skeleton-icon,
+    #home-page-skeleton .skeleton-bg-color,
+    .watch-skeleton .skeleton-bg-color {
+      background-color: @nord1;
+    }
+
+    /* Ambient mode */
+    #cinematics,
+    #cinematic-container {
+      mix-blend-mode: lighten;
+    }
+
+    .ytp-settings-button.ytp-hd-quality-badge::after,
+    .ytp-settings-button.ytp-hdr-quality-badge::after,
+    .ytp-settings-button.ytp-4k-quality-badge::after,
+    .ytp-settings-button.ytp-5k-quality-badge::after,
+    .ytp-settings-button.ytp-8k-quality-badge::after,
+    .ytp-settings-button.ytp-3d-badge-grey::after,
+    .ytp-settings-button.ytp-3d-badge::after {
+      background-color: @accent;
+    }
+
+    /* Icons */
+
+    [fill="red"],
+    [fill="#F00"],
+    [fill="#FF0000"],
+    [fill="#f03"],
+    [fill="#FF0033"] {
+      fill: @accent !important;
+    }
+
+    [fill="white"] {
+      fill: if(@flavor = latte, @nord0, @nord6) !important;
+    }
+
+    /* verification badge */
+    [src*="https://www.gstatic.com/images/icons/material/system/1x/check_circle_grey600_36dp.png"] {
+      filter: @nord6-filter;
+    }
+
+    yt-icon.ytd-logo [fill="white"] {
+      fill: @nord0 !important;
+    }
+
+    .yt-spec-icon-shape {
+      [fill="#FAFAFA"],
+      [fill="#000"],
+      [fill="#fff"],
+      [fill="#FFF"],
+      [fill="#FFFFFF"] {
+        fill: @nord0 !important;
+      }
+    }
+
+    .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
+    .yt-spec-icon-badge-shape {
+      color: @nord6;
+    }
+
+    .yt-spec-icon-badge-shape--type-notification
+      .yt-spec-icon-badge-shape__badge {
+      background-color: @accent !important;
+      color: @nord1 !important;
+    }
+
+    /* Buttons */
+
+    .yt-spec-button-shape-next--mono {
+      &.yt-spec-button-shape-next--tonal {
+        color: @nord6;
+        background-color: @nord1;
+
+        [fill="rgb(3,3,3)"],
+        [fill="rgb(0,0,0)"],
+        [fill="rgb(255,255,255)"] {
+          fill: @nord6 !important;
+        }
+
+        [stroke="rgb(0,0,0)"],
+        [stroke="rgb(255,255,255)"] {
+          stroke: @nord6 !important;
+        }
+
+        /* Accent for filled-in thumbs up (like button) */
+        [animated-icon-type="LIKE"] {
+          g path[fill] {
+            fill: @accent !important;
+
+            + [stroke] {
+              stroke: @accent !important;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: @nord1;
+        }
+      }
+
+      &.yt-spec-button-shape-next--outline {
+        color: @nord6;
+        border-color: @nord1;
+
+        &:hover {
+          background-color: @nord1;
+        }
+      }
+
+      &.yt-spec-button-shape-next--text {
+        color: @nord6;
+
+        /* Accent for filled-in thumbs up (like button) */
+        path[d="M3,11h3v10H3V11z M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11v10h10.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z"] {
+          fill: @accent;
+        }
+
+        &:hover {
+          background-color: @nord1;
+        }
+      }
+
+      &.yt-spec-button-shape-next--filled {
+        color: @nord0;
+        background-color: @accent;
+
+        &:hover {
+          background-color: darken(@accent, 5%);
+        }
+      }
+    }
+
+    .yt-spec-button-shape-next--disabled {
+      background-color: fade(@nord2, 50%);
+      color: @nord4;
+    }
+
+    .yt-spec-button-shape-next--overlay {
+      &.yt-spec-button-shape-next--tonal {
+        color: @nord6;
+        background-color: @nord1;
+        &:hover {
+          background-color: @nord1;
+        }
+      }
+      &.yt-spec-button-shape-next--text {
+        color: @nord6;
+      }
+
+      &.yt-spec-button-shape-next--filled {
+        color: @nord0;
+        background-color: @accent;
+      }
+
+      &.yt-spec-button-shape-next--outline {
+        color: @nord6;
+        border-color: @nord1;
+        &:hover {
+          background: @nord1;
+        }
+      }
+    }
+
+    .yt-spec-button-shape-next--call-to-action {
+      &.yt-spec-button-shape-next--outline {
+        color: @accent;
+        border-color: @nord1;
+
+        &:hover {
+          background-color: fade(@accent, 30%);
+          color: @accent;
+        }
+      }
+
+      &.yt-spec-button-shape-next--text {
+        color: @accent;
+
+        &:hover {
+          background-color: fade(@accent, 30%);
+        }
+      }
+
+      &.yt-spec-button-shape-next--filled {
+        color: @nord0;
+        background-color: @accent;
+
+        &:hover {
+          background-color: lighten(@accent, 5%);
+        }
+      }
+    }
+
+    .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--filled {
+      color: @nord4;
+      background-color: fade(@nord1, 70%);
+    }
+
+    /* Search box */
+    ytd-searchbox[has-focus] #container.ytd-searchbox {
+      border-color: @accent;
+    }
+
+    .ytSearchboxComponentInputBox,
+    .ytSearchboxComponentInputBoxDark {
+      background: var(--ytd-searchbox-background) !important;
+      color: var(--ytd-searchbox-text-color) !important;
+      border-color: var(--ytd-searchbox-border-color) !important;
+      box-shadow: none;
+    }
+
+    .ytSearchboxComponentInputBoxHasFocus,
+    .ytSearchboxComponentInputBoxHasFocusDark {
+      border-color: @accent !important;
+    }
+
+    .ytSuggestionComponentSuggestionHover:hover,
+    .ytSuggestionComponentSuggestionHoverDark:hover {
+      background: @nord1 !important;
+    }
+
+    .ytSearchboxComponentSuggestionsContainer,
+    .ytSearchboxComponentSuggestionsContainerDark {
+      background: var(--yt-spec-raised-background) !important;
+      border-color: var(--yt-spec-raised-background) !important;
+    }
+
+    .ytSuggestionComponentSuggestion,
+    .ytSuggestionComponentSuggestionDark {
+      color: var(--ytd-searchbox-text-color) !important;
+    }
+
+    .ytSearchboxComponentSearchButton,
+    .ytSearchboxComponentSearchButtonDark {
+      color: var(--ytd-searchbox-text-color) !important;
+      background: @nord1 !important;
+      border-color: var(--ytd-searchbox-border-color) !important;
+    }
+
+    .ytSearchboxComponentClearButtonIcon,
+    .ytSearchboxComponentClearButtonIconDark {
+      color: var(--ytd-searchbox-text-color) !important;
+    }
+
+    .ytSearchboxComponentReportButton,
+    .ytSearchboxComponentReportButtonDark,
+    .ytSuggestionComponentRemoveLink,
+    .ytSuggestionComponentRemoveLinkDark {
+      color: @nord4 !important;
+    }
+
+    .sbsb_a {
+      background: @nord1;
+    }
+    .sbdd_b {
+      border-color: var(--yt-spec-raised-background);
+      background-color: var(--yt-spec-raised-background);
+    }
+    .sbpqs_a,
+    .gsfs {
+      color: var(--yt-spec-text-primary);
+    }
+    .sbsb_i {
+      color: var(--yt-spec-call-to-action);
+    }
+    .sbsb_d {
+      background-color: var(--yt-spec-additive-background);
+    }
+    .sbdd_c {
+      visibility: hidden;
+    }
+
+    /* "Suggestion removed" */
+    .sbpqs_c {
+      color: @nord2;
+    }
+
+    .sbpqs_a::before,
+    .sbqs_c::before {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="1 1 27 27" width="24" focusable="false" style="width:100%;height:100%" pointer-events="none" display="block"><path fill="@{nord6}" d="m20.87 20.17-5.59-5.59A6.96 6.96 0 0 0 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7a6.995 6.995 0 0 0 11.58 5.29l5.59 5.59zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6"/></svg>'
+      );
+      content: url("data:image/svg+xml,@{svg}");
+      background: none;
+    }
+
+    /* Video description */
+
+    #description {
+      [style*="color: rgb(255, 255, 255);"],
+      [style*="color: rgb(19, 19, 19);"] {
+        color: @nord6 !important;
+      }
+    }
+
+    .yt-core-attributed-string__link--call-to-action-color {
+      color: @accent;
+    }
+
+    .YtwCourseProgressViewModelHostProgressTitle,
+    .YtwCourseProgressViewModelHostProgressSubtitle {
+      color: @nord6;
+    }
+
+    .YtwCourseProgressViewModelHostProgressBar {
+      background-color: fade(@white, 20%);
+
+      .YtwCourseProgressViewModelHostProgressBarFill {
+        background-color: @nord6;
+      }
+    }
+
+    .ytwHowThisWasMadeSectionViewModelSectionTitle,
+    .ytwHowThisWasMadeSectionViewModelBodyHeader {
+      color: @nord6;
+    }
+
+    .ytwHowThisWasMadeSectionViewModelBodyText {
+      color: @nord4;
+    }
+
+    /* Thumbnails */
+
+    #time-status:has([aria-label="LIVE"]),
+    .badge[aria-label="LIVE"],
+    .badge[aria-label="PREMIERE"],
+    .badge-shape-wiz--live.badge-shape-wiz--overlay,
+    .badge-shape-wiz--thumbnail-live {
+      background: @accent;
+      color: @nord0;
+    }
+    #thumbnail [style="background-color: rgba(51, 51, 51, 0.8);"],
+    .YtInlinePlayerControlsTopRightControlsCircleButton,
+    .badge-shape-wiz--default.badge-shape-wiz--overlay,
+    .branding-context-container-inner {
+      background-color: @nord1 !important;
+      color: @nord6;
+    }
+    .ytp-sb-unsubscribe {
+      background-color: @nord1;
+      color: @nord6;
+    }
+    .ytp-sb-subscribe {
+      background-color: @accent;
+      color: @nord0;
+    }
+    ytd-thumbnail-overlay-resume-playback-renderer {
+      background-color: @nord1;
+    }
+    .badge-shape-wiz--thumbnail-default {
+      color: @nord6;
+      background: fade(@nord0, 80%);
+    }
+
+    /* Panels, popups, tooltips */
+
+    .ytp-tooltip-text {
+      background: fade(@nord1, 90%) !important;
+      color: @nord6;
+      text-shadow: none !important;
+    }
+
+    .ytp-popup {
+      background: fade(@nord1, 90%) !important;
+      text-shadow: none;
+    }
+
+    .ytp-panel-menu,
+    .ytp-panel-header,
+    .ytp-panel-footer,
+    .ytp-menuitem-label,
+    .ytp-premium-label,
+    .ytp-menuitem-content,
+    .ytp-menuitem-label-count,
+    .ytp-menu-label-secondary,
+    .ytd-menu-title-renderer {
+      color: @nord6;
+    }
+
+    .ytp-panel-header {
+      border-bottom-color: @nord1;
+    }
+
+    .ytp-panel-footer-content-link {
+      color: @accent;
+    }
+
+    .ytp-panel-back-button {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" version="1.1"><path d="m19.41 20.09-4.58-4.59 4.58-4.59L18 9.5l-6 6 6 6z" fill="@{nord6}"/></svg>'
+      );
+      background-image: url("data:image/svg+xml,@{svg}");
+    }
+
+    .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" version="1.1"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" fill="@{nord6}"/></svg>'
+      );
+      background-image: url("data:image/svg+xml,@{svg}");
+      background-color: @accent;
+    }
+
+    .ytp-menuitem {
+      &:not([aria-disabled="true"]):hover {
+        background-color: @nord1;
+      }
+
+      svg > path:not([fill="none"]) {
+        fill: @nord6 !important;
+      }
+
+      &[aria-haspopup="true"] .ytp-menuitem-content {
+        @svg: escape(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" version="1.1"><path d="m12.59 20.34 4.58-4.59-4.58-4.59L14 9.75l6 6-6 6z" fill="@{nord6}"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+      &[role="menuitemradio"][aria-checked="true"] .ytp-menuitem-label {
+        @svg: escape(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" version="1.1"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" fill="@{nord6}"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+    }
+
+    /* Video player */
+
+    .ytp-cards-button {
+      .ytp-cards-button-icon {
+        use {
+          fill: @black;
+        }
+        path {
+          fill: @white;
+        }
+      }
+    }
+    .ytp-cards-teaser {
+      .ytp-cards-teaser-box {
+        background-color: @nord1;
+        border-bottom-color: @nord1;
+      }
+      .ytp-cards-teaser-text {
+        color: @nord6;
+      }
+    }
+
+    .html5-video-player {
+      color: @white;
+
+      .ytp-swatch-background-color,
+      .ytp-play-progress {
+        background: @accent !important;
+      }
+
+      .ytp-svg-fill,
+      [fill="#fff"] {
+        fill: @white !important;
+      }
+
+      .ytp-volume-slider-handle {
+        &,
+        &::before {
+          background-color: @white;
+        }
+        &::after {
+          background-color: fade(@white, 20%);
+        }
+      }
+
+      .ytp-time-current,
+      .ytp-time-separator,
+      .ytp-time-duration {
+        color: @white;
+      }
+
+      .ytp-live-badge {
+        &[disabled]::before {
+          background: @accent;
+        }
+        &::before {
+          background: @nord2;
+        }
+      }
+
+      /* youtube live ring */
+      .yt-spec-avatar-shape__badge-text {
+        color: @nord0;
+      }
+      .yt-spec-avatar-shape--live-ring {
+        border-color: @accent;
+      }
+      .yt-spec-avatar-shape__live-badge {
+        background-color: @accent;
+      }
+
+      .ytp-button,
+      .ytp-subtitles-button {
+        &[aria-pressed]::after {
+          background-color: @accent;
+        }
+      }
+
+      /* stats for nerds */
+      .ytp-sfn {
+        background: fade(@nord0, 80%);
+        color: @nord6;
+      }
+
+      .ytp-autonav-toggle-button {
+        @svg: escape(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="12" fill="none"><path opacity=".5" fill-rule="evenodd" clip-rule="evenodd" d="M22.7 11c2.95 0 5.3-2.21 5.3-5s-2.35-5-5.3-5H7.3C4.35 1 2 3.21 2 6s2.35 5 5.3 5z" fill="@{white}"/><path opacity=".5" fill-rule="evenodd" clip-rule="evenodd" d="M7.3 1C4.35 1 2 3.21 2 6s2.35 5 5.3 5h15.4A5.16 5.16 0 0 0 28 6l-.03-.54A5.16 5.16 0 0 0 22.7 1zm15.4 11c3.45 0 6.3-2.6 6.3-6s-2.85-6-6.3-6H7.3C3.85 0 1 2.6 1 6s2.85 6 6.3 6z" fill="@{black}" fill-opacity=".3"/></svg>'
+        );
+        background-image: url("data:image/svg+xml;charset=utf-8,@{svg}");
+
+        &::after {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 17 17" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 16a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15" fill="@{nord1}"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17 8.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0m-1 0a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0" fill="@{black}" fill-opacity=".15"/><path d="M5.5 12h2V5h-2zm4-7v7h2V5z" fill="@{white}"/></svg>'
+          );
+          background-image: url("data:image/svg+xml;charset=utf-8,@{svg}");
+        }
+
+        &[aria-checked="true"] {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="12" fill="none"><path opacity=".5" fill-rule="evenodd" clip-rule="evenodd" d="M22.7 11c2.95 0 5.3-2.21 5.3-5s-2.35-5-5.3-5H7.3C4.35 1 2 3.21 2 6s2.35 5 5.3 5zm-2.7-.75v-8.5l6.7 4.26z" fill="@{white}"/><path opacity=".5" fill-rule="evenodd" clip-rule="evenodd" d="M7.3 1C4.35 1 2 3.21 2 6s2.35 5 5.3 5h15.4A5.16 5.16 0 0 0 28 6l-.03-.54A5.16 5.16 0 0 0 22.7 1zm15.4 11c3.45 0 6.3-2.6 6.3-6s-2.85-6-6.3-6H7.3C3.85 0 1 2.6 1 6s2.85 6 6.3 6z" fill="@{black}" fill-opacity=".3"/></svg>'
+          );
+          background-image: url("data:image/svg+xml;charset=utf-8,@{svg}");
+
+          &::after {
+            @svg: escape(
+              '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 17 17" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 8.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0m-5 0L6.5 5v7zm-1.86 0L7.5 6.82v3.36zM8.5 16a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15" fill="@{black}" fill-opacity=".15"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 8.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0m-4 0L6.5 12V5z" fill="@{white}"/></svg>'
+            );
+            background-image: url("data:image/svg+xml;charset=utf-8,@{svg}");
+          }
+        }
+      }
+    }
+
+    /* Video highlight */
+    ytd-rich-item-renderer.ytd-rich-item-renderer-highlight {
+      background-color: fade(@accent, 10%) !important;
+      box-shadow: fade(@accent, 10%) 0 0 0 10px !important;
+    }
+
+    #shorts-container {
+      --yt-spec-static-overlay-text-primary: @white;
+      .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+        color: @white;
+      }
+
+      .YtwFactoidRendererLabel {
+        color: @nord4;
+      }
+      .YtwFactoidRendererValue {
+        color: @nord6;
+      }
+
+      ytd-reel-video-renderer:not([is-watch-while-mode]) {
+        .yt-spec-button-shape-with-label__label {
+          color: @nord5;
+        }
+      }
+      ytd-reel-video-renderer[is-watch-while-mode]
+        .yt-spec-button-shape-with-label__label {
+        color: @white;
+      }
+
+      .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--tonal,
+      .YtdDesktopShortsVolumeControlsBackgroundScrim {
+        background-color: fade(@black, 60%);
+        color: @white;
+      }
+
+      .YtProgressBarLineProgressBarPlayed,
+      .YtProgressBarPlayheadProgressBarPlayheadDot {
+        background-color: @accent !important;
+      }
+
+      .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--filled {
+        background-color: @accent;
+        color: @nord0;
+      }
+
+      .YtdDesktopShortsVolumeControlsMuteIcon {
+        color: @white !important;
+      }
+
+      /* Buy super thanks button */
+      .YtdShortsSuggestedActionStaticHostContainer {
+        background-color: fade(@black, 60%);
+
+        .YtdShortsSuggestedActionStaticHostLeadingIcon,
+        .YtdShortsSuggestedActionStaticHostPrimaryText {
+          color: @nord6;
+        }
+      }
+    }
+
+    /* Shorts titles and views on homepage */
+    .shortsLockupViewModelHostOutsideMetadataEndpoint {
+      color: @nord6;
+    }
+    .shortsLockupViewModelHostOutsideMetadataSubhead {
+      color: @nord4;
+    }
+
+    /* Buy super thanks bar */
+    #progressContainer.tp-yt-paper-progress {
+      background-color: @nord0 !important;
+    }
+
+    #comment-chip-container.yt-pdg-comment-chip-renderer,
+    .slider-knob-inner.tp-yt-paper-slider {
+      background: @accent !important;
+    }
+
+    #primaryProgress.tp-yt-paper-progress {
+      background: linear-gradient(139deg, @peach, @maroon, @red, @pink);
+    }
+
+    #container.ytd-pdg-comment-preview-renderer {
+      background-color: @nord0 !important;
+    }
+
+    #comment-chip-price.yt-pdg-comment-chip-renderer,
+    yt-icon.yt-pdg-comment-chip-renderer {
+      color: @nord0;
+    }
+
+    /* Channel pages */
+    .yt-tab-shape-wiz__tab {
+      color: @nord5;
+    }
+    .yt-tab-shape-wiz__tab--tab-selected {
+      color: @nord6;
+    }
+    .yt-tab-group-shape-wiz__slider {
+      background-color: @nord6;
+    }
+    .yt-tab-shape-wiz:hover .yt-tab-shape-wiz__tab-bar {
+      background-color: @nord5;
+    }
+    .truncated-text-wiz,
+    .page-header-view-model-wiz__page-header-content-metadata {
+      color: @nord5;
+    }
+    .page-header-view-model-wiz__page-header-title,
+    [style="color: rgb(255, 255, 255);"]:has(svg),
+    .truncated-text-wiz__absolute-button {
+      color: @nord6 !important;
+    }
+    .yt-contextual-sheet-layout-wiz {
+      background-color: @nord0;
+
+      .yt-list-item-view-model-wiz__container--tappable:hover {
+        background-color: @nord1;
+      }
+
+      .yt-list-item-view-model-wiz__title,
+      .yt-list-item-view-model-wiz__accessory,
+      .radio-shape-wiz__label-container {
+        color: @nord6;
+      }
+    }
+
+    /* channel details */
+    .profile-badge-view-model-wiz__badge-description {
+      color: @nord6 !important;
+    }
+
+    .profile-badge-view-model-wiz__badge-subtitle {
+      color: @nord4 !important;
+    }
+
+    .yt-profile-identity-info-view-model-wiz__divider {
+      border-color: @nord1 !important;
+    }
+
+    /* Profiles */
+    .yt-profile-card-view-model-wiz {
+      background-color: @nord0;
+    }
+    .yt-profile-identity-info-view-model-wiz__channel-name,
+    .yt-profile-info-view-model-wiz__section-title,
+    .yt-comment-interaction-view-model-wiz__video-title,
+    .yt-shared-subscription-view-model-wiz__channel-name {
+      color: @nord6;
+    }
+    .yt-profile-identity-info-view-model-wiz__badge,
+    .yt-profile-identity-info-view-model-wiz__metadata-handle,
+    .yt-profile-identity-info-view-model-wiz__metadata-content,
+    .yt-profile-info-view-model-wiz__section-subtitle,
+    .yt-comment-interaction-view-model-wiz__comment-content {
+      color: @nord4;
+    }
+
+    /* Horizontal list arrows */
+    .arrow.yt-horizontal-list-renderer {
+      background: @nord1;
+    }
+
+    /* Live chat replay */
+    .ytVideoMetadataCarouselViewModelHost,
+    .YtVideoMetadataCarouselViewModelHost {
+      background-color: @nord1;
+
+      .ytCarouselTitleViewModelTitle,
+      .YtCarouselTitleViewModelTitle,
+      .yt-core-attributed-string,
+      .yt-icon-shape {
+        color: @nord6;
+      }
+    }
+
+    /* AI-generated video summary */
+    .video-summary-content-view-model-wiz__paragraph {
+      color: @nord6;
+    }
+
+    /* Playlist collapsed sidebar */
+    #next-video-title {
+      color: @nord6 !important;
+    }
+    #publisher-container {
+      .yt-simple-endpoint.style-scope.yt-formatted-string,
+      .index-message-wrapper.style-scope.ytd-playlist-panel-renderer,
+      .index-message-wrapper.style-scope.ytd-playlist-panel-renderer::before {
+        color: @nord4 !important;
+      }
+    }
+
+    /* Playlist metadata */
+    .metadata-stats.style-scope.ytd-playlist-byline-renderer,
+    .yt-lockup-metadata-view-model-wiz__metadata {
+      color: @nord4 !important;
+    }
+
+    /* Playlist titles in search results */
+    .yt-core-attributed-string.yt-core-attributed-string--white-space-pre-wrap {
+      color: @nord6 !important;
+    }
+  }
+}
+
+@-moz-document url-prefix("https://studio.youtube.com") {
+  :root[dark] {
+    #catppuccin(@darkFlavor);
+  }
+  :root {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    @nord10: @catppuccin[@@flavor][@nord10];
+    @flamingo: @catppuccin[@@flavor][@flamingo];
+    @pink: @catppuccin[@@flavor][@pink];
+    @mauve: @catppuccin[@@flavor][@mauve];
+    @red: @catppuccin[@@flavor][@red];
+    @maroon: @catppuccin[@@flavor][@maroon];
+    @peach: @catppuccin[@@flavor][@peach];
+    @yellow: @catppuccin[@@flavor][@yellow];
+    @green: @catppuccin[@@flavor][@green];
+    @teal: @catppuccin[@@flavor][@teal];
+    @sky: @catppuccin[@@flavor][@sky];
+    @sapphire: @catppuccin[@@flavor][@sapphire];
+    @blue: @catppuccin[@@flavor][@blue];
+    @lavender: @catppuccin[@@flavor][@lavender];
+    @nord6: @catppuccin[@@flavor][@nord6];
+    @nord5: @catppuccin[@@flavor][@nord5];
+    @nord4: @catppuccin[@@flavor][@nord4];
+    @nord2: @catppuccin[@@flavor][@nord2];
+    @nord1: @catppuccin[@@flavor][@nord1];
+    @nord0: @catppuccin[@@flavor][@nord0];
+    @accent: @catppuccin[@@flavor][@@accentColor];
+
+    [src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg"] {
+      @svg: escape(
+        '<svg viewBox="0 0 97.55 24" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M17.1 0S6.4 0 3.8.7a4.15 4.15 0 0 0-3 3C0 6.4 0 12 0 12a45 45 0 0 0 .7 8.2 4.32 4.32 0 0 0 3 3c2.7.8 13.4.8 13.4.8s10.7 0 13.4-.7a4.32 4.32 0 0 0 3-3 45 45 0 0 0 .7-8.2s.1-5.7-.6-8.3a4.32 4.32 0 0 0-3-3C27.9 0 17.1 0 17.1 0m-3.4 6.9 8.9 5.1-8.9 5.1z"/><path fill="@{nord6}" d="M76.3.9v4.4c0 1.1 0 2 .1 3.3h-.1A3.36 3.36 0 0 0 73.4 7c-2.3 0-3.3 2-3.3 6.6V16c0 4.9.8 6.6 3.2 6.6a3.42 3.42 0 0 0 3.2-2.4h.1l.4 2.1h2.6V.9zm6.688.4c-1.126.032-1.687.55-1.687 2.1 0 1.7.599 2.1 1.799 2.1s1.8-.5 1.8-2.1-.6-2.1-1.8-2.1zM45 1.4c-3.6 0-5 1.7-5 4.9s1.1 4.5 3.7 6.8c1.6 1.4 2.8 2.5 2.8 4.8 0 1.5-.4 2.2-1.6 2.2s-1.7-.8-1.6-3.6h-3.1c-.6 4.2.8 6.1 4.5 6.2 3.5 0 5-1.5 5-5.4 0-3.1-1.3-4.4-3.7-6.6-1.9-1.8-2.8-2.5-2.8-4.6 0-1.4.3-2.2 1.6-2.2s1.6 1.1 1.5 3.9l3.1-.2c.5-4.2-.8-6.2-4.4-6.2m7.6 1.4-.4 4.5h-1.4v2.6H52v8.8c0 2.7.4 3.8 2.6 3.8a7.4 7.4 0 0 0 3.1-.6l-.6-2.2a5.2 5.2 0 0 1-1.3.2c-.5 0-.7-.3-.7-1.7V9.9h2.2V7.3H55V2.8zM91 7c-3.3 0-4.7 1.8-4.7 6.7v2.2c0 4.7 1.1 6.7 4.6 6.7s4.7-2 4.7-6.7v-2.2C95.6 8.9 94.3 7 91 7m-31.8.3v11.4c0 2.7.9 4 2.9 4a3.46 3.46 0 0 0 3.2-2.1h.1l.3 1.8h2.7V7.3H65v12a1.51 1.51 0 0 1-1.4 1c-.7 0-1-.6-1-1.9V7.3zm22.3 0v15.1h3.2V7.3zm9.4 2c1 0 1.3 1 1.3 3.1v4.7c0 2.2-.4 3.1-1.3 3.1s-1.2-.9-1.2-3.1v-4.7c0-2 .2-3.1 1.2-3.1M75 9.4a1.56 1.56 0 0 1 1.3.8v8.5c-.2.9-.9 1.4-1.4 1.3-1 0-1.3-1-1.3-4.4v-1.9c0-3.3.3-4.3 1.4-4.3"/></svg>'
+      );
+      content: url("data:image/svg+xml,@{svg}");
+    }
+
+    &,
+    html,
+    html[dark],
+    html[dark][dark],
+    &[dark],
+    &[light],
+    [light],
+    html[light],
+    html[light][light] {
+      --yt-spec-black-pure-alpha-80: (null) !important;
+      --yt-spec-black-pure-alpha-60: (null) !important;
+      --yt-spec-black-1-alpha-98: (null) !important;
+      --yt-spec-black-1-alpha-95: (null) !important;
+      --iron-icon-fill-color: unset !important;
+
+      --yt-spec-text-primary: @nord6 !important;
+      --ytcp-text-primary: @nord6 !important;
+      --ytcp-text-primary-inverse: @nord0 !important;
+      --ytcp-static-overlay-text-primary-inverse: @nord0 !important;
+      --ytcp-wordmark-text: @nord6 !important;
+      --ytcp-text-secondary: @nord4 !important;
+      --ytcp-text-disabled: @nord5 !important;
+      --ytcp-overlay-text-primary: @nord2 !important;
+
+      --ytcp-general-background-a: @nord0 !important;
+      --yt-spec-base-background: @nord0 !important;
+      --yt-spec-black-3: @nord0 !important;
+
+      --yt-spec-brand-background-solid: @nord0 !important;
+      --ytcp-brand-background-solid: @nord0 !important;
+      --yt-spec-raised-background: @nord0 !important;
+      --ytcp-general-background-b: @nord0 !important;
+      --ytcp-analytics-reach-background: @nord0 !important;
+      --yt-spec-black-2: @nord0 !important;
+
+      --ytcp-general-background-c: @nord0 !important;
+      --ytcp-menu-background: @nord1 !important;
+
+      --ytcp-container-border-color: @nord1 !important;
+      --ytcp-container-hovered-border-color: @nord1 !important;
+      --ytcp-line-divider-solid: @nord1 !important;
+      --ytcp-container-border-color-inverse: @nord4 !important;
+      --ytcp-line-divider-solid-inverse: @nord4 !important;
+
+      --ytcp-call-to-action: @accent !important;
+      --ytcp-call-to-action-inverse: @nord0 !important;
+      --ytcp-call-to-action-raised-background: @accent !important;
+      --yt-spec-brand-button-background: @accent !important;
+      --ytcp-call-to-action-raised-disabled: @nord1 !important;
+      --ytcp-call-to-action-raised-disabled-background: @nord2 !important;
+      --ytcp-call-to-action-raised-background-inverse: @nord0 !important;
+      --ytcp-call-to-action-raised-disabled-inverse: @nord1 !important;
+      --ytcp-call-to-action-raised-disabled-background-inverse: @nord2
+        !important;
+
+      --yt-spec-brand-background-primary: @nord1 !important;
+
+      --yt-compact-link-icon-color: @nord2 !important;
+      --ytcp-icon-active: @accent !important;
+      --ytcp-icon-inactive: @nord2 !important;
+      --ytcp-icon-disabled: @nord2 !important;
+      --ytcp-icon-active-inverse: @nord2 !important;
+      --ytcp-icon-disabled-inverse: @nord5 !important;
+
+      --ytcp-error-red: @red !important;
+      --ytcp-badge-red: @red !important;
+      --ytcp-error-red-inverse: @red !important;
+      --ytcp-themed-red-inverse: @red !important;
+      --ytcp-themed-red: @accent !important;
+      --ytcp-themed-blue: @accent !important;
+      --ytcp-badge-blue: fade(@accent, 30%);
+      --ytcp-badge-blue-solid: @blue !important;
+      --ytcp-themed-blue-inverse: @blue !important;
+      --ytcp-themed-green: @green !important;
+      --ytmus-genre-primary-melon: @green !important;
+      --ytcp-themed-green-inverse: @green !important;
+      --ytcp-analytics-pine: @green !important;
+      --ytcp-analytics-pine-inverse: @green !important;
+      --ytcp-analytics-parrot: @green !important;
+      --ytcp-themed-yellow: @peach !important;
+      --ytmus-genre-primary-gold: @peach !important;
+      --ytcp-yellow-inverse: @peach !important;
+      --ytcp-badge-yellow: @peach !important;
+      --ytcp-analytics-yellow: @peach !important;
+      --ytcp-analytics-apricot: @peach !important;
+      --ytcp-suggested-action: @teal !important;
+      --ytcp-analytics-overview: @teal !important;
+      --ytcp-analytics-revenue: @teal !important;
+      --ytcp-analytics-default-secondary: @teal !important;
+      --ytcp-analytics-royal-blue: @lavender !important;
+      --ytcp-analytics-reach: @lavender !important;
+      --ytcp-analytics-audience: @lavender !important;
+      --ytcp-analytics-engagement: @pink !important;
+      --ytcp-analytics-revenue-secondary: @pink !important;
+      --ytcp-analytics-bubblegum: @flamingo !important;
+      --ytmus-genre-primary-ruby: @flamingo !important;
+      --ytmus-genre-primary-salmon: @mauve !important;
+      --ytmus-genre-primary-orange: @maroon !important;
+      --ytmus-genre-primary-sky: @sky !important;
+      --ytmus-genre-primary-sky-inverse: @sky !important;
+
+      --yt-spec-badge-chip-background: @nord1 !important;
+      --ytcp-focus-inverse: @accent !important;
+      --ytcp-focus: @accent !important;
+      --ytcp-selected-item: @accent !important;
+      --ytcp-hover-item: @nord2 !important;
+      --ytcp-chip-active-focus: @accent !important;
+      --ytcp-playhead: @nord2 !important;
+      --ytcp-playhead-inverse: @nord2 !important;
+    }
+
+    ytcp-button.destructive.ytls-error-dialog {
+      color: @nord0 !important;
+    }
+
+    yt-formatted-string.ytls-error-dialog,
+    tp-yt-iron-icon.ytls-error-dialog {
+      color: @nord6 !important;
+    }
+  }
+}
+
+@-moz-document domain("m.youtube.com") {
+  html[darker-dark-theme] {
+    #catppuccin(@darkFlavor);
+  }
+  html {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    @nord10: @catppuccin[@@flavor][@nord10];
+    @flamingo: @catppuccin[@@flavor][@flamingo];
+    @pink: @catppuccin[@@flavor][@pink];
+    @mauve: @catppuccin[@@flavor][@mauve];
+    @red: @catppuccin[@@flavor][@red];
+    @maroon: @catppuccin[@@flavor][@maroon];
+    @peach: @catppuccin[@@flavor][@peach];
+    @yellow: @catppuccin[@@flavor][@yellow];
+    @green: @catppuccin[@@flavor][@green];
+    @teal: @catppuccin[@@flavor][@teal];
+    @sky: @catppuccin[@@flavor][@sky];
+    @sapphire: @catppuccin[@@flavor][@sapphire];
+    @blue: @catppuccin[@@flavor][@blue];
+    @lavender: @catppuccin[@@flavor][@lavender];
+    @nord6: @catppuccin[@@flavor][@nord6];
+    @nord5: @catppuccin[@@flavor][@nord5];
+    @nord4: @catppuccin[@@flavor][@nord4];
+    @nord2: @catppuccin[@@flavor][@nord2];
+    @nord1: @catppuccin[@@flavor][@nord1];
+    @nord0: @catppuccin[@@flavor][@nord0];
+    @accent: @catppuccin[@@flavor][@@accentColor];
+
+    background-color: @nord0 !important;
+    color: @nord6 !important;
+
+    /* Ambient mode */
+    #cinematics {
+      mix-blend-mode: lighten;
+    }
+
+    .mobile-topbar-header[data-mode="watch"],
+    ytm-mobile-topbar-renderer:not([ambient-topbar]) {
+      background: @nord0;
+    }
+
+    .mobile-topbar-header[data-mode="watch"] .mobile-topbar-logo,
+    .mobile-topbar-header[data-mode="watch"] .mobile-topbar-title,
+    .mobile-topbar-header[data-mode="watch"] .mobile-topbar-header-content {
+      color: @nord6;
+    }
+
+    .yt-spec-bottom-sheet-layout__bottom-sheet-renderer-container,
+    .modern-styling {
+      background: @nord1;
+    }
+
+    .yt-spec-bottom-sheet-layout__bottom-sheet-layout-header-wrapper {
+      border-bottom-color: @nord1;
+    }
+
+    .yt-spec-bottom-sheet-layout__bottom-sheet-content {
+      color: @nord6;
+    }
+
+    /* Comment box */
+    .engagement-panel-container {
+      background: @nord0;
+    }
+
+    /* Bottom bar */
+    ytm-pivot-bar-renderer {
+      background: @nord0;
+      color: @nord6;
+      border-top-color: @nord1;
+    }
+
+    /* Chips */
+    .chip-bar {
+      background-color: @nord0;
+    }
+
+    [chip-style*="STYLE_"] {
+      .chip-container {
+        color: @nord6;
+        background-color: @nord1;
+      }
+
+      &.selected .chip-container {
+        color: @nord0;
+        background-color: @accent;
+      }
+    }
+
+    /* Buttons */
+
+    .yt-spec-touch-feedback-shape--touch-response {
+      .yt-spec-touch-feedback-shape__fill {
+        background-color: @nord6;
+      }
+
+      .yt-spec-touch-feedback-shape__stroke {
+        border-color: @nord1;
+      }
+    }
+
+    .yt-spec-touch-feedback-shape--overlay-touch-response-inverse
+      .yt-spec-touch-feedback-shape__fill {
+      background-color: @accent;
+    }
+    .yt-spec-touch-feedback-shape--overlay-touch-response
+      .yt-spec-touch-feedback-shape__fill {
+      background-color: @nord6;
+    }
+  }
+}
+
+/* deno-fmt-ignore */
+@catppuccin: {
+  @latte:     {
+    @nord10: #5e81ac; @flamingo: #dd7878; @pink: #ea76cb; @mauve: #8839ef; @red: #d20f39; @maroon: #e64553; @peach: #fe640b;
+    @yellow: #df8e1d; @green: #40a02b; @teal: #179299; @sky: #04a5e5; @sapphire: #209fb5; @blue: #1e66f5; @lavender: #7287fd;
+    @nord6: #eceff4; @nord5: #e5e9f0; @nord4: #d8dee9; @nord2: #434c5e;
+    @nord1: #3b4252; @nord0: #2e3440;
+  };
+  @mocha:     {
+    @nord10: #5e81ac; @flamingo: #f2cdcd; @pink: #f5c2e7; @mauve: #cba6f7; @red: #f38ba8; @maroon: #eba0ac; @peach: #fab387;
+    @yellow: #f9e2af; @green: #a6e3a1; @teal: #94e2d5; @sky: #89dceb; @sapphire: #74c7ec; @blue: #89b4fa; @lavender: #b4befe;
+    @nord6: #eceff4; @nord5: #e5e9f0; @nord4: #d8dee9; @nord2: #434c5e;
+    @nord1: #3b4252; @nord0: #2e3440;
+  };
+};
+
+/* deno-fmt-ignore */
+@catppuccin-filters: {
+  @latte: { @nord10: brightness(0) saturate(100%) invert(65%) sepia(18%) saturate(1048%) hue-rotate(323deg) brightness(92%) contrast(86%); @flamingo: brightness(0) saturate(100%) invert(84%) sepia(44%) saturate(4533%) hue-rotate(310deg) brightness(98%) contrast(75%); @pink: brightness(0) saturate(100%) invert(60%) sepia(32%) saturate(775%) hue-rotate(266deg) brightness(93%) contrast(97%); @mauve: brightness(0) saturate(100%) invert(26%) sepia(59%) saturate(3315%) hue-rotate(255deg) brightness(94%) contrast(100%); @red: brightness(0) saturate(100%) invert(16%) sepia(78%) saturate(7275%) hue-rotate(342deg) brightness(84%) contrast(94%); @maroon: brightness(0) saturate(100%) invert(31%) sepia(56%) saturate(2395%) hue-rotate(331deg) brightness(99%) contrast(82%); @peach: brightness(0) saturate(100%) invert(38%) sepia(81%) saturate(1292%) hue-rotate(356deg) brightness(103%) contrast(99%); @yellow: brightness(0) saturate(100%) invert(74%) sepia(47%) saturate(4570%) hue-rotate(354deg) brightness(95%) contrast(83%); @green: brightness(0) saturate(100%) invert(51%) sepia(25%) saturate(4134%) hue-rotate(76deg) brightness(95%) contrast(66%); @teal: brightness(0) saturate(100%) invert(41%) sepia(45%) saturate(1101%) hue-rotate(139deg) brightness(100%) contrast(82%); @sky: brightness(0) saturate(100%) invert(47%) sepia(76%) saturate(2427%) hue-rotate(166deg) brightness(99%) contrast(97%); @sapphire: brightness(0) saturate(100%) invert(52%) sepia(41%) saturate(6982%) hue-rotate(160deg) brightness(102%) contrast(75%); @blue: brightness(0) saturate(100%) invert(30%) sepia(80%) saturate(1850%) hue-rotate(209deg) brightness(94%) contrast(105%); @lavender: brightness(0) saturate(100%) invert(48%) sepia(61%) saturate(538%) hue-rotate(194deg) brightness(102%) contrast(98%); @nord6: brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(1259%) hue-rotate(196deg) brightness(97%) contrast(91%); @nord5: brightness(0) saturate(100%) invert(36%) sepia(10%) saturate(890%) hue-rotate(196deg) brightness(98%) contrast(90%); @nord4: brightness(0) saturate(100%) invert(47%) sepia(6%) saturate(1263%) hue-rotate(195deg) brightness(90%) contrast(81%); @nord2: brightness(0) saturate(100%) invert(59%) sepia(7%) saturate(825%) hue-rotate(195deg) brightness(83%) contrast(91%); @nord2: brightness(0) saturate(100%) invert(59%) sepia(14%) saturate(333%) hue-rotate(194deg) brightness(95%) contrast(89%); @nord2: brightness(0) saturate(100%) invert(85%) sepia(7%) saturate(595%) hue-rotate(191deg) brightness(77%) contrast(81%); @nord1: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(482%) hue-rotate(189deg) brightness(82%) contrast(88%); @nord1: brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(281%) hue-rotate(187deg) brightness(92%) contrast(88%); @nord1: brightness(0) saturate(100%) invert(96%) sepia(1%) saturate(5123%) hue-rotate(185deg) brightness(93%) contrast(83%); @nord0: brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(140%) hue-rotate(182deg) brightness(109%) contrast(94%); @nord0: brightness(0) saturate(100%) invert(93%) sepia(19%) saturate(55%) hue-rotate(182deg) brightness(98%) contrast(92%); @nord0: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(4489%) hue-rotate(196deg) brightness(106%) contrast(82%); };
+  @mocha: { @nord10: brightness(0) saturate(100%) invert(92%) sepia(5%) saturate(704%) hue-rotate(320deg) brightness(99%) contrast(93%); @flamingo: brightness(0) saturate(100%) invert(81%) sepia(5%) saturate(987%) hue-rotate(315deg) brightness(107%) contrast(90%); @pink: brightness(0) saturate(100%) invert(86%) sepia(11%) saturate(1177%) hue-rotate(283deg) brightness(101%) contrast(92%); @mauve: brightness(0) saturate(100%) invert(65%) sepia(58%) saturate(255%) hue-rotate(224deg) brightness(96%) contrast(102%); @red: brightness(0) saturate(100%) invert(61%) sepia(19%) saturate(997%) hue-rotate(294deg) brightness(104%) contrast(91%); @maroon: brightness(0) saturate(100%) invert(66%) sepia(16%) saturate(1301%) hue-rotate(306deg) brightness(116%) contrast(84%); @peach: brightness(0) saturate(100%) invert(68%) sepia(57%) saturate(278%) hue-rotate(338deg) brightness(98%) contrast(101%); @yellow: brightness(0) saturate(100%) invert(90%) sepia(70%) saturate(380%) hue-rotate(313deg) brightness(102%) contrast(95%); @green: brightness(0) saturate(100%) invert(88%) sepia(6%) saturate(2015%) hue-rotate(63deg) brightness(104%) contrast(78%); @teal: brightness(0) saturate(100%) invert(92%) sepia(12%) saturate(991%) hue-rotate(108deg) brightness(93%) contrast(90%); @sky: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(1302%) hue-rotate(164deg) brightness(106%) contrast(84%); @sapphire: brightness(0) saturate(100%) invert(74%) sepia(20%) saturate(876%) hue-rotate(156deg) brightness(96%) contrast(93%); @blue: brightness(0) saturate(100%) invert(68%) sepia(18%) saturate(951%) hue-rotate(180deg) brightness(98%) contrast(100%); @lavender: brightness(0) saturate(100%) invert(73%) sepia(7%) saturate(1670%) hue-rotate(195deg) brightness(102%) contrast(99%); @nord6: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(879%) hue-rotate(190deg) brightness(100%) contrast(93%); @nord5: brightness(0) saturate(100%) invert(84%) sepia(19%) saturate(381%) hue-rotate(193deg) brightness(91%) contrast(89%); @nord4: brightness(0) saturate(100%) invert(84%) sepia(9%) saturate(767%) hue-rotate(192deg) brightness(84%) contrast(84%); @nord2: brightness(0) saturate(100%) invert(63%) sepia(15%) saturate(428%) hue-rotate(191deg) brightness(96%) contrast(84%); @nord2: brightness(0) saturate(100%) invert(56%) sepia(15%) saturate(455%) hue-rotate(192deg) brightness(90%) contrast(88%); @nord2: brightness(0) saturate(100%) invert(44%) sepia(6%) saturate(1275%) hue-rotate(194deg) brightness(97%) contrast(88%); @nord1: brightness(0) saturate(100%) invert(34%) sepia(8%) saturate(1015%) hue-rotate(195deg) brightness(99%) contrast(89%); @nord1: brightness(0) saturate(100%) invert(25%) sepia(6%) saturate(1950%) hue-rotate(197deg) brightness(99%) contrast(86%); @nord1: brightness(0) saturate(100%) invert(19%) sepia(5%) saturate(2844%) hue-rotate(199deg) brightness(91%) contrast(93%); @nord0: brightness(0) saturate(100%) invert(7%) sepia(4%) saturate(7496%) hue-rotate(202deg) brightness(93%) contrast(87%); @nord0: brightness(0) saturate(100%) invert(6%) sepia(4%) saturate(7465%) hue-rotate(202deg) brightness(95%) contrast(90%); @nord0: brightness(0) saturate(100%) invert(3%) sepia(13%) saturate(6863%) hue-rotate(220deg) brightness(95%) contrast(91%); };
+};

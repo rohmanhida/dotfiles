@@ -1,7 +1,9 @@
 sw_volume: 14
 audio_device_state:1:ALSA Sound Card
 audio_device_state:1:Visualizer feed
-state: stop
+state: play
+current: 0
+time: 0.456
 random: 0
 repeat: 0
 single: 0
