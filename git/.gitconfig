@@ -2,9 +2,8 @@
 	name = rohmanhida
 	email = hodyjones99@gmail.com
 [credential]
-	helper = manager-core
-	helper = 
 	helper = /usr/local/bin/git-credential-manager
+	credentialStore = plaintext
 [pull]
   rebase = false
 [alias]
