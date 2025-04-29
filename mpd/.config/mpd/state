@@ -2,6 +2,7 @@ sw_volume: 14
 audio_device_state:1:ALSA Sound Card
 audio_device_state:1:Visualizer feed
 state: stop
+current: 0
 random: 0
 repeat: 0
 single: 0
@@ -12,5 +13,6 @@ mixrampdelay: -1
 lastloadedplaylist: 
 playlist_begin
 0:Bye Bye Bye.mp3
-1:Semua Tak Sama.mp3
+1:Paramore - Ignorance.mp3
+2:Illusion.mp3
 playlist_end

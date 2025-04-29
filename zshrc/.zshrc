@@ -1,3 +1,6 @@
+# terminal like vim
+set -o vi
+
 # aliases
 alias n="nvim"
 alias mkdir="mkdir -p"
@@ -19,6 +22,9 @@ setopt SHARE_HISTORY
 # starship
 eval "$(starship init zsh)"
 
+# fzf
+source <(fzf --zsh)
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -27,7 +33,4 @@ export NVM_DIR="$HOME/.nvm"
 # php stuff from laravel
 export PATH="/home/rohmanhida/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/rohmanhida/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-
-# terminal like vim
-set -o vi
 

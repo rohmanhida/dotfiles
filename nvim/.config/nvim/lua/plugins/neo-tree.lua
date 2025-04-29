@@ -17,6 +17,6 @@ return {
         },
       }
     })
-    vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = 'toggle file [E]xplorer' })
+    vim.keymap.set('n', '<leader>f', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = 'toggle file [E]xplorer' })
   end
   }
