@@ -15,9 +15,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=500000
 SAVEHIST=500000
-setopt appendhistory
+setopt APPENDHISTORY
 setopt INC_APPEND_HISTORY  
 setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS         # Ignore duplicate commands
+setopt HIST_IGNORE_ALL_DUPS     # Keep only the most recent duplicate
+setopt HIST_FIND_NO_DUPS        # Prevent showing duplicates when searching
 
 # starship
 eval "$(starship init zsh)"
