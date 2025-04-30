@@ -43,11 +43,13 @@
 font-family = "Liga SFMono Nerd Font"
 font-size = 10
 
-# themes
-theme = "nord"
-focus-follows-mouse = true
-window-decoration = none
-theme = dark:nord,light:nord-light
+# look and feel
+focus-follows-mouse=true
+window-decoration=false
+gtk-titlebar=false
+gtk-adwaita=true
+gtk-tabs-location=hidden
+theme=dark:nord,light:nord-light
 
 # keybinds
 keybind = ctrl+shift+5=new_split:right
