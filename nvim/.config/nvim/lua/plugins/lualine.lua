@@ -6,25 +6,40 @@ return {
 		local mode = {
 			"mode",
 			fmt = function(str)
-				-- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
-				return " " .. str
+				-- return ' '
+				return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
+				-- return " " .. str
 			end,
 		}
 
 		require("lualine").setup({
 			options = {
 				-- theme = require "catppuccin.utils.lualine" "latte",
-				theme = "auto",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
-				disabled_filetypes = { "alpha", "neo-tree", "Avante" },
+				theme = "everforest",
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
+				disabled_filetypes = { "alpha", "neo-tree" },
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "location" },
-				lualine_c = { "filename", "diagnostics" },
-				lualine_x = {},
-				lualine_y = { "filetype" },
+				lualine_b = { "filename" },
+				lualine_c = { "filetype" },
+				lualine_x = { "diagnostics" },
+				lualine_y = {
+					{
+						function()
+							local clients = vim.lsp.get_clients({ bufnr = 0 })
+							if not clients or vim.tbl_isempty(clients) then
+								return "  No LSP"
+							end
+							local names = {}
+							for _, client in ipairs(clients) do
+								table.insert(names, client.name)
+							end
+							return "  " .. table.concat(names, ", ")
+						end,
+					},
+				},
 				lualine_z = { { "branch", icon = "" } },
 			},
 		})

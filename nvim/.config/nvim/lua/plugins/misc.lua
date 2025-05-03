@@ -40,14 +40,16 @@ return {
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup({
+				'*';
 				DEFAULT_OPTIONS = {
-					hsl_fn = true,
+					hsl_fn = false,
 					RGB_fn = true,
 					RRGGBBAA = true,
 					RRGGBB = true,
 					rgb_fn = true,
 					css = true,
 					css_fn = true,
+					mode = 'background'
 				},
 			})
 		end,

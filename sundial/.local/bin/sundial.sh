@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # API endpoint for sunrise and sunset times
 API_URL="https://api.sunrisesunset.io/json?lat=-7.17520&lng=112.63382&time_format=24"
@@ -25,34 +25,32 @@ current_seconds=$(time_to_seconds "$current_time")
 
 # Get current theme
 current=$(gsettings get org.gnome.desktop.interface color-scheme | tr -d "'")
+echo $current
 
 # function to set things to light
 set_light() {
-  # hyprpaper
-  echo "changing wallpaper to light"
-  WALLPAPER=$(ls ~/wallpapers/light | shuf -n 1)
-  hyprctl hyprpaper preload "~/wallpapers/light/$WALLPAPER"
-  hyprctl hyprpaper wallpaper ",~/wallpapers/light/$WALLPAPER"
   if [[ $current == "prefer-light" ]]; then
     echo "already light"
   else
-    # kitty
-    sed -i 's/main/dawn/g' ~/.config/kitty/kitty.conf
+    # bat (automatic)
+    # waybar (automatic)
     # tmux
-    sed -i 's/main/dawn/g' ~/.tmux.conf
-    # starship
-    cat ~/.config/starship/rose-pine-dawn.toml > ~/.config/starship.toml
+    sed -i 's/dark/light/g' ~/.tmux.conf
+    tmux source-file ~/.tmux.conf
+    # nvim
+    sed -i 's/dark/light/g' ~/.config/nvim/lua/plugins/everforest.lua
+    #rofi
+    sed -i '0,/dark/s/dark/light/' ~/.config/rofi/config.rasi
     # hyprland
-    sed -i 's/rose-pine-main/rose-pine-dawn/g' ~/.config/hypr/hyprland.conf
-    # rofi
-    sed -i 's/rose-pine-main/rose-pine-dawn/g' ~/.config/rofi/launchers/type-4/shared/colors.rasi
+    sed -i 's/dark/light/g' ~/.config/hypr/hyprland.conf
+    # starship
+    sed -i '0,/dark/s/dark/light/' ~/.config/starship.toml
     # swaync
-    cat ~/.config/swaync/rose-pine-dawn.css > ~/.config/swaync/style.css
+    cat ~/.config/swaync/style-light.css > ~/.config/swaync/style.css
     swaync-client -rs
     # hyprlock
-    sed -i 's/kendal-unsplash.jpg/bird.jpg/g' ~/.config/hypr/hyprlock.conf
+    sed -i 's/kendal-unsplash.jpg/benjamin-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
     sed -i 's/dark/light/g' ~/.config/hypr/hyprlock.conf
-    # spicetify
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
@@ -62,39 +60,36 @@ set_light() {
 # function to set things to dark
 set_dark() {
   # hyprpaper
-  echo "changing wallpaper to dark"
-  WALLPAPER=$(ls ~/wallpapers/dark | shuf -n 1)
-  hyprctl hyprpaper preload "~/wallpapers/dark/$WALLPAPER"
-  hyprctl hyprpaper wallpaper ",~/wallpapers/dark/$WALLPAPER"
-
   if [[ $current == "prefer-dark" ]]; then
     echo "already dark"
   else
-    # kitty
-    sed -i 's/dawn/main/g' ~/.config/kitty/kitty.conf
+    # bat (automatic)
+    # waybar (automatic)
     # tmux
-    sed -i 's/dawn/main/g' ~/.tmux.conf
-    # starship
-    cat ~/.config/starship/rose-pine-main.toml > ~/.config/starship.toml
+    sed -i 's/light/dark/g' ~/.tmux.conf
+    tmux source-file ~/.tmux.conf
+    # nvim
+    sed -i 's/light/dark/g' ~/.config/nvim/lua/plugins/everforest.lua
+    #rofi
+    sed -i '0,/light/s/light/dark/' ~/.config/rofi/config.rasi
     # hyprland
-    sed -i 's/rose-pine-dawn/rose-pine-main/g' ~/.config/hypr/hyprland.conf
-    # rofi
-    sed -i 's/rose-pine-dawn/rose-pine-main/g' ~/.config/rofi/launchers/type-4/shared/colors.rasi
+    sed -i 's/light/dark/g' ~/.config/hypr/hyprland.conf
+    # starship
+    sed -i '0,/light/s/light/dark/' ~/.config/starship.toml
     # swaync
-    cat ~/.config/swaync/rose-pine-main.css > ~/.config/swaync/style.css
+    cat ~/.config/swaync/style-dark.css > ~/.config/swaync/style.css
     swaync-client -rs
     # hyprlock
-    sed -i 's/bird.jpg/kendal-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
+    sed -i 's/benjamin-unsplash.jpg/kendal-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
     sed -i 's/light/dark/g' ~/.config/hypr/hyprlock.conf
-    # spicetify
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
   fi
 }
 
 
-if [ ! -z "$2" ]; then
+if [ -z "$1" ]; then
   echo "Argument is empty"
 else
   echo "Argument is: $1"

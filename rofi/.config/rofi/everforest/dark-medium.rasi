@@ -1,0 +1,9 @@
+/**
+  everforest dark medium
+**/ 
+
+* {
+  background: #2d353b66;
+  foreground: #d3c6aa;
+  highlight: #a7c080;
+}

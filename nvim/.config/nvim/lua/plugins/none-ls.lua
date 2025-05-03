@@ -13,8 +13,16 @@ return {
         null_ls.builtins.diagnostics.markdownlint,
 
         -- javascript (prettier, eslint_d)
+        null_ls.builtins.formatting.djhtml.with({
+          extra_args = function(params)
+            return {
+              "--tabwidth",
+              vim.o.shiftwidth
+            }
+          end,
+        }),
         null_ls.builtins.formatting.prettier.with({
-          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "json", "css", "scss", "html", "markdown" },
+          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "json", "css", "scss", "markdown" },
           extra_args = { "--single-quote", "true", "--tab-width", "2" }
         }),
         require('none-ls.diagnostics.eslint_d').with({
@@ -32,6 +40,6 @@ return {
         }),
       },
     })
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format current buffer" })
+    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format" })
   end,
 }

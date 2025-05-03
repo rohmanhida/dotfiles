@@ -1,0 +1,9 @@
+/**
+  everforest dark soft
+**/ 
+
+* {
+  background: #333c4366;
+  foreground: #d3c6aa;
+  highlight: #a7c080;
+}

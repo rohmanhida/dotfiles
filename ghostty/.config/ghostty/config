@@ -49,7 +49,11 @@ window-decoration=false
 gtk-titlebar=false
 gtk-adwaita=true
 gtk-tabs-location=hidden
-theme=dark:nord,light:nord-light
+theme=dark:everforest-dark-soft,light:everforest-light-soft
+background-opacity=0.2
+background-blur=true
+background-blur-radius=40
+alpha-blending=linear
 
 # keybinds
 keybind = ctrl+shift+5=new_split:right

@@ -1,0 +1,10 @@
+/**
+  everforest light soft
+**/
+
+
+* {
+  background: #f3ead300;
+  foreground: #5c6a72;
+  highlight: #8da101;
+}

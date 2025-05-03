@@ -60,6 +60,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.volar.setup({
+				capabilities = capabilities,
+			})
+
 			-- golang
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
@@ -80,9 +84,13 @@ return {
 
 
 			-- keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show Documentation" })
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Open [C]ode [A]ction" })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[n]ame" })
+			local wk = require('which-key')
+			wk.add({
+				{ '<leader>l', group = "LSP", icon = ' '}
+			})
+			vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover, { desc = "Show Documentation" })
+			vim.keymap.set({ "n", "v" }, "<leader>lc", vim.lsp.buf.code_action, { desc = "Open [C]ode Action" })
+			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename" })
 		end,
 	},
 }

@@ -1,0 +1,10 @@
+/**
+  everforest light hard
+**/
+
+
+* {
+  background: #fffbef00;
+  foreground: #5c6a72;
+  highlight: #8da101;
+}

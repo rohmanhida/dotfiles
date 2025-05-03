@@ -6,6 +6,9 @@ alias n="nvim"
 alias mkdir="mkdir -p"
 alias ls="ls -la --color"
 alias v="vim"
+alias lf="~/fzf_listoldfiles.sh"
+alias ff="~/search_with_zoxide.sh"
+alias fman="compgen -c | fzf | xargs man"
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -22,18 +25,22 @@ setopt HIST_IGNORE_DUPS         # Ignore duplicate commands
 setopt HIST_IGNORE_ALL_DUPS     # Keep only the most recent duplicate
 setopt HIST_FIND_NO_DUPS        # Prevent showing duplicates when searching
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # starship
 eval "$(starship init zsh)"
 
 # fzf
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS="--height 50% --layout default --border --color=hl:#2dd4bf"
+export FZF_TMUX_OPTS=" -p90%,70%"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# php stuff from laravel
-export PATH="/home/rohmanhida/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/rohmanhida/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 

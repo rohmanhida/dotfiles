@@ -1,31 +1,14 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
+    "layer": "bottom", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "spacing": 0, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
+    "modules-center": [
         "clock#date",
         "clock#time",
         "custom/weather",
-        "custom/separator1",
-        "tray",
-        "custom/notification",
-        "pulseaudio",
-        "custom/separator2",
-        "custom/media",
-        "custom/separator3"
+        "tray"
     ],
-    // Modules configuration
-    "custom/separator1": {
-        "format": ""
-    },
-    "custom/separator2": {
-        "format": ""
-    },
-    "custom/separator3": {
-        "format": ""
-    },
     "custom/weather": {
         "format": "{}°",
         "tooltip": true,
