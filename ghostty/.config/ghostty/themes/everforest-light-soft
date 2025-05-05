@@ -19,7 +19,7 @@ palette = 14=#35a77c
 palette = 15=#dfddc8
 
 background=#f8f0dc
-foreground=#5c6a72
-cursor-color=#5c6a72
+foreground=#7c8a92
+cursor-color=#7c8a92
 selection-foreground=#f8f0dc
-selection-background=#5c6a72
+selection-background=#7c8a92

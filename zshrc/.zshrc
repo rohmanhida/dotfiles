@@ -6,8 +6,9 @@ alias n="nvim"
 alias mkdir="mkdir -p"
 alias ls="ls -la --color"
 alias v="vim"
-alias lf="~/fzf_listoldfiles.sh"
-alias ff="~/search_with_zoxide.sh"
+alias le="~/.scripts/fzf_listoldfiles.sh"
+alias of="~/.scripts/search_with_zoxide.sh"
+alias rt="~/.scripts/remove_transparency.sh"
 alias fman="compgen -c | fzf | xargs man"
 
 # plugins

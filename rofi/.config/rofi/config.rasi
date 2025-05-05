@@ -64,7 +64,7 @@ element {
 }
 
 element-text {
-  highlight: @emphasis;
+  highdark: @emphasis;
 }
 
 element normal normal, element selected normal, element alternate normal {

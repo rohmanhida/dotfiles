@@ -39,7 +39,7 @@ set_light() {
     tmux source-file ~/.tmux.conf
     # nvim
     sed -i 's/dark/light/g' ~/.config/nvim/lua/plugins/everforest.lua
-    #rofi
+    # rofi
     sed -i '0,/dark/s/dark/light/' ~/.config/rofi/config.rasi
     # hyprland
     sed -i 's/dark/light/g' ~/.config/hypr/hyprland.conf
@@ -47,7 +47,7 @@ set_light() {
     sed -i '0,/dark/s/dark/light/' ~/.config/starship.toml
     # swaync
     cat ~/.config/swaync/style-light.css > ~/.config/swaync/style.css
-    swaync-client -rs
+    # swaync-client -rs
     # hyprlock
     sed -i 's/kendal-unsplash.jpg/benjamin-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
     sed -i 's/dark/light/g' ~/.config/hypr/hyprlock.conf
@@ -70,7 +70,7 @@ set_dark() {
     tmux source-file ~/.tmux.conf
     # nvim
     sed -i 's/light/dark/g' ~/.config/nvim/lua/plugins/everforest.lua
-    #rofi
+    # rofi
     sed -i '0,/light/s/light/dark/' ~/.config/rofi/config.rasi
     # hyprland
     sed -i 's/light/dark/g' ~/.config/hypr/hyprland.conf
@@ -78,7 +78,7 @@ set_dark() {
     sed -i '0,/light/s/light/dark/' ~/.config/starship.toml
     # swaync
     cat ~/.config/swaync/style-dark.css > ~/.config/swaync/style.css
-    swaync-client -rs
+    # swaync-client -rs
     # hyprlock
     sed -i 's/benjamin-unsplash.jpg/kendal-unsplash.jpg/g' ~/.config/hypr/hyprlock.conf
     sed -i 's/light/dark/g' ~/.config/hypr/hyprlock.conf
