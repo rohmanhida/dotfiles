@@ -12,8 +12,8 @@ alias rt="~/.scripts/remove_transparency.sh"
 alias fman="compgen -c | fzf | xargs man"
 
 # plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # history
 HISTFILE="$HOME/.zsh_history"
