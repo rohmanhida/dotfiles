@@ -1,4 +1,4 @@
-client_id = "a570943501cf44cda38dd56fad891c12"
+client_id = ""
 client_port = 8080
 login_redirect_uri = "http://127.0.0.1:8080/login"
 playback_format = """
