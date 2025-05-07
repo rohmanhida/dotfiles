@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.o.background = 'light'
+    vim.o.background = 'dark'
     vim.g.everforest_background = "soft"
     vim.g.everforest_better_performance = true
     vim.g.everforest_enable_italic = true
