@@ -21,25 +21,25 @@ config.keys = {
   -- move focus to the left pane
   {
     key = 'h',
-    mods = 'CTRL',
+    mods = 'CTRL | SHIFT',
     action = wezterm.action.ActivatePaneDirection('Left'),
   },
   -- Move focus to the down pane
   {
     key = 'j',
-    mods = 'CTRL',
+    mods = 'CTRL | SHIFT',
     action = wezterm.action.ActivatePaneDirection('Down'),
   },
   -- Move focus to the up pane
   {
     key = 'k',
-    mods = 'CTRL',
+    mods = 'CTRL | SHIFT',
     action = wezterm.action.ActivatePaneDirection('Up'),
   },
   -- Move focus to the right pane
   {
     key = 'l',
-    mods = 'CTRL',
+    mods = 'CTRL | SHIFT',
     action = wezterm.action.ActivatePaneDirection('Right'),
   },
 }
