@@ -1,10 +1,15 @@
 local wezterm = require 'wezterm'
 local config = {}
 
+-- appearance
 config.font = wezterm.font 'Liga SFMono Nerd Font'
 config.color_scheme = 'GruvboxDark'
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 35
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
+
+-- keybinds
 config.keys = {
   {
     -- split pane below

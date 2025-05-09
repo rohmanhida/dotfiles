@@ -13,14 +13,7 @@ return {
         null_ls.builtins.diagnostics.markdownlint,
 
         -- javascript (prettier, eslint_d)
-        null_ls.builtins.formatting.djhtml.with({
-          extra_args = function(params)
-            return {
-              "--tabwidth",
-              vim.o.shiftwidth
-            }
-          end,
-        }),
+        null_ls.builtins.formatting.htmlbeautifier,
         null_ls.builtins.formatting.prettier.with({
           filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "json", "css", "scss", "markdown" },
           extra_args = { "--single-quote", "true", "--tab-width", "2" }

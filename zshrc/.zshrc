@@ -4,7 +4,8 @@ set -o vi
 # aliases
 alias n="nvim"
 alias mkdir="mkdir -p"
-alias ls="ls -la --color"
+# options --no-permissions
+alias ls="eza --long -a --sort=type --color=always --icons=always --no-user --no-permissions"
 alias v="vim"
 alias le="~/.scripts/fzf_listoldfiles.sh"
 alias of="~/.scripts/search_with_zoxide.sh"
@@ -26,6 +27,9 @@ setopt HIST_IGNORE_DUPS         # Ignore duplicate commands
 setopt HIST_IGNORE_ALL_DUPS     # Keep only the most recent duplicate
 setopt HIST_FIND_NO_DUPS        # Prevent showing duplicates when searching
 
+# increase nesting level for shell function
+export FUNCNEST=500
+
 # zoxide
 eval "$(zoxide init zsh)"
 
@@ -36,7 +40,9 @@ eval "$(starship init zsh)"
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_DEFAULT_OPTS="--height 50% --layout default --border --color=hl:#2dd4bf"
 export FZF_TMUX_OPTS=" -p90%,70%"
 
