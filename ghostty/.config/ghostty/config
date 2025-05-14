@@ -53,7 +53,7 @@ theme=dark:everforest-dark-soft,light:everforest-light-soft
 background-opacity=0.2
 background-blur=true
 background-blur-radius=40
-alpha-blending=linear
+alpha-blending=native
 
 # keybinds
 keybind = ctrl+shift+5=new_split:right
