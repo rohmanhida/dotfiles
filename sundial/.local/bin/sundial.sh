@@ -35,7 +35,7 @@ set_light() {
     # bat (automatic)
     # waybar (automatic)
     # tmux
-    sed -i 's/dark/light/g' ~/.tmux.conf
+    sed -i 's/everforest-dark/everforest-light/g' ~/.tmux.conf
     tmux source-file ~/.tmux.conf
     # nvim
     sed -i 's/dark/light/g' ~/.config/nvim/lua/plugins/everforest.lua
@@ -66,7 +66,7 @@ set_dark() {
     # bat (automatic)
     # waybar (automatic)
     # tmux
-    sed -i 's/light/dark/g' ~/.tmux.conf
+    sed -i 's/everforest-light/everforest-dark/g' ~/.tmux.conf
     tmux source-file ~/.tmux.conf
     # nvim
     sed -i 's/light/dark/g' ~/.config/nvim/lua/plugins/everforest.lua

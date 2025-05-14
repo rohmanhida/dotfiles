@@ -1,6 +1,0 @@
-# colorscheme of kitty
-include rose-pine-main.conf
-
-font_family   Maple Mono NF
-font_size     10.0
-font_weight   regular

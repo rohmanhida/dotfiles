@@ -4,12 +4,14 @@ set -o vi
 # aliases
 alias n="nvim"
 alias mkdir="mkdir -p"
-alias ls="ls -la --color"
+alias ls="eza --long -a --sort=type --color=always --icons=always --no-user --no-permissions"
 alias v="vim"
 alias le="~/.scripts/fzf_listoldfiles.sh"
 alias of="~/.scripts/search_with_zoxide.sh"
 alias rt="~/.scripts/remove_transparency.sh"
 alias fman="compgen -c | fzf | xargs man"
+
+export FUNCNEST=100
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -36,7 +38,9 @@ eval "$(starship init zsh)"
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_DEFAULT_OPTS="--height 50% --layout default --border --color=hl:#2dd4bf"
 export FZF_TMUX_OPTS=" -p90%,70%"
 

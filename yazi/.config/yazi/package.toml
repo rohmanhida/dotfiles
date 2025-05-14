@@ -1,5 +1,7 @@
 [plugin]
 deps = []
 
-[flavor]
-deps = [{ use = "sanjinso/monokai-vibrant", rev = "8b68223" }]
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "3d5f847"
+hash = "9b4190e2447f2c843fee23ea5f068f6"

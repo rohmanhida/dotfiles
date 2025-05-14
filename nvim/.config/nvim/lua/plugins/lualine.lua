@@ -7,7 +7,7 @@ return {
 			"mode",
 			fmt = function(str)
 				-- return ' '
-				return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
+				return " " .. str:sub(1, 1) -- displays only the first character of the mode
 				-- return " " .. str
 			end,
 		}
@@ -16,14 +16,26 @@ return {
 			options = {
 				-- theme = require "catppuccin.utils.lualine" "latte",
 				theme = "everforest",
-				component_separators = { left = "", right = "" },
+				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "neo-tree" },
 			},
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { "filename" },
-				lualine_c = { "filetype" },
+				lualine_c = {
+					"filetype",
+					{
+						require("noice").api.status.command.get,
+						cond = require("noice").api.status.command.has,
+						color = { fg = "#fe8019" },
+					},
+					{
+						require("noice").api.status.mode.get,
+						cond = require("noice").api.status.mode.has,
+						color = { fg = "#fe8019" },
+					},
+				},
 				lualine_x = { "diagnostics" },
 				lualine_y = {
 					{
