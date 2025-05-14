@@ -105,7 +105,7 @@ else
   # Compare current time to sunrise and sunset times
   if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
     # set_light
-    set_dark
+    set_light
   else
     set_dark
   fi
