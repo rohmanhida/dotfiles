@@ -27,8 +27,8 @@
 
 * {
   border: none;
-  font-family: "Cartograph CF";
-  font-size: 11;
+  font-family: "IosevkaTerm Nerd Font Mono";
+  font-size: 12;
 }
 
 window#waybar {
@@ -71,21 +71,21 @@ window#waybar {
 #custom-separator1 {
   margin-top: -12px;
   margin-bottom: -10px;
-  font-size: 11;
+  font-size: 12;
   color: @nord8;
   background-color: @nord0;
 }
 #custom-separator2 {
   margin-top: -12px;
   margin-bottom: -10px;
-  font-size: 11;
+  font-size: 12;
   color: @nord0;
   background-color: @nord3;
 }
 #custom-separator3 {
   margin-top: -12px;
   margin-bottom: -10px;
-  font-size: 11;
+  font-size: 12;
   color: @nord3;
   background-color: transparent;
 }

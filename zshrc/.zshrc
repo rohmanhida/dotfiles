@@ -10,6 +10,7 @@ alias le="~/.scripts/fzf_listoldfiles.sh"
 alias of="~/.scripts/search_with_zoxide.sh"
 alias rt="~/.scripts/remove_transparency.sh"
 alias fman="compgen -c | fzf | xargs man"
+alias c="clear"
 
 export FUNCNEST=100
 
@@ -49,3 +50,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# preferred font
+export PATH="/home/rohmanhida/.scripts:$PATH"

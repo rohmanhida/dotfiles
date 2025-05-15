@@ -1,0 +1,10 @@
+/**
+  rose pine dawn
+**/
+
+
+* {
+  background: #faf4ed00;
+  foreground: #575279;
+  highlight: #286983;
+}

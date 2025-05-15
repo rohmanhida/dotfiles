@@ -15,7 +15,7 @@ return {
 		require("lualine").setup({
 			options = {
 				-- theme = require "catppuccin.utils.lualine" "latte",
-				theme = "everforest",
+				theme = "auto",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "neo-tree" },

@@ -18,8 +18,8 @@ palette = 13=#df69ba
 palette = 14=#35a77c
 palette = 15=#dfddc8
 
-background=#2e2a25
-foreground=#d3d8db
-cursor-color=#d3d8db
-selection-foreground=#f8f0dc
-selection-background=#444c56
+background=#f3ead3
+foreground=#5c6a72
+cursor-color=#5c6a72
+selection-foreground=#f3ead3
+selection-background=#5c6a72

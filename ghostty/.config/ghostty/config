@@ -40,8 +40,8 @@
 # # Some config options have unique syntaxes for their value,
 
 # font configs
-font-family = "Liga SFMono Nerd Font"
-font-size = 10
+font-family = "Cartograph CF"
+font-size = 11
 
 # look and feel
 focus-follows-mouse=true
@@ -50,10 +50,10 @@ gtk-titlebar=false
 gtk-adwaita=true
 gtk-tabs-location=hidden
 theme=dark:everforest-dark-soft,light:everforest-light-soft
-background-opacity=0.2
-background-blur=true
-background-blur-radius=40
-alpha-blending=native
+# background-opacity=0.2
+# background-blur=true
+# background-blur-radius=40
+# alpha-blending=native
 
 # keybinds
 keybind = ctrl+shift+5=new_split:right

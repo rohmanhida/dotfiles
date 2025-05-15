@@ -1,0 +1,34 @@
+#!/bin/sh
+
+source ~/.scripts/customization
+ESCAPED_FONT=$(printf '%s\n' "$PREFERRED_FONT" | sed 's/^["'\'']//;s/["'\'']$//')
+
+echo "changing ghostty fonts to $PREFERRED_FONT"
+# ghostty
+sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config
+sed -i "s/^font-size *= *[0-9]\+/font-size = $PREFERRED_FONT_SIZE/" ~/.config/ghostty/config
+
+echo "changing swaync fonts to $PREFERRED_FONT"
+# swaync light
+sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-light.css
+sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-light.css
+# swaync dark
+sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-dark.css
+sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-dark.css
+# swaync current
+sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style.css
+sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style.css
+swaync-client -rs
+
+echo "changing waybar fonts to $PREFERRED_FONT"
+# waybar
+# waybar light
+sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/waybar/style-light.css
+sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/waybar/style-light.css
+# waybar dark
+sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/waybar/style-dark.css
+sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/waybar/style-dark.css
+pkill -SIGUSR2 waybar
+
+echo "changing rofi fonts to $PREFERRED_FONT"
+sed -i "s/^\(\s*font: *\"\)[^\"]*\( *[0-9]\+\)\";/\1${ESCAPED_FONT} ${PREFERRED_FONT_SIZE}\";/" ~/.config/rofi/config.rasi

@@ -1,0 +1,100 @@
+@define-color base           #faf4ed;
+@define-color surface        #fffaf3;
+@define-color overlay        #f2e9e1;
+@define-color muted          #9893a5;
+@define-color subtle         #797593;
+@define-color text           #575279;
+@define-color love           #b4637a;
+@define-color gold           #ea9d34;
+@define-color rose           #d7827e;
+@define-color pine           #286983;
+@define-color foam           #56949f;
+@define-color iris           #907aa9;
+@define-color highlightlow   #f4ede8;
+@define-color highlightmed   #dfdad9;
+@define-color highlighthigh  #cecacd;
+
+* {
+  border: none;
+  font-family: "IosevkaTerm Nerd Font Mono";
+  font-size: 12px;
+}
+
+window#waybar {
+  padding: 10px;
+  background: transparent;
+}
+/*-----module groups----*/
+.modules-right {
+}
+/*-----modules indv----*/
+#workspaces {
+  border-radius: 5px;
+}
+#workspaces button {
+  padding: 0px 5px;
+  color: @highlightmed;
+}
+#workspaces button:hover {
+  background: linear-gradient(to bottom, @base, @overlay); /* Top to bottom gradient */
+}
+
+#workspaces button.active {
+  font-weight: bold;
+  background: @highligtlow;
+}
+
+#pulseaudio,
+#custom-theme,
+#custom-media,
+#custom-weather,
+#custom-notification,
+#clock,
+#cpu,
+#temperature,
+#network,
+#tray {
+  color: @nord4;
+  padding: 5px;
+}
+#clock.time {
+  color: @nord0;
+  background-color: @nord8;
+}
+#clock.date {
+  color: @nord0;
+  background-color: @nord8;
+}
+#custom-weather {
+  color: @nord0;
+  background-color: @nord8;
+}
+#temperature {
+  color: @nord5;
+}
+#custom-media {
+  background-color: @nord3;
+}
+#custom-theme {
+  color: @nord8;
+}
+#network {
+  color: @nord8;
+}
+#temperature {
+  color: @nord8;
+  margin-left: -2px;
+}
+#cpu {
+  color: @nord8;
+}
+#pulseaudio {
+  color: @nord7;
+  background-color: @nord0;
+}
+#tray {
+  background-color: @nord0;
+}
+#custom-notification {
+  background-color: @nord0;
+}
