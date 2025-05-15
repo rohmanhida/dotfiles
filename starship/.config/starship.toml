@@ -56,33 +56,34 @@ format = '([$all_status$ahead_behind]($style) )'
 symbol = ' '
 
 [python]
-style = 'teal'
+style = 'fg:#387eb9'
 symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
 
 [lua]
+style = 'fg:#00007d'
 symbol = ' '
 
 [nodejs]
-style = 'blue'
+style = 'fg:#8bc500'
 symbol = ' '
 
 [golang]
-style = 'blue'
+style = 'fg:#6ad7e5'
 symbol = ' '
 
 [haskell]
-style = 'blue'
+style = 'fg:#5e5086'
 symbol = ' '
 
 [rust]
-style = 'orange'
+style = 'fg:#e43717'
 symbol = ' '
 
 [ruby]
-style = 'blue'
+style = 'fg:#af0f00'
 symbol = ' '
 
 [package]
@@ -90,12 +91,12 @@ symbol = '󰏗 '
 
 [aws]
 symbol = ' '
-style = 'yellow'
+style = 'fg:#ff9900'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [docker_context]
 symbol = ' '
-style = 'fg:#06969A'
+style = 'fg:#099cec'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
@@ -111,6 +112,27 @@ min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
 
+[palettes.rosepinedawn]
+black=    '#575279'
+red=      '#b4637a'
+green=    '#56949f'
+yellow=   '#ea9d34'
+blue=     '#286983'
+white=    '#fffaf3'
+orange=   '#d7827e'
+purple=   '#907aa9'
+gray=     '#9893a5'
+
+[palettes.rosepinemoon]
+black=    '#e0def4'
+white=    '#2a273f'
+red=      '#eb6f92'
+green=    '#9ccfd8'
+yellow=   '#f6c177'
+blue=     '#3e8fb0'
+orange=   '#ea9a97'
+purple=   '#907aa9'
+gray=     '#9893a5'
 
 [palettes.everforestlightsoft]
 black=    '#5c6a72'
@@ -119,8 +141,6 @@ green=    '#8da101'
 yellow=   '#dfa000'
 blue=     '#3a94c5'
 white=    '#d8d3ba'
-dark_blue='#3f5865'
-teal=     '#83c092'
 orange=   '#e69875'
 purple=   '#d699b6'
 gray=     '#7a8478'
@@ -132,16 +152,12 @@ red=      '#e67e80'
 green=    '#a7c080'
 yellow=   '#dbbc7f'
 blue=     '#7fbbb3'
-dark_blue='#3f5865'
-teal=     '#83c092'
 orange=   '#e69875'
 purple=   '#d699b6'
 gray=     '#7a8478'
 
 [palettes.nord]
-dark_blue = '#5E81AC'
 blue = '#81A1C1'
-teal = '#88C0D0'
 red = '#BF616A'
 orange = '#D08770'
 green = '#A3BE8C'
@@ -150,16 +166,3 @@ purple = '#B48EAD'
 gray = '#434C5E'
 black = '#2E3440'
 white='#D8DEE9'
-
-[palettes.onedark]
-dark_blue='#61afef'
-blue='#56b6c2'
-red='#e06c75'
-green='#98c379'
-purple='#c678dd'
-cyan='#56b6c2'
-orange='#be5046'
-yellow='#e5c07b'
-gray='#828997'
-white ='#abb2bf'
-black='#2c323c'
