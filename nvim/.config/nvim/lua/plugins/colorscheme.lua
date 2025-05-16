@@ -27,8 +27,8 @@ return {
       vim.g.everforest_better_performance = true
       vim.g.everforest_enable_italic = true
 
-      vim.o.background = "dark"
-      vim.cmd.colorscheme("everforest")
+      vim.o.background = "light"
+      vim.cmd.colorscheme("rose-pine")
     end,
   },
 }

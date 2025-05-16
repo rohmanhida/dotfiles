@@ -6,10 +6,10 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/everforest/dark-soft.rasi"
+@import "~/.config/rofi/rose-pine/dawn.rasi"
 
 * {
-  font: "Cartograph CF 11";
+  font: "RobotoMono Nerd Font Mono 11";
   emphasis:   var(highlight);
   text:       var(foreground);
   text-alt:   #b2b2b2;

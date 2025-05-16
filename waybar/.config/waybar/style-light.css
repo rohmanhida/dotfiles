@@ -1,42 +1,34 @@
-@define-color bg_dim     #293136;
-@define-color bg0        #333c43;
-@define-color bg1        #3a464c;
-@define-color bg2        #434f55;
-@define-color bg3        #4d5960;
-@define-color bg4        #555f66;
-@define-color bg5        #5d6b66;
-@define-color bg_red     #5c3f4f;
-@define-color bg_visual  #59464c;
-@define-color bg_yellow  #55544a;
-@define-color bg_green   #48584e;
-@define-color bg_blue    #3f5865;
-@define-color red        #e67e80;
-@define-color orange     #e69875;
-@define-color yellow     #dbbc7f;
-@define-color green      #a7c080;
-@define-color blue       #7fbbb3;
-@define-color aqua       #83c092;
-@define-color purple     #d699b6;
-@define-color fg         #d3c6aa;
-@define-color statusline1 #a7c080;
-@define-color statusline2 #d3c6aa;
-@define-color statusline3 #e67e80;
-@define-color gray0      #7a8478;
-@define-color gray1      #859289;
-@define-color gray2      #9da9a0;
+@define-color base           #faf4ed;
+@define-color surface        #fffaf3;
+@define-color overlay        #f2e9e1;
+@define-color muted          #9893a5;
+@define-color subtle         #797593;
+@define-color text           #575279;
+@define-color love           #b4637a;
+@define-color gold           #ea9d34;
+@define-color rose           #d7827e;
+@define-color pine           #286983;
+@define-color foam           #56949f;
+@define-color iris           #907aa9;
+@define-color highlightlow   #f4ede8;
+@define-color highlightmed   #dfdad9;
+@define-color highlighthigh  #cecacd;
 
 * {
   border: none;
-  font-family: "Cartograph CF";
+  font-family: "RobotoMono Nerd Font Mono";
   font-size: 11;
 }
 
 window#waybar {
-  background: transparent;
   padding: 10px;
+  background: transparent;
 }
 /*-----module groups----*/
-.modules-right {
+.modules-center {
+  background-color: @base;
+  border: 1px solid @highlightlow;
+  border-radius: 5px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -44,15 +36,15 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 5px;
-  color: @nord4;
+  color: @highlightmed;
 }
 #workspaces button:hover {
-  background: linear-gradient(to bottom, @nord0, #222); /* Top to bottom gradient */
+  background: linear-gradient(to bottom, @base, @overlay); /* Top to bottom gradient */
 }
 
 #workspaces button.active {
   font-weight: bold;
-  background: @nord0;
+  background: @highligtlow;
 }
 
 #pulseaudio,
@@ -65,64 +57,43 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @nord4;
+  color: @text;
   padding: 5px;
 }
-#custom-separator1 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 11;
-  color: @nord8;
-  background-color: @nord0;
-}
-#custom-separator2 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 11;
-  color: @nord0;
-  background-color: @nord3;
-}
-#custom-separator3 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 11;
-  color: @nord3;
-  background-color: transparent;
-}
 #clock.time {
-  color: @nord0;
-  background-color: @nord8;
+  margin-right: 10px;
 }
-#clock.date {
-  color: @nord0;
-  background-color: @nord8;
+#clock.time, #tray {
+  color: @text;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
-#custom-weather {
-  color: @nord0;
-  background-color: @nord8;
+#clock.date, #custom-weather {
+  color: @text;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 #temperature {
-  color: @nord5;
+  color: @text;
 }
 #custom-media {
   background-color: @nord3;
 }
 #custom-theme {
-  color: @nord8;
+  color: @text;
 }
 #network {
-  color: @nord8;
+  color: @text;
 }
 #temperature {
-  color: @nord8;
-  background-color: transparent;
+  color: @text;
   margin-left: -2px;
 }
 #cpu {
-  color: @nord8;
+  color: @text;
 }
 #pulseaudio {
-  color: @nord7;
+  color: @text;
   background-color: @nord0;
 }
 #tray {
@@ -131,3 +102,4 @@ window#waybar {
 #custom-notification {
   background-color: @nord0;
 }
+

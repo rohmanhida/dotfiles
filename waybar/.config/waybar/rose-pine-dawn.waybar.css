@@ -25,7 +25,10 @@ window#waybar {
   background: transparent;
 }
 /*-----module groups----*/
-.modules-right {
+.modules-center {
+  background-color: @base;
+  border: 1px solid @highlightlow;
+  border-radius: 5px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -54,42 +57,43 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @nord4;
+  color: @text;
   padding: 5px;
 }
 #clock.time {
-  color: @nord0;
-  background-color: @nord8;
+  margin-right: 10px;
 }
-#clock.date {
-  color: @nord0;
-  background-color: @nord8;
+#clock.time, #tray {
+  color: @text;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
-#custom-weather {
-  color: @nord0;
-  background-color: @nord8;
+#clock.date, #custom-weather {
+  color: @text;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 #temperature {
-  color: @nord5;
+  color: @text;
 }
 #custom-media {
   background-color: @nord3;
 }
 #custom-theme {
-  color: @nord8;
+  color: @text;
 }
 #network {
-  color: @nord8;
+  color: @text;
 }
 #temperature {
-  color: @nord8;
+  color: @text;
   margin-left: -2px;
 }
 #cpu {
-  color: @nord8;
+  color: @text;
 }
 #pulseaudio {
-  color: @nord7;
+  color: @text;
   background-color: @nord0;
 }
 #tray {
@@ -98,3 +102,4 @@ window#waybar {
 #custom-notification {
   background-color: @nord0;
 }
+

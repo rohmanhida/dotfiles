@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PREFERRED_FONT="Cartograph CF"
+export PREFERRED_FONT="JetBrainsMono Nerd Font Mono"
 export PREFERRED_FONT_SIZE=11
-export PREFERRED_COLORSCHEME="everforest" # everforest, rose-pine, gruvbox, everblush, nord, catppuccin
-export TRANSPARENT=true
+export PREFERRED_COLORSCHEME="rose-pine" # everforest, rose-pine, gruvbox, everblush, nord, catppuccin
+export TRANSPARENT=false
