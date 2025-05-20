@@ -28,7 +28,7 @@
           <key>misspelling</key>
           <string>#b4637a</string>
           <key>accent</key>
-          <string>#907aa9</string>
+          <string>#286983</string>
           <key>selection</key>
           <string>#cecacd4d</string>
           <key>activeGuide</key>
@@ -82,7 +82,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#56949f</string>
+          <string>#ea9d34</string>
         </dict>
       </dict>
       <dict>
@@ -111,7 +111,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#907aa9</string>
+          <string>#286983</string>
           <key>fontStyle</key>
           <string/>
         </dict>
@@ -142,7 +142,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#907aa9</string>
+          <string>#d7827e</string>
           <key>fontStyle</key>
           <string>italic</string>
         </dict>
@@ -155,7 +155,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#ea9d34</string>
+          <string>#56949f</string>
           <key>fontStyle</key>
           <string>italic</string>
         </dict>
@@ -193,6 +193,8 @@
         <dict>
           <key>foreground</key>
           <string>#56949f</string>
+          <key>fontStyle</key>
+          <string>italic</string>
         </dict>
       </dict>
       <dict>
@@ -882,7 +884,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#575279</string>
+          <string>#56949f</string>
         </dict>
       </dict>
       <dict>
