@@ -26,9 +26,29 @@ return {
       vim.g.everforest_background = "soft"
       vim.g.everforest_better_performance = true
       vim.g.everforest_enable_italic = true
-
-      vim.o.background = "light"
-      vim.cmd.colorscheme("rose-pine")
     end,
   },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('gruvbox').setup({
+        terminal_colors = true,
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = true,
+          folds = true,
+        }
+      })
+
+      vim.o.background = "light"
+      vim.cmd.colorscheme("gruvbox")
+    end
+  }
 }

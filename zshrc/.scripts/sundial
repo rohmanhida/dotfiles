@@ -39,6 +39,9 @@ if [[ $PREFERRED_COLORSCHEME == "everforest" ]]; then
 elif [[ $PREFERRED_COLORSCHEME == "rose-pine" ]]; then
   namelight="-dawn"
   namedark="-moon"
+elif [[ $PREFERRED_COLORSCHEME == "gruvbox" ]]; then
+  namelight="-light"
+  namedark="-dark"
 fi
 
 
@@ -61,7 +64,7 @@ set_light() {
     sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namelight}.tmux.conf|" ~/.tmux.conf
     tmux source-file ~/.tmux.conf
     # nvim
-    sed -i '30s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '50s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
     # yazi
     # waypaper
@@ -111,7 +114,7 @@ set_dark() {
     sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namedark}.tmux.conf|" ~/.tmux.conf
     tmux source-file ~/.tmux.conf
     # nvim
-    sed -i '30s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '50s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
     # yazi
     # waypaper
@@ -150,7 +153,7 @@ set_font(){
   echo "changing ghostty fonts to $PREFERRED_FONT"
   # ghostty
   sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config
-  sed -i "s/^font-size *= *[0-9]\+/font-size = $PREFERRED_FONT_SIZE/" ~/.config/ghostty/config
+  sed -i "s/^font-size *= *[0-9]\+/font-size = $((PREFERRED_FONT_SIZE -1))/" ~/.config/ghostty/config
 
   echo "changing swaync fonts to $PREFERRED_FONT"
   # swaync light

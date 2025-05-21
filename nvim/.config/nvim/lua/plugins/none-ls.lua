@@ -33,7 +33,9 @@ return {
         }),
 
         -- golang (gofumpt, golangci-lint)
-        null_ls.builtins.formatting.gofumpt,
+        null_ls.builtins.formatting.gofumpt.with({
+          args
+        }),
         null_ls.builtins.diagnostics.golangci_lint.with({
           command = "golangci-lint",
           args = { "run", "--out-format", "json", "--path-prefix", vim.fn.getcwd() }

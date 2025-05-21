@@ -14,7 +14,8 @@ return {
 					"ts_ls",
 					"gopls",
 					"marksman",
-					"cssls"
+					"cssls",
+					"svelte"
 				},
 				automatic_installation = false,
 			})
@@ -59,7 +60,6 @@ return {
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
-
 			lspconfig.volar.setup({
 				capabilities = capabilities,
 			})
@@ -69,6 +69,7 @@ return {
 				capabilities = capabilities,
 				settings = {
 					gopls = {
+						gofumpt = true,
 						usePlaceholders = true,
 						completeUnimported = true,
 						staticcheck = true,
@@ -80,6 +81,11 @@ return {
 						},
 					},
 				},
+			})
+
+			-- svelte
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
 			})
 
 

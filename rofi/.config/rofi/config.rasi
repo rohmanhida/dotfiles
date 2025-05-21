@@ -6,10 +6,10 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/rose-pine/dawn.rasi"
+@import "~/.config/rofi/gruvbox/light.rasi"
 
 * {
-  font: "RobotoMono Nerd Font Mono 11";
+  font: "Liga SFMono Nerd Font Mono 10";
   emphasis:   var(highlight);
   text:       var(foreground);
   text-alt:   #b2b2b2;

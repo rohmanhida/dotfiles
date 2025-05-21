@@ -6,7 +6,7 @@ ESCAPED_FONT=$(printf '%s\n' "$PREFERRED_FONT" | sed 's/^["'\'']//;s/["'\'']$//'
 echo "changing ghostty fonts to $PREFERRED_FONT"
 # ghostty
 sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config
-sed -i "s/^font-size *= *[0-9]\+/font-size = $PREFERRED_FONT_SIZE/" ~/.config/ghostty/config
+sed -i "s/^font-size *= *[0-9]\+/font-size = $((PREFERRED_FONT_SIZE-1))/" ~/.config/ghostty/config
 
 echo "changing swaync fonts to $PREFERRED_FONT"
 # swaync light

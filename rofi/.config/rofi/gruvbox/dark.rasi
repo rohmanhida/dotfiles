@@ -1,0 +1,9 @@
+/**
+  gruvbox dark
+**/ 
+
+* {
+  background: #28282866;
+  foreground: #ebdbb2;
+  highlight: #8ec07c;
+}

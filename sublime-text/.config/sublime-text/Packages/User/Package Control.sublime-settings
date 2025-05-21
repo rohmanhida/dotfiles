@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"gruvbox",
 		"Nord",
 		"Package Control",
 		"Theme - Rose Pine",

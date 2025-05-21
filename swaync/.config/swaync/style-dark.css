@@ -1,24 +1,37 @@
-@define-color base           #232136;
-@define-color surface        #2a273f;
-@define-color overlay        #393552;
-@define-color muted          #6e6a86;
-@define-color subtle         #908caa;
-@define-color text           #e0def4;
-@define-color love           #eb6f92;
-@define-color gold           #f6c177;
-@define-color rose           #ea9a97;
-@define-color pine           #3e8fb0;
-@define-color foam           #9ccfd8;
-@define-color iris           #c4a7e7;
-@define-color highlightlow   #2a283e;
-@define-color highlightmed   #44415a;
-@define-color highlighthigh  #56526e;
+@define-color bg       #282828;
+@define-color red      #cc241d;
+@define-color red_s    #fb4934;
+@define-color green    #98971a;
+@define-color green_s  #b8bb26;
+@define-color yellow   #d79921;
+@define-color yellow_s #fabd2f;
+@define-color blue     #458588;
+@define-color blue_s   #83a598;
+@define-color purple   #b16286;
+@define-color purple_s #d3869b;
+@define-color aqua     #689d6a;
+@define-color aqua_s   #8ec07c;
+@define-color gray     #928374;
+@define-color orange   #d65d0e;
+@define-color orange_s #fe8019;
+@define-color fg       #ebdbb2;
+@define-color bg0_h    #1d2021;
+@define-color bg0_s    #32302f;
+@define-color bg1      #3c3836;
+@define-color bg2      #504945;
+@define-color bg3      #665c54;
+@define-color bg4      #7c6f64;
+@define-color fg0      #fbf1c7;
+@define-color fg1      #ebdbb2;
+@define-color fg2      #d5c4a1;
+@define-color fg3      #bdae93;
+@define-color fg4      #a89984;
 
 * {
   all: unset;
-  font-family: "RobotoMono Nerd Font Mono";
+  font-family: "Liga SFMono Nerd Font Mono";
   transition: 0.3s;
-  font-size: 11;
+  font-size: 10;
 }
 
 .floating-notifications.background .notification-row {
@@ -27,9 +40,9 @@
 
 .floating-notifications.background .notification-row .notification-background {
   border-radius: 0.5rem;
-  background-color: alpha(@base, 0.7);
-  color: @text;
-  border: 1px solid @muted;
+  background-color: alpha(@bg, 0.7);
+  color: @fg;
+  border: 1px solid @gray;
 }
 
 .floating-notifications.background
@@ -44,8 +57,8 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @muted;
-  background-color: @love;
+  border: 1px solid @red;
+  background-color: @red_s;
 }
 
 .floating-notifications.background
@@ -55,7 +68,7 @@
   .notification-content
   .summary {
   margin: 0px 0.5rem;
-  color: @text;
+  color: @fg;
   font-weight: 700;
 }
 
@@ -66,7 +79,7 @@
   .notification-content
   .body {
   margin: 0px 0.5rem;
-  color: @subtle;
+  color: @fg;
 }
 
 .floating-notifications.background
@@ -86,9 +99,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @overlay;
-  border: 1px solid @muted;
+  color: @fg;
+  background-color: @bg2;
+  border: 1px solid @green;
 }
 
 .floating-notifications.background
@@ -98,7 +111,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @surface;
+  background-color: @bg3;
 }
 
 .floating-notifications.background
@@ -108,7 +121,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @pine;
+  background-color: @green_s;
 }
 
 .floating-notifications.background
@@ -118,60 +131,60 @@
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @love;
+  color: @fg;
+  background-color: @red_s;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  color: @rose;
+  color: @fg0;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @rose;
+  background-color: @red_s;
 }
 
 .control-center {
   border-radius: 0.5rem;
   margin: 1rem;
-  background-color: alpha(@base, 0.7);
-  color: @text;
+  background-color: alpha(@bg, 0.7);
+  color: @fg;
   padding: 1rem;
-  border: 1px solid @muted;
+  border: 1px solid @green;
 }
 
 .control-center .widget-title {
-  color: @text;
+  color: @fg;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: alpha(@base, 0.7);
-  border: 1px solid @pine;
+  color: @fg;
+  background-color: alpha(@bg, 0.7);
+  border: 1px solid @green;
   padding: 0.5rem;
 }
 
 .control-center .widget-title button:hover {
-  background-color: @text;
+  background-color: @green_s;
 }
 
 .control-center .widget-title button:active {
-  background-color: @foam;
+  background-color: @green;
 }
 
 .control-center .notification-row .notification-background {
   border-radius: 0.5rem;
   margin: 0.5rem 0;
-  background-color: alpha(@base, 0.7);
-  color: @text;
-  border: 1px solid @muted;
+  background-color: alpha(@bg, 0.7);
+  color: @fg;
+  border: 1px solid @green;
 }
 
 .control-center .notification-row .notification-background .notification {
@@ -183,7 +196,7 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @muted;
+  border: 1px solid @green;
 }
 
 .control-center
@@ -191,7 +204,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: @text;
+  color: @fg;
 }
 
 .control-center
@@ -201,7 +214,7 @@
   .notification-content
   .summary {
   margin: 1rem 0.5rem 0px 0.5rem;
-  color: @text;
+  color: @fg;
   font-weight: bold;
 }
 
@@ -212,7 +225,7 @@
   .notification-content
   .body {
   margin: 0px 0.5rem 1rem 0.5rem;
-  color: @text;
+  color: @fg;
 }
 
 .control-center
@@ -232,9 +245,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @overlay;
-  border: 1px solid @muted;
+  color: @fg;
+  background-color: @bg2;
+  border: 1px solid @green;
 }
 
 .control-center
@@ -244,7 +257,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @surface;
+  background-color: @bg3;
 }
 
 .control-center
@@ -254,26 +267,26 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @pine;
+  background-color: @bg3;
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @text;
-  background-color: @love;
+  color: @fg;
+  background-color: @red;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  color: @love;
+  color: @red;
 }
 
 .control-center
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @love;
+  background-color: @red;
 }
 
 progressbar,
@@ -283,20 +296,20 @@ trough {
 }
 
 .notification.critical progress {
-  background-color: @love;
+  background-color: @red_s;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: alpha(@base, 0.7);
+  background-color: alpha(@bg, 0.7);
 }
 
 trough {
-  background-color: alpha(@base, 0.7);
+  background-color: alpha(@bg, 0.7);
 }
 
 .control-center trough {
-  background-color: alpha(@base, 0.7);
+  background-color: alpha(@bg, 0.7);
 }
 
 .control-center-dnd {
@@ -305,36 +318,36 @@ trough {
 }
 
 .control-center-dnd slider {
-  background: alpha(@base, 0.7);
+  background: alpha(@bg, 0.7);
   border-radius: 0.5rem;
 }
 
 .widget-dnd {
-  color: @text;
+  color: @fg;
 }
 
 .widget-dnd > switch {
   border-radius: 0.5rem;
-  background: @surface;
-  border: 1px solid @muted;
+  background: @bg2;
+  border: 1px solid @green;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @pine;
-  color: @text;
+  background: @green;
+  color: @fg;
 }
 
 .widget-dnd > switch slider {
-  background: alpha(@base, 0.7);
+  background: alpha(@bg, 0.7);
   border-radius: 0.5rem;
   margin: 0.25rem;
 }
 
 /* Music player */
 .widget-mpris {
-    background: @base;
+    background: @bg2;
     border-radius: 16px;
-    color: @text;
+    color: @fg;
     margin:  20px 6px;
 }
 
@@ -343,20 +356,20 @@ trough {
   background: rgba(23, 26, 32, 1);
   border-radius: 10px;
   padding: 15px 14px;
-  border: 1px solid @muted;
+  border: 1px solid @green;
 }
 
 .widget-mpris > box > button {
-  color: @text;
+  color: @fg;
   border-radius: 20px;
 }
  
 .widget-mpris button {
-  color: alpha(@text, .6);
+  color: alpha(@fg, .6);
 }
 
 .widget-mpris button:hover {
-  color: @subtle;
+  color: @yellow;
 }
 
 .widget-mpris-album-art {
@@ -365,10 +378,10 @@ trough {
  
 .widget-mpris-title {
     font-weight: 700;
-    font-size: 11;
+    font-size: 10;
 }
  
 .widget-mpris-subtitle {
     font-weight: 500;
-    font-size: 11;
+    font-size: 10;
 }
