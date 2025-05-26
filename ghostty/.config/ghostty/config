@@ -40,8 +40,8 @@
 # # Some config options have unique syntaxes for their value,
 
 # font configs
-font-family = "Liga SFMono Nerd Font Mono"
-font-size = 9
+font-family = "Adwaita Mono Nerd Font"
+font-size = 10
 
 # look and feel
 focus-follows-mouse=true

@@ -6,10 +6,10 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/gruvbox/light.rasi"
+@import "~/.config/rofi/gruvbox/dark.rasi"
 
 * {
-  font: "Liga SFMono Nerd Font Mono 10";
+  font: "Adwaita Mono Nerd Font 10";
   emphasis:   var(highlight);
   text:       var(foreground);
   text-alt:   #b2b2b2;

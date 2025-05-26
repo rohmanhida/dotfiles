@@ -252,7 +252,7 @@ if [ -n "$1" ] && [ "$1" = "manual" ]; then
 else
   # Compare current time to sunrise and sunset times
   if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
-    set_light
+    set_dark
   else
     set_dark
   fi
