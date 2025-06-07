@@ -1,0 +1,10 @@
+/**
+  nord light
+**/
+
+
+* {
+  background: #e5e9f000;
+  foreground: #3b4252;
+  highlight: #81a1c1;
+}

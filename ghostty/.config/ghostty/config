@@ -40,8 +40,8 @@
 # # Some config options have unique syntaxes for their value,
 
 # font configs
-font-family = "Adwaita Mono Nerd Font"
-font-size = 10
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 9
 
 # look and feel
 focus-follows-mouse=true
@@ -49,7 +49,7 @@ window-decoration=false
 gtk-titlebar=false
 gtk-adwaita=true
 gtk-tabs-location=hidden
-theme=dark:gruvbox-dark,light:gruvbox-light
+theme=dark:nord-dark,light:nord-light
 # background-opacity=0.2
 # background-blur=true
 # background-blur-radius=40
@@ -62,4 +62,3 @@ keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
-

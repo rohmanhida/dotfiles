@@ -3,6 +3,11 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
 
+    -- colors
+    require('fzf-lua').setup({
+      fzf_colors = true
+    })
+
     -- function to be called by keymaps
     local function grep_to_qf()
       require('fzf-lua').live_grep_glob({

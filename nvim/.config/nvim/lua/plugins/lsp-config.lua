@@ -88,6 +88,11 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- xml
+			lspconfig.lemminx.setup({
+				capabilities = capabilities,
+			})
+
 
 			-- keymaps
 			local wk = require('which-key')

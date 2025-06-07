@@ -19,7 +19,7 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = 'everforestdarksoft'
+palette = 'nordlight'
 
 [character]
 format = '$symbol '
@@ -112,6 +112,28 @@ min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
 
+[palettes.gruvboxlight]
+black=    '#ebdbb2'
+red=      '#cc241d'
+green=    '#98971a'
+yellow=   '#d79921'
+blue=     '#458588'
+white=    '#282828'
+orange=   '#d65d0e'
+purple=   '#b16286'
+gray=     '#bdae93'
+
+[palettes.gruvboxdark]
+black=    '#3c3836'
+red=      '#cc241d'
+green=    '#98971a'
+yellow=   '#d79921'
+blue=     '#458588'
+white=    '#fbf1c7'
+orange=   '#d65d0e'
+purple=   '#b16286'
+gray=     '#665c54'
+
 [palettes.rosepinedawn]
 black=    '#575279'
 red=      '#b4637a'
@@ -124,8 +146,8 @@ purple=   '#907aa9'
 gray=     '#9893a5'
 
 [palettes.rosepinemoon]
-black=    '#e0def4'
-white=    '#2a273f'
+black=    '#2a273f'
+white=    '#e0def4'
 red=      '#eb6f92'
 green=    '#9ccfd8'
 yellow=   '#f6c177'
@@ -157,6 +179,17 @@ purple=   '#d699b6'
 gray=     '#7a8478'
 
 [palettes.nord]
+blue = '#81A1C1'
+red = '#BF616A'
+orange = '#D08770'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+purple = '#B48EAD'
+gray = '#434C5E'
+black = '#2E3440'
+white='#D8DEE9'
+
+[palettes.nordlight]
 blue = '#81A1C1'
 red = '#BF616A'
 orange = '#D08770'

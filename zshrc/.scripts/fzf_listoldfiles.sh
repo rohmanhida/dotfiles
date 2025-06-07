@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Script to list recent files and open nvim using fzf
-# set to an alias nlof in .zshrc
+# set to an alias le in .zshrc
 
 list_oldfiles() {
     # Get the oldfiles list from Neovim
@@ -17,7 +17,7 @@ list_oldfiles() {
     local files=($(printf "%s\n" "${valid_files[@]}" | \
         grep -v '\[.*' | \
         fzf --multi \
-        --preview 'bat -n --color=always --theme-light="rose-pine-dawn" --theme-dark="rose-pine-moon" --line-range=:500 {} 2>/dev/null || echo "Error previewing file"' \
+        --preview 'bat --theme="nord-dark" --color=always -n --line-range=:500 {} 2>/dev/null || echo "Error previewing file"' \
         --height=70% \
         --layout=default))
 

@@ -67,6 +67,10 @@
 /home/rohmanhida/Music/BTS - Map of The Soul: 7/19 Outro- Ego.mp3
 /home/rohmanhida/Music/Rich Brian - California (feat. Warren Hue).mp3
 /home/rohmanhida/Music/Words.mp3
+/home/rohmanhida/Music/Avicii - Addicted to You.mp3
+/home/rohmanhida/Music/Avicii - Dear Boy.mp3
+/home/rohmanhida/Music/Avicii - Long Road To Hell.mp3
+/home/rohmanhida/Music/Avicii - Silhouettes (Radio Edit).mp3
 /home/rohmanhida/Music/Tally.mp3
 /home/rohmanhida/Music/BTS - Love Yourself/05 Pied Piper.mp3
 /home/rohmanhida/Music/BTS - Love Yourself/06 Skit _ Billboard Music Awards Speech.mp3

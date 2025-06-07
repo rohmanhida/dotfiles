@@ -29,7 +29,7 @@
         "on-click": "gnome-clocks"
     },
     "clock#date": {
-        "format": " 󰸗  {:%d/%m}",
+        "format": " 󰸗  {:%a %d/%m}",
         "timezone": "Asia/Jakarta",
         "tooltip": true,
         "tooltip-format": "{:%A, %d %B %Y}",

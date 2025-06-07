@@ -42,6 +42,9 @@ elif [[ $PREFERRED_COLORSCHEME == "rose-pine" ]]; then
 elif [[ $PREFERRED_COLORSCHEME == "gruvbox" ]]; then
   namelight="-light"
   namedark="-dark"
+elif [[ $PREFERRED_COLORSCHEME == "nord" ]]; then
+  namelight="-light"
+  namedark="-dark"
 fi
 
 
@@ -61,10 +64,10 @@ set_light() {
     cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
     cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
     # tmux
-    sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namelight}.tmux.conf|" ~/.tmux.conf
-    tmux source-file ~/.tmux.conf
+    sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namelight}.tmux.conf|" ~/.config/tmux/tmux.conf
+    tmux source-file ~/.config/tmux/tmux.conf
     # nvim
-    sed -i '50s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '55s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
     # yazi
     # waypaper
@@ -87,6 +90,8 @@ set_light() {
     escaped_home=$(printf '%s' "$HOME" | sed 's/[\/&]/\\&/g')
     escaped_random_file=$(printf '%s' "$random_file" | sed 's/[\/&]/\\&/g')
     sed -i "s|^\( *path *= *\).*|\1$escaped_random_file|" ~/.config/hypr/hyprlock.conf
+    # le script
+    sed -i "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}${namelight}\"|g" ~/.scripts/fzf_listoldfiles.sh
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
@@ -111,10 +116,10 @@ set_dark() {
     cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
     cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
     # tmux
-    sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namedark}.tmux.conf|" ~/.tmux.conf
-    tmux source-file ~/.tmux.conf
+    sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namedark}.tmux.conf|" ~/.config/tmux/tmux.conf
+    tmux source-file ~/.config/tmux/tmux.conf
     # nvim
-    sed -i '50s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '55s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
     # yazi
     # waypaper
@@ -137,6 +142,8 @@ set_dark() {
     escaped_home=$(printf '%s' "$HOME" | sed 's/[\/&]/\\&/g')
     escaped_random_file=$(printf '%s' "$random_file" | sed 's/[\/&]/\\&/g')
     sed -i "s|^\( *path *= *\).*|\1$escaped_random_file|" ~/.config/hypr/hyprlock.conf
+    # le script
+    sed -i "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}${namedark}\"|g" ~/.scripts/fzf_listoldfiles.sh
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
@@ -252,7 +259,7 @@ if [ -n "$1" ] && [ "$1" = "manual" ]; then
 else
   # Compare current time to sunrise and sunset times
   if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
-    set_dark
+    set_light
   else
     set_dark
   fi

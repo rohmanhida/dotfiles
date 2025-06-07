@@ -1,5 +1,10 @@
 return {
   {
+    "dupeiran001/nord.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = false,
@@ -47,8 +52,8 @@ return {
         }
       })
 
-      vim.o.background = "dark"
-      vim.cmd.colorscheme("gruvbox")
+      vim.o.background = "light"
+      vim.cmd.colorscheme("nord")
     end
   }
 }
