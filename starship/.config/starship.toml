@@ -19,33 +19,33 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = 'gruvboxdark'
+palette = 'rosepinemoon'
 
 [character]
 format = '$symbol '
-success_symbol = '[Ôê≤](green)'
-error_symbol = '[Ôê≤](red)'
-vimcmd_symbol = '[Ôë¨](gray)'
-vimcmd_replace_one_symbol = '[Ôë¨](yellow)'
-vimcmd_replace_symbol = '[Ôë¨](yellow)'
-vimcmd_visual_symbol = '[Ôë¨](purple)'
+success_symbol = '[ø](green)'
+error_symbol = '[ø](red)'
+vimcmd_symbol = '[ø](gray)'
+vimcmd_replace_one_symbol = '[ø](yellow)'
+vimcmd_replace_symbol = '[ø](yellow)'
+vimcmd_visual_symbol = '[ø](purple)'
 
 [directory]
 style = 'bold fg:fg'
 format = '[$path ]($style)'
 truncation_length = 3
-truncation_symbol = '‚Ä¶/'
+truncation_symbol = 'ø/'
 truncate_to_repo = false
 
 [directory.substitutions]
-'Documents' = 'Û∞àô'
-'Downloads' = 'ÔÄô '
-'Music' = 'ÔÄÅ '
-'Pictures' = 'ÔÄæ '
+'Documents' = 'ø '
+'Downloads' = 'ø '
+'Music' = 'ø '
+'Pictures' = 'ø '
 
 [git_branch]
 style = 'fg:green'
-symbol = 'Ôêò '
+symbol = 'ø '
 format = '[on](white) [$symbol$branch ]($style)'
 
 [git_status]
@@ -56,52 +56,53 @@ format = '([$all_status$ahead_behind]($style) )'
 symbol = ' '
 
 [python]
-style = 'teal'
-symbol = 'Óàµ '
+style = 'fg:#387eb9'
+symbol = 'ø '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
 
 [lua]
-symbol = 'Óò† '
+style = 'fg:#00007d'
+symbol = 'ø '
 
 [nodejs]
-style = 'blue'
-symbol = 'Óúò '
+style = 'fg:#8bc500'
+symbol = 'ø '
 
 [golang]
-style = 'blue'
-symbol = 'Óòß '
+style = 'fg:#6ad7e5'
+symbol = 'ø '
 
 [haskell]
-style = 'blue'
-symbol = 'Óù∑ '
+style = 'fg:#5e5086'
+symbol = 'ø '
 
 [rust]
-style = 'orange'
-symbol = 'Óû® '
+style = 'fg:#e43717'
+symbol = 'ø '
 
 [ruby]
-style = 'blue'
-symbol = 'Óûë '
+style = 'fg:#af0f00'
+symbol = 'ø '
 
 [package]
-symbol = 'Û∞èó '
+symbol = 'ø '
 
 [aws]
-symbol = 'Ôâ∞ '
-style = 'yellow'
+symbol = 'ø '
+style = 'fg:#ff9900'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [docker_context]
-symbol = 'Ôåà '
-style = 'fg:#06969A'
+symbol = 'ø '
+style = 'fg:#099cec'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
 [jobs]
-symbol = 'ÔÄì '
+symbol = 'ø '
 style = 'red'
 number_threshold = 1
 format = '[$symbol]($style)'
@@ -111,18 +112,49 @@ min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
 
+[palettes.gruvboxlight]
+black=    '#ebdbb2'
+red=      '#cc241d'
+green=    '#98971a'
+yellow=   '#d79921'
+blue=     '#458588'
+white=    '#282828'
+orange=   '#d65d0e'
+purple=   '#b16286'
+gray=     '#bdae93'
+
 [palettes.gruvboxdark]
-black=    '#282828'
-red=      '#fb4934'
-green=    '#b8bb26'
-yellow=   '#fabd2f'
-blue=     '#83a598'
+black=    '#3c3836'
+red=      '#cc241d'
+green=    '#98971a'
+yellow=   '#d79921'
+blue=     '#458588'
 white=    '#fbf1c7'
-dark_blue='#458588'
-teal=     '#8ec07c'
-orange=   '#fe8019'
-purple=   '#d3869b'
-gray=     '#928374'
+orange=   '#d65d0e'
+purple=   '#b16286'
+gray=     '#665c54'
+
+[palettes.rosepinedawn]
+black=    '#575279'
+red=      '#b4637a'
+green=    '#56949f'
+yellow=   '#ea9d34'
+blue=     '#286983'
+white=    '#fffaf3'
+orange=   '#d7827e'
+purple=   '#907aa9'
+gray=     '#9893a5'
+
+[palettes.rosepinemoon]
+black=    '#2a273f'
+white=    '#e0def4'
+red=      '#eb6f92'
+green=    '#9ccfd8'
+yellow=   '#f6c177'
+blue=     '#3e8fb0'
+orange=   '#ea9a97'
+purple=   '#907aa9'
+gray=     '#9893a5'
 
 [palettes.everforestlightsoft]
 black=    '#5c6a72'
@@ -131,8 +163,6 @@ green=    '#8da101'
 yellow=   '#dfa000'
 blue=     '#3a94c5'
 white=    '#d8d3ba'
-dark_blue='#3f5865'
-teal=     '#83c092'
 orange=   '#e69875'
 purple=   '#d699b6'
 gray=     '#7a8478'
@@ -144,16 +174,12 @@ red=      '#e67e80'
 green=    '#a7c080'
 yellow=   '#dbbc7f'
 blue=     '#7fbbb3'
-dark_blue='#3f5865'
-teal=     '#83c092'
 orange=   '#e69875'
 purple=   '#d699b6'
 gray=     '#7a8478'
 
 [palettes.nord]
-dark_blue = '#5E81AC'
 blue = '#81A1C1'
-teal = '#88C0D0'
 red = '#BF616A'
 orange = '#D08770'
 green = '#A3BE8C'
@@ -163,15 +189,13 @@ gray = '#434C5E'
 black = '#2E3440'
 white='#D8DEE9'
 
-[palettes.onedark]
-dark_blue='#61afef'
-blue='#56b6c2'
-red='#e06c75'
-green='#98c379'
-purple='#c678dd'
-cyan='#56b6c2'
-orange='#be5046'
-yellow='#e5c07b'
-gray='#828997'
-white ='#abb2bf'
-black='#2c323c'
+[palettes.nordlight]
+blue = '#81A1C1'
+red = '#BF616A'
+orange = '#D08770'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+purple = '#B48EAD'
+gray = '#434C5E'
+black = '#2E3440'
+white='#D8DEE9'

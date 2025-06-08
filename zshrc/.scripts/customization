@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PREFERRED_FONT="JetBrainsMono Nerd Font Mono"
+export PREFERRED_FONT_SIZE=10
+export PREFERRED_COLORSCHEME="rose-pine" # everforest, rose-pine, gruvbox, nord, everblush, catppuccin
+export TRANSPARENT=false

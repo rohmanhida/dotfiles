@@ -4,17 +4,27 @@ set -o vi
 # aliases
 alias n="nvim"
 alias mkdir="mkdir -p"
-# options --no-permissions
 alias ls="eza --long -a --sort=type --color=always --icons=always --no-user --no-permissions"
 alias v="vim"
 alias le="~/.scripts/fzf_listoldfiles.sh"
 alias of="~/.scripts/search_with_zoxide.sh"
 alias rt="~/.scripts/remove_transparency.sh"
 alias fman="compgen -c | fzf | xargs man"
+alias c="clear"
+alias youtube="mov-cli -s youtube"
 
-# plugins
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export FUNCNEST=100
+
+# load zgen and its plugins
+source "${HOME}/.zgen/zgen.zsh" plugins
+if ! zgen saved; then
+
+  # specify plugins here
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-autosuggestions
+
+  zgen save
+fi
 
 # history
 HISTFILE="$HOME/.zsh_history"

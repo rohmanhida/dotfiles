@@ -1,0 +1,191 @@
+#!/bin/sh
+
+# API endpoint for sunrise and sunset times
+API_URL="https://api.sunrisesunset.io/json?lat=-7.17520&lng=112.63382&time_format=24"
+
+# Fetch the sunrise and sunset times from the API
+response=$(curl -s $API_URL)
+
+# Extract sunrise and sunset times
+sunrise=$(echo $response | jq -r '.results.sunrise')
+sunset=$(echo $response | jq -r '.results.sunset')
+
+# Get the current hour
+current_time=$(date +'%H:%M:%S')
+
+time_to_seconds() {
+  local time=$1
+  echo $(gdate -d "1970-01-01 $time UTC" +%s)
+}
+
+# Convert sunrise, sunset, and current time to seconds since midnight
+sunrise_seconds=$(time_to_seconds "$sunrise")
+sunset_seconds=$(time_to_seconds "$sunset")
+current_seconds=$(time_to_seconds "$current_time")
+
+# Get current theme
+isDarkMode=$(osascript -e 'tell application "System Events" to tell appearance preferences to get dark mode')
+current_color=$(awk -F'"' '/vim\.cmd\.colorscheme/ { print $2 }' ~/.config/nvim/lua/plugins/colorscheme.lua)
+echo "current colorscheme is $current_color"
+
+# set variables for each colorschemes
+source ~/.scripts/customization
+namelight=""
+namedark=""
+echo "the preferred colorscheme is $PREFERRED_COLORSCHEME"
+if [[ $PREFERRED_COLORSCHEME == "everforest" ]]; then
+  namelight="-light-soft"
+  namedark="-dark-soft"
+elif [[ $PREFERRED_COLORSCHEME == "rose-pine" ]]; then
+  namelight="-dawn"
+  namedark="-moon"
+elif [[ $PREFERRED_COLORSCHEME == "gruvbox" ]]; then
+  namelight="-light"
+  namedark="-dark"
+elif [[ $PREFERRED_COLORSCHEME == "nord" ]]; then
+  namelight="-light"
+  namedark="-dark"
+fi
+
+echo "the variables are $PREFERRED_COLORSCHEME $namelight $namedark"
+
+# function to set things to light
+set_light() {
+  if [[ $isDarkMode == "false" && "$current_color" == "$PREFERRED_COLORSCHEME" ]]; then
+    echo "already light"
+  else
+    # bat
+    sed -i '' "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
+    sed -i '' "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config
+    # tmux
+    sed -i '' "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namelight}.tmux.conf|" ~/.config/tmux/tmux.conf
+    tmux source-file ~/.config/tmux/tmux.conf
+    # nvim
+    # Note: `55s/dark/light/g` is a line-specific substitution. Ensure line 55 is correct.
+    sed -i '' '55s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '' "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # starship
+    sed -i '' "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namelight//-/}'|" $(greadlink -f ~/.config/starship.toml)
+    # le script
+    sed -i '' "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}${namelight}\"|g" ~/.scripts/fzf_listoldfiles.sh
+    # system settings
+    osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
+    # font & transparency
+    # set_font
+    set_transparency
+  fi
+}
+
+# function to set things to dark
+set_dark() {
+  # hyprpaper
+  if [[ $isDarkMode == "true" && "$current_color" == "$PREFERRED_COLORSCHEME" ]]; then
+    echo "already dark"
+  else
+    # bat
+    sed -i '' "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
+    sed -i '' "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config
+    # tmux
+    sed -i '' "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namedark}.tmux.conf|" ~/.config/tmux/tmux.conf
+    tmux source-file ~/.config/tmux/tmux.conf
+    # nvim
+    sed -i '' '55s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '' "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # starship
+    sed -i '' "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namedark//-/}'|" $(greadlink -f ~/.config/starship.toml)
+    # le script
+    sed -i '' "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}${namedark}\"|g" ~/.scripts/fzf_listoldfiles.sh
+    # system settings
+    osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+    # font & transparency
+    # set_font
+    set_transparency
+  fi
+}
+
+# function to change fonts
+set_font(){
+  ESCAPED_FONT=$(printf '%s\n' "$PREFERRED_FONT" | sed 's/^["'\'']//;s/["'\'']$//')
+
+  echo "changing wezterm fonts to $PREFERRED_FONT"
+  # wezterm
+  sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/wezterm/wezterm.lua
+  sed -i "s/^font-size *= *[0-9]\+/font-size = $((PREFERRED_FONT_SIZE -1))/" ~/.config/wezterm/wezterm.lua
+}
+
+set_transparency() {
+  FILE="$HOME/.config/nvim/lua/plugins/transparent.lua"
+  BACKUP="$FILE.old"
+
+  if [[ $TRANSPARENT == false ]]; then
+    echo "disabling transparency..."
+    # wezterm
+    sed -i '' \
+      -e 's/^\s*\(background-opacity\s*=.*\)/# \1/' \
+      -e 's/^\s*\(background-blur\s*=.*\)/# \1/' \
+      -e 's/^\s*\(background-blur-radius\s*=.*\)/# \1/' \
+      -e 's/^\s*\(alpha-blending\s*=.*\)/# \1/' \
+      "$HOME/.config/wezterm/wezterm.lua"
+
+    # nvim
+    # Check if the file exists before renaming
+    if [ -f "$FILE" ]; then
+        mv "$FILE" "$BACKUP"
+        echo "Renamed: $FILE → $BACKUP"
+    else
+        echo "File not found: $FILE"
+    fi
+
+    # lualine
+    sed -i '' \
+    -e "/require('transparent')/{
+      /^[[:space:]]*--/!s/^\([[:space:]]*\)\(require('transparent').clear_prefix('lualine')\)/\1-- \2/
+    }" \
+    "$HOME/.config/nvim/lua/plugins/lualine.lua"
+
+  else
+    echo "enabling transparency..."
+    # wezterm
+    sed -i '' \
+      -e 's/^\s*#\s*\(background-opacity\s*=.*\)/\1/' \
+      -e 's/^\s*#\s*\(background-blur\s*=.*\)/\1/' \
+      -e 's/^\s*#\s*\(background-blur-radius\s*=.*\)/\1/' \
+      -e 's/^\s*#\s*\(alpha-blending\s*=.*\)/\1/' \
+      "$HOME/.config/wezterm/wezterm.lua"
+
+    # nvim
+    # Check if the file exists before renaming
+    if [ -f "$BACKUP" ]; then
+        mv "$BACKUP" "$FILE"
+        echo "Renamed: $BACKUP → $FILE"
+    else
+        echo "File not found: $BACKUP"
+    fi
+
+    # lualine
+    sed -i '' \
+      -e "s/^\([[:space:]]*\)--[[:space:]]*\(require('transparent').clear_prefix('lualine')\)/\1\2/" \
+      "$HOME/.config/nvim/lua/plugins/lualine.lua"
+  fi
+}
+
+if [ -z "$1" ]; then
+  echo "Argument is empty"
+else
+  echo "Argument is: $1"
+fi
+
+if [ -n "$1" ] && [ "$1" == "manual" ]; then
+  if [ "$isDarkMode" == "true" ]; then
+    set_light
+  else
+    set_dark
+  fi
+else
+  # Compare current time to sunrise and sunset times
+  if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
+    set_light
+  else
+    set_dark
+  fi
+fi
