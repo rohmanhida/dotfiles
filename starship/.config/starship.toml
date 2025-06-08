@@ -23,29 +23,29 @@ palette = 'rosepinemoon'
 
 [character]
 format = '$symbol '
-success_symbol = '[¿](green)'
-error_symbol = '[¿](red)'
-vimcmd_symbol = '[¿](gray)'
-vimcmd_replace_one_symbol = '[¿](yellow)'
-vimcmd_replace_symbol = '[¿](yellow)'
-vimcmd_visual_symbol = '[¿](purple)'
+success_symbol = '[ï²](green)'
+error_symbol = '[ï²](red)'
+vimcmd_symbol = '[ï‘¬](gray)'
+vimcmd_replace_one_symbol = '[ï‘¬](yellow)'
+vimcmd_replace_symbol = '[ï‘¬](yellow)'
+vimcmd_visual_symbol = '[ï‘¬](purple)'
 
 [directory]
 style = 'bold fg:fg'
 format = '[$path ]($style)'
 truncation_length = 3
-truncation_symbol = '¿/'
+truncation_symbol = 'â€¦/'
 truncate_to_repo = false
 
 [directory.substitutions]
-'Documents' = '¿ '
-'Downloads' = '¿ '
-'Music' = '¿ '
-'Pictures' = '¿ '
+'Documents' = 'ó°ˆ™'
+'Downloads' = 'ï€™ '
+'Music' = 'ï€ '
+'Pictures' = 'ï€¾ '
 
 [git_branch]
 style = 'fg:green'
-symbol = '¿ '
+symbol = 'ï˜ '
 format = '[on](white) [$symbol$branch ]($style)'
 
 [git_status]
@@ -57,52 +57,52 @@ symbol = ' '
 
 [python]
 style = 'fg:#387eb9'
-symbol = '¿ '
+symbol = 'îˆµ '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
 
 [lua]
 style = 'fg:#00007d'
-symbol = '¿ '
+symbol = 'î˜  '
 
 [nodejs]
 style = 'fg:#8bc500'
-symbol = '¿ '
+symbol = 'îœ˜ '
 
 [golang]
 style = 'fg:#6ad7e5'
-symbol = '¿ '
+symbol = 'î˜§ '
 
 [haskell]
 style = 'fg:#5e5086'
-symbol = '¿ '
+symbol = 'î· '
 
 [rust]
 style = 'fg:#e43717'
-symbol = '¿ '
+symbol = 'î¨ '
 
 [ruby]
 style = 'fg:#af0f00'
-symbol = '¿ '
+symbol = 'î‘ '
 
 [package]
-symbol = '¿ '
+symbol = 'ó°— '
 
 [aws]
-symbol = '¿ '
+symbol = 'ï‰° '
 style = 'fg:#ff9900'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [docker_context]
-symbol = '¿ '
+symbol = 'ïŒˆ '
 style = 'fg:#099cec'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
 [jobs]
-symbol = '¿ '
+symbol = 'ï€“ '
 style = 'red'
 number_threshold = 1
 format = '[$symbol]($style)'
