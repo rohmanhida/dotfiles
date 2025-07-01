@@ -1,0 +1,6 @@
+[Unit]
+Description=Run mail-notify script
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/mail-notify.sh

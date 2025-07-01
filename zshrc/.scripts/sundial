@@ -57,6 +57,9 @@ set_light() {
   else
     # ghostty
     sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
+    # kitty
+    cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namelight}.auto.conf > ~/.config/kitty/light-theme.auto.conf
+    cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namedark}.auto.conf > ~/.config/kitty/dark-theme.auto.conf
     # bat
     sed -i "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
     sed -i "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config
@@ -69,6 +72,8 @@ set_light() {
     # nvim
     sed -i '55s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # vim
+
     # yazi
     # waypaper
     sed -i -E "s|(folder = ~/wallpapers/)[^/]+/[^/]+|\1$PREFERRED_COLORSCHEME/${namelight:1}|" ~/.config/waypaper/config.ini
@@ -109,6 +114,9 @@ set_dark() {
   else
     # ghostty
     sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
+    # kitty
+    cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namelight}.auto.conf > ~/.config/kitty/light-theme.auto.conf
+    cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namedark}.auto.conf > ~/.config/kitty/dark-theme.auto.conf
     # bat
     sed -i "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
     sed -i "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config

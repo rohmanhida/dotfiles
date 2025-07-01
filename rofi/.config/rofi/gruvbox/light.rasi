@@ -2,9 +2,9 @@
   gruvbox light
 **/
 
-
 * {
   background: #fbf1c700;
   foreground: #3c3836;
   highlight: #427b58;
+  alt: #b57614;
 }

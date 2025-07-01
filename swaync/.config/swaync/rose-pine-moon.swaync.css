@@ -45,7 +45,8 @@
   .notification-background
   .notification.critical {
   border: 1px solid @muted;
-  background-color: @love;
+  background-color: @rose;
+  color: @base;
 }
 
 .floating-notifications.background
@@ -184,6 +185,8 @@
   .notification-background
   .notification.critical {
   border: 1px solid @muted;
+  background-color: @rose;
+  color: @base;
 }
 
 .control-center
@@ -212,7 +215,7 @@
   .notification-content
   .body {
   margin: 0px 0.5rem 1rem 0.5rem;
-  color: @text;
+  color: @subtle;
 }
 
 .control-center

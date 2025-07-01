@@ -6,4 +6,5 @@
   background: #2e344066;
   foreground: #eceff4;
   highlight: #5e81ac;
+  alt: #8fbcbb;
 }

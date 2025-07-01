@@ -1,24 +1,23 @@
-@define-color nord0  #eceff4;
-@define-color nord1  #e5e9f0;
-@define-color nord2  #d8dee9;
-@define-color nord3  #d8dee9;
-@define-color nord4  #4c566a;
-@define-color nord5  #434c5e;
-@define-color nord6  #3b4252;
-@define-color nord7  #8fbcbb;
-@define-color nord8  #88c0d0;
-@define-color nord9  #81a1c1;
-@define-color nord10 #5e81ac;
-@define-color nord11 #bf616a;
-@define-color nord12 #d08770;
-@define-color nord13 #ebcb8b;
-@define-color nord14 #a3be8c;
-@define-color nord15 #b48ead;
+@define-color base           #faf4ed;
+@define-color surface        #fffaf3;
+@define-color overlay        #f2e9e1;
+@define-color muted          #9893a5;
+@define-color subtle         #797593;
+@define-color text           #575279;
+@define-color love           #b4637a;
+@define-color gold           #ea9d34;
+@define-color rose           #d7827e;
+@define-color pine           #286983;
+@define-color foam           #56949f;
+@define-color iris           #907aa9;
+@define-color highlightlow   #f4ede8;
+@define-color highlightmed   #dfdad9;
+@define-color highlighthigh  #cecacd;
 
 * {
   border: none;
-  font-family: "Adwaita Mono Nerd Font";
-  font-size: 12px;
+  font-family: "JetBrainsMono Nerd Font Mono";
+  font-size: 10;
 }
 
 window#waybar {
@@ -27,10 +26,9 @@ window#waybar {
 }
 /*-----module groups----*/
 .modules-center {
-  background-color: @nord0;
-  border: 1px solid @nord9;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  background-color: @base;
+  border: 1px solid @highlightlow;
+  border-radius: 5px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -38,20 +36,21 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 5px;
-  color: @nord4;
+  color: @highlightmed;
 }
 #workspaces button:hover {
-  background: linear-gradient(to bottom, @nord0, @nord1); /* Top to bottom gradient */
+  background: linear-gradient(to bottom, @base, @overlay); /* Top to bottom gradient */
 }
 
 #workspaces button.active {
   font-weight: bold;
-  background: @nord9;
+  background: @highligtlow;
 }
 
 #pulseaudio,
 #custom-theme,
 #custom-media,
+#custom-mail,
 #custom-weather,
 #custom-notification,
 #clock,
@@ -59,49 +58,47 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @nord4;
+  color: @text;
   padding: 5px;
 }
-#clock.time {
-  margin-right: 10px;
-}
 #clock.time, #tray {
-  color: @nord4;
+  color: @text;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 #clock.date, #custom-weather {
-  color: @nord4;
+  color: @text;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 #temperature {
-  color: @nord4;
+  color: @text;
+}
+#custom-mail {
+  color: @text;
 }
 #custom-media {
-  background-color: @nord3;
+  color: @text;
 }
 #custom-theme {
-  color: @nord4;
+  color: @text;
 }
 #network {
-  color: @nord4;
+  color: @text;
 }
 #temperature {
-  color: @nord4;
-  margin-left: -2px;
+  color: @text;
 }
 #cpu {
-  color: @nord4;
+  color: @text;
 }
 #pulseaudio {
-  color: @nord4;
-  background-color: @nord3;
+  color: @text;
 }
 #tray {
-  padding-right: 10px;
+  color: @text;
+  margin-right: 8px;
 }
 #custom-notification {
-  background-color: @nord3;
 }
 

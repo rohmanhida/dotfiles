@@ -23,7 +23,7 @@
 * {
   border: none;
   font-family: "Liga SFMono Nerd Font";
-  font-size: 12;
+  font-size: 10;
 }
 
 window#waybar {
@@ -31,7 +31,11 @@ window#waybar {
   padding: 10px;
 }
 /*-----module groups----*/
-.modules-right {
+.modules-center {
+  background-color: @bg0_s;
+  border: 1px solid @bg1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -39,15 +43,15 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 5px;
-  color: @nord4;
+  color: @fg0;
 }
 #workspaces button:hover {
-  background: linear-gradient(to bottom, @nord0, #222); /* Top to bottom gradient */
+  background: linear-gradient(to bottom, @bg1, @bg2); /* Top to bottom gradient */
 }
 
 #workspaces button.active {
   font-weight: bold;
-  background: @nord0;
+  background: @bg0_s;
 }
 
 #pulseaudio,
@@ -60,69 +64,41 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @nord4;
+  color: @fg0;
   padding: 5px;
 }
-#custom-separator1 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 12;
-  color: @nord8;
-  background-color: @nord0;
+#clock.time #tray {
+  color: @fg0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
-#custom-separator2 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 12;
-  color: @nord0;
-  background-color: @nord3;
-}
-#custom-separator3 {
-  margin-top: -12px;
-  margin-bottom: -10px;
-  font-size: 12;
-  color: @nord3;
-  background-color: transparent;
-}
-#clock.time {
-  color: @nord0;
-  background-color: @nord8;
-}
-#clock.date {
-  color: @nord0;
-  background-color: @nord8;
-}
-#custom-weather {
-  color: @nord0;
-  background-color: @nord8;
-}
-#temperature {
-  color: @nord5;
+#clock.date #custom-weather {
+  color: @fg0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 #custom-media {
-  background-color: @nord3;
+  color: @fg0;
 }
 #custom-theme {
-  color: @nord8;
+  color: @fg0;
 }
 #network {
-  color: @nord8;
+  color: @fg0;
 }
 #temperature {
-  color: @nord8;
-  background-color: transparent;
-  margin-left: -2px;
+  color: @fg0;
 }
 #cpu {
-  color: @nord8;
+  color: @fg0;
 }
 #pulseaudio {
-  color: @nord7;
-  background-color: @nord0;
+  color: @fg0;
 }
 #tray {
-  background-color: @nord0;
+  color: @fg0;
+  margin-right: 8px;
 }
 #custom-notification {
-  background-color: @nord0;
+  color: @fg0;
 }

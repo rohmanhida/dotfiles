@@ -11,7 +11,7 @@ alias of="~/.scripts/search_with_zoxide.sh"
 alias fman="compgen -c | fzf | xargs man"
 alias c="clear"
 alias youtube="mov-cli -s youtube"
-alias capture='tmux has-session -t capture 2>/dev/null && tmux attach-session -t capture || tmux new-session -d -s capture '\''ffplay -f v4l2 -framerate 60 -input_format mjpeg -i "/dev/video2" -vf "setpts=N/(60*TB)"'\'' \; split-window -h '\''ffplay -f pulse -i "alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo"'\'' \; attach'
+alias capture='tmux has-session -t capture 2>/dev/null && tmux attach-session -t capture || tmux new-session -d -s capture '\''ffplay -f v4l2 -framerate 60 -input_format mjpeg -i "/dev/video2" -vf "setpts=N/(60*TB)"'\'' \; split-window -h '\''ffplay -f alsa -i hw:CARD=4,DEV=0 '\'' \; attach'
 
 export FUNCNEST=100
 

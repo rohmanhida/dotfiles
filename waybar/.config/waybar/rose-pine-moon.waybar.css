@@ -50,6 +50,7 @@ window#waybar {
 #pulseaudio,
 #custom-theme,
 #custom-media,
+#custom-mail,
 #custom-weather,
 #custom-notification,
 #clock,
@@ -60,7 +61,7 @@ window#waybar {
   color: @text;
   padding: 5px;
 }
-#clock.time {
+#pulseaudio {
   margin-right: 10px;
 }
 #clock.time, #tray {
@@ -76,8 +77,11 @@ window#waybar {
 #temperature {
   color: @text;
 }
+#custom-mail {
+  color: @text;
+}
 #custom-media {
-  background-color: @nord3;
+  color: @text;
 }
 #custom-theme {
   color: @text;
@@ -87,19 +91,17 @@ window#waybar {
 }
 #temperature {
   color: @text;
-  margin-left: -2px;
 }
 #cpu {
   color: @text;
 }
 #pulseaudio {
   color: @text;
-  background-color: @nord0;
 }
 #tray {
-  background-color: @nord0;
+  color: @text;
+  margin-right: 8px;
 }
 #custom-notification {
-  background-color: @nord0;
 }
 

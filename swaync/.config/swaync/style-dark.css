@@ -1,23 +1,22 @@
-@define-color nord0  #2e3440;
-@define-color nord1  #3b4252;
-@define-color nord2  #434c5e;
-@define-color nord3  #4c566a;
-@define-color nord4  #d8dee9;
-@define-color nord5  #e5e9f0;
-@define-color nord6  #eceff4;
-@define-color nord7  #8fbcbb;
-@define-color nord8  #88c0d0;
-@define-color nord9  #81a1c1;
-@define-color nord10 #5e81ac;
-@define-color nord11 #bf616a;
-@define-color nord12 #d08770;
-@define-color nord13 #ebcb8b;
-@define-color nord14 #a3be8c;
-@define-color nord15 #b48ead;
+@define-color base           #232136;
+@define-color surface        #2a273f;
+@define-color overlay        #393552;
+@define-color muted          #6e6a86;
+@define-color subtle         #908caa;
+@define-color text           #e0def4;
+@define-color love           #eb6f92;
+@define-color gold           #f6c177;
+@define-color rose           #ea9a97;
+@define-color pine           #3e8fb0;
+@define-color foam           #9ccfd8;
+@define-color iris           #c4a7e7;
+@define-color highlightlow   #2a283e;
+@define-color highlightmed   #44415a;
+@define-color highlighthigh  #56526e;
 
 * {
   all: unset;
-  font-family: "Adwaita Mono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font Mono";
   transition: 0.3s;
   font-size: 10;
 }
@@ -28,9 +27,9 @@
 
 .floating-notifications.background .notification-row .notification-background {
   border-radius: 0.5rem;
-  background-color: alpha(@nord0, 0.7);
-  color: @nord0;
-  border: 1px solid @nord3;
+  background-color: alpha(@base, 0.7);
+  color: @text;
+  border: 1px solid @muted;
 }
 
 .floating-notifications.background
@@ -45,8 +44,9 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @nord11;
-  background-color: @nord11;
+  border: 1px solid @muted;
+  background-color: @rose;
+  color: @base;
 }
 
 .floating-notifications.background
@@ -56,7 +56,7 @@
   .notification-content
   .summary {
   margin: 0px 0.5rem;
-  color: @nord4;
+  color: @text;
   font-weight: 700;
 }
 
@@ -67,7 +67,7 @@
   .notification-content
   .body {
   margin: 0px 0.5rem;
-  color: @nord4;
+  color: @subtle;
 }
 
 .floating-notifications.background
@@ -87,9 +87,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @nord4;
-  background-color: @nord1;
-  border: 1px solid @nord3;
+  color: @text;
+  background-color: @overlay;
+  border: 1px solid @muted;
 }
 
 .floating-notifications.background
@@ -99,7 +99,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @nord1;
+  background-color: @surface;
 }
 
 .floating-notifications.background
@@ -109,7 +109,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @nord9;
+  background-color: @pine;
 }
 
 .floating-notifications.background
@@ -119,60 +119,60 @@
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @nord4;
-  background-color: @nord11;
+  color: @text;
+  background-color: @love;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  color: @nord4;
+  color: @rose;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @nord11;
+  background-color: @rose;
 }
 
 .control-center {
   border-radius: 0.5rem;
   margin: 1rem;
-  background-color: alpha(@nord0, 0.7);
-  color: @nord4;
+  background-color: alpha(@base, 0.7);
+  color: @text;
   padding: 1rem;
-  border: 1px solid @nord3;
+  border: 1px solid @muted;
 }
 
 .control-center .widget-title {
-  color: @nord4;
+  color: @text;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
   border-radius: 0.5rem;
-  color: @nord4;
-  background-color: alpha(@nord0, 0.7);
-  border: 1px solid @nord3;
+  color: @text;
+  background-color: alpha(@base, 0.7);
+  border: 1px solid @pine;
   padding: 0.5rem;
 }
 
 .control-center .widget-title button:hover {
-  background-color: @nord9;
+  background-color: @text;
 }
 
 .control-center .widget-title button:active {
-  background-color: @nord9;
+  background-color: @foam;
 }
 
 .control-center .notification-row .notification-background {
   border-radius: 0.5rem;
   margin: 0.5rem 0;
-  background-color: alpha(@nord0, 0.7);
-  color: @nord4;
-  border: 1px solid @nord3;
+  background-color: alpha(@base, 0.7);
+  color: @text;
+  border: 1px solid @muted;
 }
 
 .control-center .notification-row .notification-background .notification {
@@ -184,7 +184,9 @@
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @nord3;
+  border: 1px solid @muted;
+  background-color: @rose;
+  color: @base;
 }
 
 .control-center
@@ -192,7 +194,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: @nord4;
+  color: @text;
 }
 
 .control-center
@@ -202,7 +204,7 @@
   .notification-content
   .summary {
   margin: 1rem 0.5rem 0px 0.5rem;
-  color: @nord4;
+  color: @text;
   font-weight: bold;
 }
 
@@ -213,7 +215,7 @@
   .notification-content
   .body {
   margin: 0px 0.5rem 1rem 0.5rem;
-  color: @nord4;
+  color: @subtle;
 }
 
 .control-center
@@ -233,9 +235,9 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  color: @nord4;
-  background-color: @nord0;
-  border: 1px solid @nord3;
+  color: @text;
+  background-color: @overlay;
+  border: 1px solid @muted;
 }
 
 .control-center
@@ -245,7 +247,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @nord1;
+  background-color: @surface;
 }
 
 .control-center
@@ -255,26 +257,26 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @nord9;
+  background-color: @pine;
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @nord4;
-  background-color: @nord11;
+  color: @text;
+  background-color: @love;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  color: @nord11;
+  color: @love;
 }
 
 .control-center
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @nord11;
+  background-color: @love;
 }
 
 progressbar,
@@ -284,20 +286,20 @@ trough {
 }
 
 .notification.critical progress {
-  background-color: @nord11;
+  background-color: @love;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: alpha(@nord0, 0.7);
+  background-color: alpha(@base, 0.7);
 }
 
 trough {
-  background-color: alpha(@nord0, 0.7);
+  background-color: alpha(@base, 0.7);
 }
 
 .control-center trough {
-  background-color: alpha(@nord0, 0.7);
+  background-color: alpha(@base, 0.7);
 }
 
 .control-center-dnd {
@@ -306,36 +308,36 @@ trough {
 }
 
 .control-center-dnd slider {
-  background: alpha(@nord0, 0.7);
+  background: alpha(@base, 0.7);
   border-radius: 0.5rem;
 }
 
 .widget-dnd {
-  color: @nord4;
+  color: @text;
 }
 
 .widget-dnd > switch {
   border-radius: 0.5rem;
-  background: @nord2;
-  border: 1px solid @nord9;
+  background: @surface;
+  border: 1px solid @muted;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @nord9;
-  color: @nord4;
+  background: @pine;
+  color: @text;
 }
 
 .widget-dnd > switch slider {
-  background: alpha(@nord0, 0.7);
+  background: alpha(@base, 0.7);
   border-radius: 0.5rem;
   margin: 0.25rem;
 }
 
 /* Music player */
 .widget-mpris {
-    background: @nord1;
+    background: @base;
     border-radius: 16px;
-    color: @nord4;
+    color: @text;
     margin:  20px 6px;
 }
 
@@ -344,20 +346,20 @@ trough {
   background: rgba(23, 26, 32, 1);
   border-radius: 10px;
   padding: 15px 14px;
-  border: 1px solid @nord9;
+  border: 1px solid @muted;
 }
 
 .widget-mpris > box > button {
-  color: @nord4;
+  color: @text;
   border-radius: 20px;
 }
  
 .widget-mpris button {
-  color: alpha(@nord4, .6);
+  color: alpha(@text, .6);
 }
 
 .widget-mpris button:hover {
-  color: @nord3;
+  color: @subtle;
 }
 
 .widget-mpris-album-art {

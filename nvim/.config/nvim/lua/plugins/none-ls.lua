@@ -40,8 +40,14 @@ return {
           command = "golangci-lint",
           args = { "run", "--out-format", "json", "--path-prefix", vim.fn.getcwd() }
         }),
+
+        -- python
+        null_ls.builtins.formatting.yapf.with({
+          extra_args = { "--style", "{ based_on_style: google, indent_width: 2 }"}
+        })
       },
     })
+
     vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format" })
   end,
 }

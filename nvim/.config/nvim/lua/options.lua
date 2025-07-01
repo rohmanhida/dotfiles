@@ -58,3 +58,13 @@ vim.diagnostic.config({
   },
 })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = '[E]rror' })
+
+-- Check if colorscheme is nord and background is light
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "nord",
+  callback = function()
+    if vim.o.background == "light" then
+      vim.api.nvim_set_hl(0, "Visual", { bg = "#c5cbd8" })
+    end
+  end,
+})

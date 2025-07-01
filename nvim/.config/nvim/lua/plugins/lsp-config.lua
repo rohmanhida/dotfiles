@@ -15,7 +15,8 @@ return {
 					"gopls",
 					"marksman",
 					"cssls",
-					"svelte"
+					"svelte",
+					"pyright"
 				},
 				automatic_installation = false,
 			})
@@ -85,6 +86,11 @@ return {
 
 			-- svelte
 			lspconfig.svelte.setup({
+				capabilities = capabilities,
+			})
+
+			-- python
+			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
 

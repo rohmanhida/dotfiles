@@ -1,12 +1,17 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "bottom", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    "spacing": 0, // Gaps between modules (4px)
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": false,
+    "margin-top": 8,
     "modules-center": [
         "clock#date",
         "clock#time",
+        "pulseaudio",
         "custom/weather",
+        "custom/mail",
         "tray"
     ],
     "custom/weather": {
@@ -64,6 +69,19 @@
         "on-click": "playerctl play-pause",
         "max-length": 35,
     },
+    "custom/mail": {
+        "format": "{icon} {text}",
+        "format-icons": {
+            "unread": "📬",
+            "none": "📭"
+        },
+        "return-type": "json",
+        "escape": true,
+        "interval": 300,
+        "tooltip": true,
+        "exec": "~/.scripts/mail-count.sh",
+        "on-click": "thunderbird",
+    },
     "custom/theme": {
         "format": "{}",
         "interval": 1,
@@ -73,8 +91,8 @@
         "max-length": 35,
     },
     "pulseaudio": {
-        // "format": "{volume}% {icon} {format_source}",
-        "format": "{volume}% {icon}",
+        "format": "{icon} {volume}% {format_source}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

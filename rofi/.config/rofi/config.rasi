@@ -6,7 +6,7 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/nord/light.rasi"
+@import "~/.config/rofi/rose-pine/dawn.rasi"
 
 * {
   font: "JetBrainsMono Nerd Font Mono 10";
@@ -67,17 +67,22 @@ element-text {
   highlight: @emphasis;
 }
 
-element normal normal, element selected normal, element alternate normal {
+element normal normal, element alternate normal {
   text-color: @text;
   background-color: transparent;
 }
 
-element normal urgent, element selected urgent, element alternate urgent {
+element selected normal, element selected urgent, element selected active {
+  text-color: @alt;
+  background-color: transparent;
+}
+
+element normal urgent, element alternate urgent {
   text-color: @text;
   background-color: transparent;
 }
 
-element normal active, element selected active, element alternate active {
+element normal active, element alternate active {
   text-color: @text;
   background-color: transparent;
 }

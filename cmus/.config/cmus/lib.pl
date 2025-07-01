@@ -6,6 +6,7 @@
 /home/rohmanhida/Music/BTS - Piano/kygo for what it’s worth.mp3
 /home/rohmanhida/Music/LANY/LANY - BRB.mp3
 /home/rohmanhida/Music/LANY/LANY - Kiss.mp3
+/home/rohmanhida/Music/Maher Zain Harris J - Qalbi Fil Madinah.mp3
 /home/rohmanhida/Music/BTS - Love Yourself: Tear/01 Intro _ Singularity.mp3
 /home/rohmanhida/Music/BTS - Love Yourself: Tear/02 FAKE LOVE.mp3
 /home/rohmanhida/Music/BTS - Love Yourself: Tear/03 전하지 못한 진심 (Feat. Steve Aoki).mp3

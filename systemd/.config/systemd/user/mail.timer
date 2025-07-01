@@ -1,0 +1,10 @@
+[Unit]
+Description=Run mail-notify every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=mail.service
+
+[Install]
+WantedBy=default.target
