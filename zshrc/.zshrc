@@ -16,8 +16,8 @@ alias capture='tmux has-session -t capture 2>/dev/null && tmux attach-session -t
 export FUNCNEST=100
 
 # plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # history
 HISTFILE="$HOME/.zsh_history"
@@ -53,3 +53,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # my scripts
 export PATH="/home/rohmanhida/.scripts:$PATH"
+export VISUAL=nvim
+export EDITOR=nvim

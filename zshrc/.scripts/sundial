@@ -81,7 +81,7 @@ set_light() {
     # rofi
     sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namelight:1}.rasi\"|" ~/.config/rofi/config.rasi
     # hyprland
-    sed -i "s|source = ~/.config/hypr/.*\.conf|source = ~/.config/hypr/${PREFERRED_COLORSCHEME}${namelight}.conf|" ~/.config/hypr/hyprland.conf
+    sed -i "s|source = ~/.config/hypr/colors/.*\.conf|source = ~/.config/hypr/colors/${PREFERRED_COLORSCHEME}${namelight}.conf|" ~/.config/hypr/hyprland.conf
     # starship
     sed -i "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namelight//-/}'|" ~/.config/starship.toml
     # swaync
@@ -136,7 +136,7 @@ set_dark() {
     # rofi
     sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namedark:1}.rasi\"|" ~/.config/rofi/config.rasi
     # hyprland
-    sed -i "s|source = ~/.config/hypr/.*\.conf|source = ~/.config/hypr/${PREFERRED_COLORSCHEME}${namedark}.conf|" ~/.config/hypr/hyprland.conf
+    sed -i "s|source = ~/.config/hypr/colors/.*\.conf|source = ~/.config/hypr/colors/${PREFERRED_COLORSCHEME}${namedark}.conf|" ~/.config/hypr/hyprland.conf
     # starship
     sed -i "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namedark//-/}'|" ~/.config/starship.toml
     # swaync

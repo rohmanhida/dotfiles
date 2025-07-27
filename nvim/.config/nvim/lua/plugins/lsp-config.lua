@@ -99,6 +99,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.qmlls.setup({
+				capabilities = capabilities,
+			})
+
 
 			-- keymaps
 			local wk = require('which-key')

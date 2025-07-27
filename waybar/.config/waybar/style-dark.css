@@ -1,18 +1,24 @@
-@define-color base           #232136;
-@define-color surface        #2a273f;
-@define-color overlay        #393552;
-@define-color muted          #6e6a86;
-@define-color subtle         #908caa;
-@define-color text           #e0def4;
-@define-color love           #eb6f92;
-@define-color gold           #f6c177;
-@define-color rose           #ea9a97;
-@define-color pine           #3e8fb0;
-@define-color foam           #9ccfd8;
-@define-color iris           #c4a7e7;
-@define-color highlightlow   #2a283e;
-@define-color highlightmed   #44415a;
-@define-color highlighthigh  #56526e;
+@define-color bg      #282828;
+@define-color red     #cc241d;
+@define-color green   #98971a;
+@define-color yellow  #d79921;
+@define-color blue    #458588;
+@define-color purple  #b16286;
+@define-color aqua    #689d6a;
+@define-color gray    #928374;
+@define-color orange  #d65d0e;
+@define-color fg      #ebdbb2;
+@define-color bg0_h   #1d2021;
+@define-color bg0_s   #32302f;
+@define-color bg1     #3c3836;
+@define-color bg2     #504945;
+@define-color bg3     #665c54;
+@define-color bg4     #7c6f64;
+@define-color fg0     #fbf1c7;
+@define-color fg1     #ebdbb2;
+@define-color fg2     #d5c4a1;
+@define-color fg3     #bdae93;
+@define-color fg4     #a89984;
 
 * {
   border: none;
@@ -21,14 +27,15 @@
 }
 
 window#waybar {
-  padding: 10px;
   background: transparent;
+  padding: 10px;
 }
 /*-----module groups----*/
 .modules-center {
-  background-color: @base;
-  border: 1px solid @highlightlow;
-  border-radius: 5px;
+  background-color: @bg0_s;
+  border: 1px solid @bg1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 /*-----modules indv----*/
 #workspaces {
@@ -36,21 +43,20 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 5px;
-  color: @highlightmed;
+  color: @fg0;
 }
 #workspaces button:hover {
-  background: linear-gradient(to bottom, @base, @overlay); /* Top to bottom gradient */
+  background: linear-gradient(to bottom, @bg1, @bg2); /* Top to bottom gradient */
 }
 
 #workspaces button.active {
   font-weight: bold;
-  background: @highligtlow;
+  background: @bg0_s;
 }
 
 #pulseaudio,
 #custom-theme,
 #custom-media,
-#custom-mail,
 #custom-weather,
 #custom-notification,
 #clock,
@@ -58,50 +64,41 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @text;
+  color: @fg0;
   padding: 5px;
 }
-#pulseaudio {
-  margin-right: 10px;
-}
-#clock.time, #tray {
-  color: @text;
+#clock.time #tray {
+  color: @fg0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-#clock.date, #custom-weather {
-  color: @text;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-#temperature {
-  color: @text;
-}
-#custom-mail {
-  color: @text;
+#clock.date #custom-weather {
+  color: @fg0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 #custom-media {
-  color: @text;
+  color: @fg0;
 }
 #custom-theme {
-  color: @text;
+  color: @fg0;
 }
 #network {
-  color: @text;
+  color: @fg0;
 }
 #temperature {
-  color: @text;
+  color: @fg0;
 }
 #cpu {
-  color: @text;
+  color: @fg0;
 }
 #pulseaudio {
-  color: @text;
+  color: @fg0;
 }
 #tray {
-  color: @text;
+  color: @fg0;
   margin-right: 8px;
 }
 #custom-notification {
+  color: @fg0;
 }
-

@@ -17,7 +17,7 @@ list_oldfiles() {
     local files=($(printf "%s\n" "${valid_files[@]}" | \
         grep -v '\[.*' | \
         fzf --multi \
-        --preview 'bat --theme="rose-pine-dawn" --color=always -n --line-range=:500 {} 2>/dev/null || echo "Error previewing file"' \
+        --preview 'bat --theme="gruvbox-dark" --color=always -n --line-range=:500 {} 2>/dev/null || echo "Error previewing file"' \
         --height=70% \
         --layout=default))
 

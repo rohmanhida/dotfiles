@@ -6,7 +6,7 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/rose-pine/dawn.rasi"
+@import "~/.config/rofi/gruvbox/dark.rasi"
 
 * {
   font: "JetBrainsMono Nerd Font Mono 10";

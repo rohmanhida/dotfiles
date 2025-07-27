@@ -52,8 +52,8 @@ return {
         }
       })
 
-      vim.o.background = "light"
-      vim.cmd.colorscheme("rose-pine")
+      vim.o.background = "dark"
+      vim.cmd.colorscheme("gruvbox")
       -- vim.api.nvim_set_hl(0, "Visual", { bg = "#c5cbd8" })
     end
   }
