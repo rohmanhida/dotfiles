@@ -4,7 +4,7 @@
 
 
 * {
-  background: #e5e9f000;
+  background: #e5e9f0aa;
   foreground: #3b4252;
   highlight: #81a1c1;
   alt: #8fbcbb;

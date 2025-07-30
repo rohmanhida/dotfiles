@@ -6,7 +6,7 @@
  * User: ZEDGR
  ***********************************************/
 
-@import "~/.config/rofi/gruvbox/dark.rasi"
+@import "~/.config/rofi/everforest/dark-soft.rasi"
 
 * {
   font: "JetBrainsMono Nerd Font Mono 10";

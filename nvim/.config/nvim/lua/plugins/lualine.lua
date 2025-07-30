@@ -15,7 +15,7 @@ return {
 		require("lualine").setup({
 			options = {
 				-- theme = require "catppuccin.utils.lualine" "latte",
-				theme = "auto",
+				theme = "pywal16-nvim",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "neo-tree" },
@@ -55,6 +55,6 @@ return {
 				lualine_z = { { "branch", icon = "" } },
 			},
 		})
-		require('transparent').clear_prefix('lualine')
+		-- require('transparent').clear_prefix('lualine')
 	end,
 }

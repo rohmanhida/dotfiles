@@ -3,6 +3,7 @@ set -o vi
 
 # aliases
 alias n="nvim"
+alias nf="nvim ."
 alias mkdir="mkdir -p"
 alias ls="eza --long -a --sort=type --color=always --icons=always --no-user --no-permissions"
 alias v="vim"
@@ -55,3 +56,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/home/rohmanhida/.scripts:$PATH"
 export VISUAL=nvim
 export EDITOR=nvim
+
+# pywal
+#(cat ~/.cache/wal/sequences &)
+#source ~/.cache/wal/colors-tty.sh

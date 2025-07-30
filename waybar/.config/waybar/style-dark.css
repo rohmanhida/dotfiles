@@ -1,24 +1,29 @@
-@define-color bg      #282828;
-@define-color red     #cc241d;
-@define-color green   #98971a;
-@define-color yellow  #d79921;
-@define-color blue    #458588;
-@define-color purple  #b16286;
-@define-color aqua    #689d6a;
-@define-color gray    #928374;
-@define-color orange  #d65d0e;
-@define-color fg      #ebdbb2;
-@define-color bg0_h   #1d2021;
-@define-color bg0_s   #32302f;
-@define-color bg1     #3c3836;
-@define-color bg2     #504945;
-@define-color bg3     #665c54;
-@define-color bg4     #7c6f64;
-@define-color fg0     #fbf1c7;
-@define-color fg1     #ebdbb2;
-@define-color fg2     #d5c4a1;
-@define-color fg3     #bdae93;
-@define-color fg4     #a89984;
+@define-color bg_dim     #293136;
+@define-color bg0        #333c43;
+@define-color bg1        #3a464c;
+@define-color bg2        #434f55;
+@define-color bg3        #4d5960;
+@define-color bg4        #555f66;
+@define-color bg5        #5d6b66;
+@define-color bg_red     #5c3f4f;
+@define-color bg_visual  #59464c;
+@define-color bg_yellow  #55544a;
+@define-color bg_green   #48584e;
+@define-color bg_blue    #3f5865;
+@define-color red        #e67e80;
+@define-color orange     #e69875;
+@define-color yellow     #dbbc7f;
+@define-color green      #a7c080;
+@define-color blue       #7fbbb3;
+@define-color aqua       #83c092;
+@define-color purple     #d699b6;
+@define-color fg         #d3c6aa;
+@define-color statusline1 #a7c080;
+@define-color statusline2 #d3c6aa;
+@define-color statusline3 #e67e80;
+@define-color gray0      #7a8478;
+@define-color gray1      #859289;
+@define-color gray2      #9da9a0;
 
 * {
   border: none;
@@ -31,11 +36,7 @@ window#waybar {
   padding: 10px;
 }
 /*-----module groups----*/
-.modules-center {
-  background-color: @bg0_s;
-  border: 1px solid @bg1;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+.modules-right {
 }
 /*-----modules indv----*/
 #workspaces {
@@ -43,15 +44,15 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 5px;
-  color: @fg0;
+  color: @nord4;
 }
 #workspaces button:hover {
-  background: linear-gradient(to bottom, @bg1, @bg2); /* Top to bottom gradient */
+  background: linear-gradient(to bottom, @nord0, #222); /* Top to bottom gradient */
 }
 
 #workspaces button.active {
   font-weight: bold;
-  background: @bg0_s;
+  background: @nord0;
 }
 
 #pulseaudio,
@@ -64,41 +65,69 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-  color: @fg0;
+  color: @nord4;
   padding: 5px;
 }
-#clock.time #tray {
-  color: @fg0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+#custom-separator1 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 10;
+  color: @nord8;
+  background-color: @nord0;
 }
-#clock.date #custom-weather {
-  color: @fg0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+#custom-separator2 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 10;
+  color: @nord0;
+  background-color: @nord3;
 }
-#custom-media {
-  color: @fg0;
+#custom-separator3 {
+  margin-top: -12px;
+  margin-bottom: -10px;
+  font-size: 10;
+  color: @nord3;
+  background-color: transparent;
 }
-#custom-theme {
-  color: @fg0;
+#clock.time {
+  color: @nord0;
+  background-color: @nord8;
 }
-#network {
-  color: @fg0;
+#clock.date {
+  color: @nord0;
+  background-color: @nord8;
+}
+#custom-weather {
+  color: @nord0;
+  background-color: @nord8;
 }
 #temperature {
-  color: @fg0;
+  color: @nord5;
+}
+#custom-media {
+  background-color: @nord3;
+}
+#custom-theme {
+  color: @nord8;
+}
+#network {
+  color: @nord8;
+}
+#temperature {
+  color: @nord8;
+  background-color: transparent;
+  margin-left: -2px;
 }
 #cpu {
-  color: @fg0;
+  color: @nord8;
 }
 #pulseaudio {
-  color: @fg0;
+  color: @nord7;
+  background-color: @nord0;
 }
 #tray {
-  color: @fg0;
-  margin-right: 8px;
+  background-color: @nord0;
 }
 #custom-notification {
-  color: @fg0;
+  background-color: @nord0;
 }

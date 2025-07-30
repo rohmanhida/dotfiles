@@ -26,6 +26,7 @@ current_seconds=$(time_to_seconds "$current_time")
 # Get current theme
 current=$(gsettings get org.gnome.desktop.interface color-scheme | tr -d "'")
 current_color=$(awk -F'"' '/vim\.cmd\.colorscheme/ { print $2 }' ~/.config/nvim/lua/plugins/colorscheme.lua)
+current_color=$(echo "$current_color" | sed 's/[0-9]//g')
 echo "current colorscheme is $current_color"
 
 # set variables for each colorschemes
@@ -45,6 +46,9 @@ elif [[ $PREFERRED_COLORSCHEME == "gruvbox" ]]; then
 elif [[ $PREFERRED_COLORSCHEME == "nord" ]]; then
   namelight="-light"
   namedark="-dark"
+elif [[ $PREFERRED_COLORSCHEME == "pywal" ]]; then
+  namelight=""
+  namedark=""
 fi
 
 
@@ -56,7 +60,7 @@ set_light() {
     echo "already light"
   else
     # ghostty
-    sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
+    # sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
     # kitty
     cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namelight}.auto.conf > ~/.config/kitty/light-theme.auto.conf
     cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namedark}.auto.conf > ~/.config/kitty/dark-theme.auto.conf
@@ -64,31 +68,32 @@ set_light() {
     sed -i "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
     sed -i "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config
     # waybar
-    cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
-    cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
+    # cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
+    # cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
     # tmux
     sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namelight}.tmux.conf|" ~/.config/tmux/tmux.conf
     tmux source-file ~/.config/tmux/tmux.conf
     # nvim
-    sed -i '55s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '64s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i 's/theme = "pywal16-nvim",/theme = "auto",/' ~/.config/nvim/lua/plugins/lualine.lua
     # vim
-
     # yazi
     # waypaper
+    sed -i 's/^post_command = .*/post_command = /' ~/.config/waypaper/config.ini
     sed -i -E "s|(folder = ~/wallpapers/)[^/]+/[^/]+|\1$PREFERRED_COLORSCHEME/${namelight:1}|" ~/.config/waypaper/config.ini
     waypaper --random
     # rofi
-    sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namelight:1}.rasi\"|" ~/.config/rofi/config.rasi
+    # sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namelight:1}.rasi\"|" ~/.config/rofi/config.rasi
     # hyprland
     sed -i "s|source = ~/.config/hypr/colors/.*\.conf|source = ~/.config/hypr/colors/${PREFERRED_COLORSCHEME}${namelight}.conf|" ~/.config/hypr/hyprland.conf
     # starship
     sed -i "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namelight//-/}'|" ~/.config/starship.toml
     # swaync
-    cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namelight}.swaync.css > ~/.config/swaync/style-light.css
-    cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namedark}.swaync.css > ~/.config/swaync/style-dark.css
-    cat ~/.config/swaync/style-light.css > ~/.config/swaync/style.css
-    swaync-client -rs
+    # cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namelight}.swaync.css > ~/.config/swaync/style-light.css
+    # cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namedark}.swaync.css > ~/.config/swaync/style-dark.css
+    # cat ~/.config/swaync/style-light.css > ~/.config/swaync/style.css
+    # swaync-client -rs
     # hyprlock find random wall in the directory
     WALL_DIR="$HOME/wallpapers/$PREFERRED_COLORSCHEME/${namelight:1}"
     random_file=$(find "$WALL_DIR" -type f | shuf -n 1)
@@ -100,6 +105,8 @@ set_light() {
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+    # zshrc
+    sed -i -e 's/^cat ~\/.cache\/wal\/sequences$/# &/' -e 's/^source ~\/.cache\/wal\/colors-tty\.sh$/# &/' ~/.zshrc
     # font & transparency
     set_font
     set_transparency
@@ -113,7 +120,7 @@ set_dark() {
     echo "already dark"
   else
     # ghostty
-    sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
+    # sed -i "s|^\( *theme *= *\)dark:[^,]*,light:[^ ]*|\1dark:${PREFERRED_COLORSCHEME}${namedark},light:${PREFERRED_COLORSCHEME}${namelight}|" ~/.config/ghostty/config
     # kitty
     cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namelight}.auto.conf > ~/.config/kitty/light-theme.auto.conf
     cat ~/.config/kitty/${PREFERRED_COLORSCHEME}${namedark}.auto.conf > ~/.config/kitty/dark-theme.auto.conf
@@ -121,29 +128,31 @@ set_dark() {
     sed -i "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}${namelight}\"/" ~/.config/bat/config
     sed -i "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}${namedark}\"/" ~/.config/bat/config
     # waybar
-    cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
-    cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
+    # cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namelight}.waybar.css > ~/.config/waybar/style-light.css
+    # cat ~/.config/waybar/${PREFERRED_COLORSCHEME}${namedark}.waybar.css > ~/.config/waybar/style-dark.css
     # tmux
     sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}${namedark}.tmux.conf|" ~/.config/tmux/tmux.conf
     tmux source-file ~/.config/tmux/tmux.conf
     # nvim
-    sed -i '55s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i '64s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i 's/theme = "pywal16-nvim",/theme = "auto",/' ~/.config/nvim/lua/plugins/lualine.lua
     # yazi
     # waypaper
+    sed -i 's/^post_command = .*/post_command = /' ~/.config/waypaper/config.ini
     sed -i -E "s|(folder = ~/wallpapers/)[^/]+/[^/]+|\1$PREFERRED_COLORSCHEME/${namedark:1}|" ~/.config/waypaper/config.ini
     waypaper --random
     # rofi
-    sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namedark:1}.rasi\"|" ~/.config/rofi/config.rasi
+    # sed -i "s|@import \"~/.config/[^/]*/[^.]*\.rasi\"|@import \"~/.config/rofi/$PREFERRED_COLORSCHEME/${namedark:1}.rasi\"|" ~/.config/rofi/config.rasi
     # hyprland
     sed -i "s|source = ~/.config/hypr/colors/.*\.conf|source = ~/.config/hypr/colors/${PREFERRED_COLORSCHEME}${namedark}.conf|" ~/.config/hypr/hyprland.conf
     # starship
     sed -i "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namedark//-/}'|" ~/.config/starship.toml
     # swaync
-    cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namelight}.swaync.css > ~/.config/swaync/style-light.css
-    cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namedark}.swaync.css > ~/.config/swaync/style-dark.css
-    cat ~/.config/swaync/style-dark.css > ~/.config/swaync/style.css
-    swaync-client -rs
+    # cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namelight}.swaync.css > ~/.config/swaync/style-light.css
+    # cat ~/.config/swaync/${PREFERRED_COLORSCHEME}${namedark}.swaync.css > ~/.config/swaync/style-dark.css
+    # cat ~/.config/swaync/style-dark.css > ~/.config/swaync/style.css
+    # swaync-client -rs
     # hyprlock find random wall in the directory
     WALL_DIR="$HOME/wallpapers/$PREFERRED_COLORSCHEME/${namedark:1}"
     random_file=$(find "$WALL_DIR" -type f | shuf -n 1)
@@ -152,6 +161,62 @@ set_dark() {
     sed -i "s|^\( *path *= *\).*|\1$escaped_random_file|" ~/.config/hypr/hyprlock.conf
     # le script
     sed -i "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}${namedark}\"|g" ~/.scripts/fzf_listoldfiles.sh
+    # GTK
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+    # zshrc
+    sed -i -e 's/^cat ~\/.cache\/wal\/sequences$/# &/' -e 's/^source ~\/.cache\/wal\/colors-tty\.sh$/# &/' ~/.zshrc
+    # font & transparency
+    set_font
+    set_transparency
+  fi
+}
+
+# function to change colorcsheme based on pywal
+set_pywal(){
+  if [[ "$current_color" == "$PREFERRED_COLORSCHEME" ]]; then
+    echo "already pywal"
+  else
+    # waypaper
+    sed -i 's/^post_command = .*/post_command = wal -i $wallpaper -n \&\& ~\/.scripts\/after_wal.sh/' ~/.config/waypaper/config.ini
+    sed -i -E "s|(folder = ~/wallpapers/)[^/]+/[^/]+|\1$PREFERRED_COLORSCHEME/pywal|" ~/.config/waypaper/config.ini
+    waypaper --random
+    # kitty
+    cat ~/.cache/wal/colors-kitty.conf > ~/.config/kitty/light-theme.auto.conf
+    cat ~/.cache/wal/colors-kitty.conf > ~/.config/kitty/dark-theme.auto.conf
+    # zshrc
+    sed -i -e 's/^# cat ~\/.cache\/wal\/sequences$/cat ~\/.cache\/wal\/sequences/' -e 's/^# source ~\/.cache\/wal\/colors-tty\.sh$/source ~\/.cache\/wal\/colors-tty.sh/' ~/.zshrc
+    # ghostty
+    # bat
+    cat ~/.cache/wal/colors-bat.tmTheme > ~/.config/bat/themes/pywal.tmTheme
+    sed -i "s/^--theme-light=\".*\"/--theme-light=\"${PREFERRED_COLORSCHEME}\"/" ~/.config/bat/config
+    sed -i "s/^--theme-dark=\".*\"/--theme-dark=\"${PREFERRED_COLORSCHEME}\"/" ~/.config/bat/config
+    bat cache --build
+    # waybar
+    # tmux
+    sed -i "s|source ~/.tmux/.*\.tmux.conf|source ~/.tmux/${PREFERRED_COLORSCHEME}.tmux.conf|" ~/.config/tmux/tmux.conf
+    tmux source-file ~/.config/tmux/tmux.conf
+    (cat ~/.cache/wal/sequences &)
+    # nvim
+    sed -i '64s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"${PREFERRED_COLORSCHEME}16\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    sed -i 's/theme = "auto",/theme = "pywal16-nvim",/' ~/.config/nvim/lua/plugins/lualine.lua
+    # vim
+    # yazi
+    # rofi
+    # hyprland
+    cat ~/.cache/wal/colors-hyprland.conf > ~/.config/hypr/colors/pywal.conf
+    sed -i "s|source = ~/.config/hypr/colors/.*\.conf|source = ~/.config/hypr/colors/${PREFERRED_COLORSCHEME}.conf|" ~/.config/hypr/hyprland.conf
+    # starship
+    # swaync
+    # hyprlock find random wall in the directory
+    WALL_DIR="$HOME/wallpapers/$PREFERRED_COLORSCHEME/"
+    random_file=$(find "$WALL_DIR" -type f | shuf -n 1)
+    escaped_home=$(printf '%s' "$HOME" | sed 's/[\/&]/\\&/g')
+    escaped_random_file=$(printf '%s' "$random_file" | sed 's/[\/&]/\\&/g')
+    sed -i "s|^\( *path *= *\).*|\1$escaped_random_file|" ~/.config/hypr/hyprlock.conf
+    # le script
+    sed -i "s|--preview 'bat --theme=\"[^\"]*\"|--preview 'bat --theme=\"${PREFERRED_COLORSCHEME}\"|g" ~/.scripts/fzf_listoldfiles.sh
     # GTK
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
@@ -167,20 +232,20 @@ set_font(){
 
   echo "changing ghostty fonts to $PREFERRED_FONT"
   # ghostty
-  sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config
-  sed -i "s/^font-size *= *[0-9]\+/font-size = $((PREFERRED_FONT_SIZE -1))/" ~/.config/ghostty/config
+  # sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config
+  # sed -i "s/^font-size *= *[0-9]\+/font-size = $((PREFERRED_FONT_SIZE -1))/" ~/.config/ghostty/config
 
   echo "changing swaync fonts to $PREFERRED_FONT"
   # swaync light
-  sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-light.css
-  sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-light.css
+  # sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-light.css
+  # sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-light.css
   # swaync dark
-  sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-dark.css
-  sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-dark.css
+  # sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style-dark.css
+  # sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style-dark.css
   # swaync current
-  sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style.css
-  sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style.css
-  swaync-client -rs
+  # sed -i "s/^\( *font-family: *\)[^;]*;/\1\"$ESCAPED_FONT\";/" ~/.config/swaync/style.css
+  # sed -i "s/^\( *font-size: *\)[^;]*;/\1$PREFERRED_FONT_SIZE;/" ~/.config/swaync/style.css
+  # swaync-client -rs
 
   echo "changing waybar fonts to $PREFERRED_FONT"
   # waybar
@@ -203,12 +268,12 @@ set_transparency() {
   if [[ $TRANSPARENT == false ]]; then
     echo "disabling transparency..."
     # ghostty
-    sed -i \
-      -e 's/^\s*\(background-opacity\s*=.*\)/# \1/' \
-      -e 's/^\s*\(background-blur\s*=.*\)/# \1/' \
-      -e 's/^\s*\(background-blur-radius\s*=.*\)/# \1/' \
-      -e 's/^\s*\(alpha-blending\s*=.*\)/# \1/' \
-      "$HOME/.config/ghostty/config"
+    # sed -i \
+    #   -e 's/^\s*\(background-opacity\s*=.*\)/# \1/' \
+    #   -e 's/^\s*\(background-blur\s*=.*\)/# \1/' \
+    #   -e 's/^\s*\(background-blur-radius\s*=.*\)/# \1/' \
+    #   -e 's/^\s*\(alpha-blending\s*=.*\)/# \1/' \
+    #   "$HOME/.config/ghostty/config"
 
     # nvim
     # Check if the file exists before renaming
@@ -229,12 +294,12 @@ set_transparency() {
   else
     echo "enabling transparency..."
     # ghostty
-    sed -i \
-      -e 's/^\s*#\s*\(background-opacity\s*=.*\)/\1/' \
-      -e 's/^\s*#\s*\(background-blur\s*=.*\)/\1/' \
-      -e 's/^\s*#\s*\(background-blur-radius\s*=.*\)/\1/' \
-      -e 's/^\s*#\s*\(alpha-blending\s*=.*\)/\1/' \
-      "$HOME/.config/ghostty/config"
+    # sed -i \
+    #   -e 's/^\s*#\s*\(background-opacity\s*=.*\)/\1/' \
+    #   -e 's/^\s*#\s*\(background-blur\s*=.*\)/\1/' \
+    #   -e 's/^\s*#\s*\(background-blur-radius\s*=.*\)/\1/' \
+    #   -e 's/^\s*#\s*\(alpha-blending\s*=.*\)/\1/' \
+    #   "$HOME/.config/ghostty/config"
     # nvim
 
     # Check if the file exists before renaming
@@ -258,17 +323,21 @@ else
   echo "Argument is: $1"
 fi
 
-if [ -n "$1" ] && [ "$1" = "manual" ]; then
-  if [ "$current" = "prefer-dark" ]; then
-    set_light
-  else
-    set_dark
-  fi
+if [ "$PREFERRED_COLORSCHEME" = "pywal" ]; then
+  set_pywal
 else
-  # Compare current time to sunrise and sunset times
-  if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
-    set_light
+  if [ -n "$1" ] && [ "$1" = "manual" ]; then
+    if [ "$current" = "prefer-dark" ]; then
+      set_light
+    else
+      set_dark
+    fi
   else
-    set_dark
+    # Compare current time to sunrise and sunset times
+    if (( current_seconds >= sunrise_seconds && current_seconds <= sunset_seconds )); then
+      set_light
+    else
+      set_dark
+    fi
   fi
 fi

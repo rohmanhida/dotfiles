@@ -34,6 +34,15 @@ return {
     end,
   },
   {
+    "rohmanhida/pywal16.nvim",
+    name = "pywal16",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('pywal16').setup()
+    end
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
@@ -53,7 +62,7 @@ return {
       })
 
       vim.o.background = "dark"
-      vim.cmd.colorscheme("gruvbox")
+      vim.cmd.colorscheme("pywal16")
       -- vim.api.nvim_set_hl(0, "Visual", { bg = "#c5cbd8" })
     end
   }
