@@ -234,6 +234,8 @@ ShellRoot {
                 }
             }
 
+            OsdWindow {}
+
             // Update timer
             Timer {
                 interval: 1000
