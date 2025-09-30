@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PREFERRED_FONT="JetBrainsMono Nerd Font Mono"
+export PREFERRED_FONT="AdwaitaMono Nerd Font"
 export PREFERRED_FONT_SIZE=10
 export PREFERRED_COLORSCHEME="pywal" # everforest, rose-pine, gruvbox, nord, catppuccin, pywal
 export TRANSPARENT=false

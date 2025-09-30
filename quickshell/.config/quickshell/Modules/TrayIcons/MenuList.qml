@@ -120,7 +120,7 @@ PopupWindow {
                                 width: label.implicitHeight
                                 height: label.implicitHeight
 
-                                source: menuItem.modelData.icon
+                                source: Quickshell.iconPath(menuItem.modelData.icon, true)
                             }
                         }
 

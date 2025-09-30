@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Io
 import Quickshell.Hyprland
 import Quickshell.Wayland
 
@@ -66,10 +67,9 @@ ShellRoot {
                                 font.family: "Inter"
                             }
                             Text {
-                                text: shell.activeWindow?.title ?? "Pentol"
+                                text: shell.activeWindow?.title ?? "pentol"
                                 color: Theme.textColor
                                 font.pixelSize: 10
-                                font.weight: Font.Regular
                                 font.family: "Inter"
                             }
                         }
@@ -112,8 +112,22 @@ ShellRoot {
                                 MouseArea {
                                     anchors.fill: parent
                                     anchors.margins: -4
-                                    onClicked: Hyprland.dispatch("workspace", (index + 1).toString())
+                                    onClicked: Hyprland.dispatch(`workspace ${(index + 1).toString()}`)
                                 }
+                            }
+                        }
+                    }
+                    Row {
+                        Column {
+                            Layout.alignment: Qt.AlignLeft
+
+                            // Bold artist
+                            Text {
+                                id: music
+                                text: "Loading…"  // fallback text
+                                color: Theme.textColor
+                                font.pixelSize: 10
+                                font.family: "Inter"
                             }
                         }
                     }
@@ -128,7 +142,12 @@ ShellRoot {
                     Row {
                         Layout.fillWidth: false
                         spacing: 12
-                        Layout.alignment: Qt.AlignVCenter
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+
+                        TrayIcons {
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
                         Text {
                             id: timeText
                             text: Qt.formatDateTime(new Date(), "ddd, MMM d hh:mm")
@@ -136,9 +155,8 @@ ShellRoot {
                             font.pixelSize: 11
                             font.weight: Font.Medium
                             font.family: "Inter"
+                            anchors.verticalCenter: parent.verticalCenter
                         }
-
-                        TrayIcons {}
                     }
                 }
             }
@@ -178,12 +196,6 @@ ShellRoot {
                     }
 
                     Component.onCompleted: requestPaint()
-                    Connections {
-                        target: shell
-                        function onBarColorChanged() {
-                            leftCorner.requestPaint();
-                        }
-                    }
                 }
 
                 // Right rounded corner
@@ -210,12 +222,6 @@ ShellRoot {
                     }
 
                     Component.onCompleted: requestPaint()
-                    Connections {
-                        target: shell
-                        function onBarColorChanged() {
-                            rightCorner.requestPaint();
-                        }
-                    }
                 }
 
                 // Center fill
@@ -236,14 +242,45 @@ ShellRoot {
 
             OsdWindow {}
 
+            Process {
+                id: dateProc
+                command: ["date", "+%a, %b %d %H:%M"]  // locale-aware abbreviations
+                running: true
+                stdout: StdioCollector {
+                    onStreamFinished: {
+                        timeText.text = text.trim();
+                    }
+                }
+            }
+
             // Update timer
             Timer {
                 interval: 1000
                 running: true
                 repeat: true
                 onTriggered: {
-                    timeText.text = Qt.formatDateTime(new Date(), "ddd, MMM d hh:mm");
+                    dateProc.running = true;
                 }
+            }
+            Process {
+                id: playerctlProc
+                command: ["playerctl", "metadata", "--format", "{{artist}} - {{title}}"]
+                stdout: StdioCollector {
+                    onStreamFinished: {
+                        if (text.length >= 2) {
+                            music.text = text;
+                        } else {
+                            music.text = "";
+                        }
+                    }
+                }
+            }
+
+            Timer {
+                interval: 2000   // poll every 2 seconds
+                running: true
+                repeat: true
+                onTriggered: playerctlProc.running = true
             }
         }
 

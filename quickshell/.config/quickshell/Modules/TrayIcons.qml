@@ -9,35 +9,37 @@ Rectangle {
     id: systemTray
 
     visible: SystemTray.items.values.length > 0
-    Layout.preferredWidth: trayRow.width + 20
+    width: visible ? (SystemTray.items.values.length * 25) + 20 : 0
+    Layout.preferredWidth: width
     color: Theme.barColor
-    height: bar.height - 7
+    height: bar.height - 16
     radius: Theme.screenRounding
-    // clip: true
-
+    
     property var selectedMenu: null
     property int itemCount: SystemTray.items.values.length
 
     RowLayout {
         id: trayRow
-        height: parent.height/3
+        height: parent.height
         layoutDirection: Qt.LeftToRight
+        spacing: 5
 
         anchors {
             right: parent.right
             rightMargin: 10
+            verticalCenter: parent.verticalCenter
         }
 
         Repeater {
-            model: SystemTray.items
+            model: SystemTray.items.values
 
             Item {
                 id: trayIcon
-                required property SystemTrayItem modelData
+                required property var modelData
 
                 Layout.fillHeight: true
-                implicitWidth: 12
-
+                Layout.preferredWidth: 20
+                
                 property bool isOpen: false
 
                 QsMenuOpener {
@@ -46,13 +48,11 @@ Rectangle {
                 }
 
                 Image {
-                    source: parent.modelData.icon
-                    height: width
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
+                    id: trayImage
+                    source: parent.modelData.icon || ""
+                    height: Math.min(parent.height - 4, 16)
+                    width: height
+                    anchors.centerIn: parent
 
                     MouseArea {
                         anchors.fill: parent
@@ -86,18 +86,12 @@ Rectangle {
 
                 MenuList {
                     id: itemMenu
-
                     trayItem: trayIcon.modelData.menu
-                    // offset: systemTray.itemCount - SystemTray.items.indexOf(trayIcon.modelData)
                     visible: itemMenu == systemTray.selectedMenu && trayIcon.isOpen
                 }
             }
         }
     }
-
-    // Hover {
-    //     item: parent
-    // }
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {

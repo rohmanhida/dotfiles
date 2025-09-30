@@ -9,7 +9,7 @@
 @import "~/.config/rofi/everforest/dark-soft.rasi"
 
 * {
-  font: "JetBrainsMono Nerd Font Mono 10";
+  font: "AdwaitaMono Nerd Font 10";
   emphasis:   var(highlight);
   text:       var(foreground);
   text-alt:   #b2b2b2;

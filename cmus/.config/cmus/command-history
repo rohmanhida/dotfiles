@@ -1,5 +1,7 @@
-quit
+youtube https://www.youtube.com/watch?v=YDmV-hJrMk4
+youtube https://music.youtube.com/watch?v=z-SrH7XY1lc&si=xw0Cg7C1gHBnMaOV
 update-cache
+quit
 live-filter 
 colorscheme nord
 q

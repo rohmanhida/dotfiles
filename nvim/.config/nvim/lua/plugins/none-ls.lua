@@ -4,6 +4,7 @@ return {
   config = function()
     local null_ls = require("null-ls")
     null_ls.setup({
+      debug = true,
       sources = {
         -- lua (stylua)
         null_ls.builtins.formatting.stylua,
@@ -22,29 +23,20 @@ return {
           end,
         }),
         null_ls.builtins.formatting.prettier.with({
-          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "json", "css", "scss", "markdown" },
           extra_args = { "--single-quote", "true", "--tab-width", "2" }
         }),
-        require('none-ls.diagnostics.eslint_d').with({
-          command = "eslint_d",
-          args = { "--stdin", "--stdin-filename", "$FILENAME", "--format", "json" },
-          method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-        }),
+        require("none-ls.diagnostics.eslint_d"),
 
         -- golang (gofumpt, golangci-lint)
-        null_ls.builtins.formatting.gofumpt.with({
-          args
-        }),
+        null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.diagnostics.golangci_lint.with({
           command = "golangci-lint",
           args = { "run", "--out-format", "json", "--path-prefix", vim.fn.getcwd() }
         }),
 
         -- python
-        null_ls.builtins.formatting.yapf.with({
-          extra_args = { "--style", "{ based_on_style: google, indent_width: 2 }"}
-        })
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.isort,
       },
     })
 

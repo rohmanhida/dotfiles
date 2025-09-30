@@ -229,7 +229,7 @@ Singleton {
                                 Layout.preferredWidth: results.delegateHeight
                                 Layout.preferredHeight: results.delegateHeight
 
-                                source: Quickshell.iconPath(modelData.icon)
+                                source: Quickshell.iconPath(modelData.icon, true)
                             }
                             Text {
                                 text: modelData.name
