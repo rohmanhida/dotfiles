@@ -7,5 +7,5 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "neovim/nvim-lspconfig", -- optional
   },
-  opts = {} -- your configuration
+  opts = {}                  -- your configuration
 }
