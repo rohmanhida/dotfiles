@@ -2,22 +2,21 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-
     -- function to be called by keymaps
     local function grep_to_qf()
-      require('fzf-lua').live_grep_glob({
+      require("fzf-lua").live_grep_glob({
         actions = {
-          ['default'] = require('fzf-lua').actions.file_edit_qf
-        }
+          ["default"] = require("fzf-lua").actions.file_edit_qf,
+        },
       })
     end
 
     -- keymaps group
-    local wk = require('which-key')
+    local wk = require("which-key")
     wk.add({
-      { '<leader>f', group = "Files", icon = ' ' },
-      { '<leader>d', group = "Document", icon = '󰈙 '},
-      { '<leader>w', group = "Workspace", icon = ' ' },
+      { "<leader>f", group = "Files", icon = " " },
+      { "<leader>d", group = "Document", icon = "󰈙 " },
+      { "<leader>w", group = "Workspace", icon = " " },
     })
 
     -- open files in current directory

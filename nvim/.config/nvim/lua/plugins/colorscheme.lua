@@ -33,6 +33,10 @@ return {
       vim.g.everforest_enable_italic = true
     end,
   },
+  { 'uZer/pywal16.nvim',
+    lazy = false,
+    priority = 1000,
+  },
   {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
@@ -52,7 +56,7 @@ return {
         }
       })
 
-      vim.o.background = "dark"
+      -- vim.o.background = "dark"
       vim.cmd.colorscheme("rose-pine")
     end
   }

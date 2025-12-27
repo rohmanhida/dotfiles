@@ -64,6 +64,9 @@ set_light() {
     # Note: `55s/dark/light/g` is a line-specific substitution. Ensure line 55 is correct.
     sed -i '' '55s/dark/light/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i '' "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # vim
+    sed -i '' "s/^colorscheme .*/colorscheme ${PREFERRED_COLORSCHEME//-/}_${namelight//-/}/" ~/.vimrc
+    sed -i '' "s/^set background=.*/set background=light/" ~/.vimrc
     # starship
     sed -i '' "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namelight//-/}'|" $(greadlink -f ~/.config/starship.toml)
     # le script
@@ -91,6 +94,9 @@ set_dark() {
     # nvim
     sed -i '' '55s/light/dark/g' ~/.config/nvim/lua/plugins/colorscheme.lua
     sed -i '' "s/vim\.cmd\.colorscheme(\".*\")/vim.cmd.colorscheme(\"$PREFERRED_COLORSCHEME\")/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # vim
+    sed -i '' "s/^colorscheme .*/colorscheme ${PREFERRED_COLORSCHEME//-/}_${namedark//-/}/" ~/.vimrc
+    sed -i '' "s/^set background=.*/set background=dark/" ~/.vimrc
     # starship
     sed -i '' "s|palette = '.*'|palette = '${PREFERRED_COLORSCHEME//-/}${namedark//-/}'|" $(greadlink -f ~/.config/starship.toml)
     # le script

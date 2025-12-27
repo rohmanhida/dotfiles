@@ -1,96 +1,56 @@
 return {
 	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"ts_ls",
-					"gopls",
-					"marksman",
-					"cssls"
+		dependencies = {
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					ui = {
+						icons = {
+							package_installed = "",
+							package_pending = "",
+							package_uninstalled = "",
+						},
+					},
 				},
-				automatic_installation = false,
-			})
-		end,
+			},
+		},
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"ts_ls",
+				"gopls",
+				"cssls",
+				"html",
+				"tailwindcss",
+				"pyright",
+				"eslint",
+			},
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-
-			-- css
-			lspconfig.cssls.setup({
-				capabilities = capabilities,
-				filetypes = { "css, scss, less" },
-			})
-
-			-- markdown
-			lspconfig.marksman.setup({
-				capabilities = capabilities,
-				filetypes = { "markdown" },
-			})
-
-			-- lua
-			lspconfig.lua_ls.setup({
-				settings = {
-					Lua = {
-						runtime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-						},
-					},
-				},
+			vim.lsp.config("*", {
 				capabilities = capabilities,
 			})
-
-			-- typescript
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.volar.setup({
-				capabilities = capabilities,
-			})
-
-			-- golang
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-				settings = {
-					gopls = {
-						usePlaceholders = true,
-						completeUnimported = true,
-						staticcheck = true,
-						analyses = {
-							unusedparams = true,
-							shadow = true,
-							nilness = true,
-							fieldalignment = true,
-						},
-					},
-				},
-			})
-
 
 			-- keymaps
-			local wk = require('which-key')
+			local wk = require("which-key")
 			wk.add({
-				{ '<leader>l', group = "LSP", icon = ' '}
+				{ "<leader>l", group = "LSP", icon = " " },
 			})
 			vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover, { desc = "Show Documentation" })
 			vim.keymap.set({ "n", "v" }, "<leader>lc", vim.lsp.buf.code_action, { desc = "Open [C]ode Action" })
 			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename" })
 		end,
 	},
+	{
+		"antosha417/nvim-lsp-file-operations",
+		config = function()
+			require("lsp-file-operations").setup()
+		end,
+	},
+	{ "folke/lazydev.nvim", opts = {} },
 }

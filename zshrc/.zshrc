@@ -62,3 +62,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export LANG="en_US.UTF-8"
+
+# Created by `pipx` on 2025-10-27 06:22:18
+export PATH="$PATH:/Users/rohmanhida/.local/bin"
