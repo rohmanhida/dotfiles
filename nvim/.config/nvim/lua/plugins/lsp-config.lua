@@ -23,7 +23,7 @@ return {
 				"cssls",
 				"html",
 				"tailwindcss",
-				"pyright",
+				"ruff",
 				"eslint",
 			},
 		},

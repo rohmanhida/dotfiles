@@ -1,7 +1,12 @@
 return {
 	{
 		"L3MON4D3/LuaSnip",
-		dependencies = { "hrsh7th/cmp-nvim-lsp", "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+			"hrsh7th/cmp-path",
+		},
 	},
 	{
 		"hrsh7th/nvim-cmp",

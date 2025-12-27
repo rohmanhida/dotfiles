@@ -10,7 +10,6 @@ return {
         null_ls.builtins.formatting.stylua,
 
         -- javascript (prettier, eslint_d)
-        null_ls.builtins.formatting.htmlbeautifier,
         null_ls.builtins.formatting.prettier.with({
           filetypes = {
             "javascript",
@@ -40,6 +39,7 @@ return {
           args = { "run", "--out-format", "json", "--path-prefix", vim.fn.getcwd() },
         }),
       },
+
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
