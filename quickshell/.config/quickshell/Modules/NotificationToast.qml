@@ -66,7 +66,7 @@ MouseArea {
                 height: 25
 
                 IconImage {
-                    source: toast.appIcon ? Quickshell.iconPath(toast.appIcon) : ""
+                    source: toast.appIcon ? Quickshell.iconPath(toast.appIcon, true) : ""
                     height: parent.height
                     width: height
                     visible: toast.appIcon ?? false

@@ -233,6 +233,9 @@ set_font(){
   echo "changing kitty fonts to $PREFERRED_FONT"
   sed -i "s/^\(font_family\s\+\).*/\1$PREFERRED_FONT/" ~/.config/kitty/kitty.conf
 
+  echo "changing alacritty fonts to $PREFERRED_FONT"
+  sed -i "s/^\(.*\.family = \)\".*\"$/\1\"$PREFERRED_FONT\"/" ~/.config/alacritty/alacritty.toml
+
   echo "changing ghostty fonts to $PREFERRED_FONT"
   # ghostty
   # sed -i "s/^font-family *= *\".*\"/font-family = \"$ESCAPED_FONT\"/" ~/.config/ghostty/config

@@ -3,6 +3,18 @@
 # hyprland
 cat ~/.cache/wal/colors-hyprland.conf > ~/.config/hypr/colors/pywal.conf
 hyprctl reload
+
+# niri
+PYWAL_COLORS="$HOME/.cache/wal/colors.json"
+wallpaper=$(jq -r '.wallpaper' "$PYWAL_COLORS")
+focus=$(jq -r '.colors.color1' "$PYWAL_COLORS")
+border=$(jq -r '.colors.color5' "$PYWAL_COLORS")
+sed -i "s/^\(\s*active-color \)\".*\"$/\1\"$focus\"/" ~/.config/niri/config.kdl
+sed -i "s/^\(\s*inactive-color \)\".*\"$/\1\"$border\"/" ~/.config/niri/config.kdl
+# Generate & reload with new config
+niri-msg reload
+# swaylock
+sed -i "s|^\(image=\).*$|\1$wallpaper|" ~/.config/swaylock/config
 # kitty
 cat ~/.cache/wal/colors-kitty.conf > ~/.config/kitty/light-theme.auto.conf
 cat ~/.cache/wal/colors-kitty.conf > ~/.config/kitty/dark-theme.auto.conf

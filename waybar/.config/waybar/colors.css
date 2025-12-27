@@ -1,5 +1,6 @@
 * {
     font-family: monospace;
+    font-size: 10px;
     font-weight: normal;
 }
 
@@ -9,7 +10,6 @@ window#waybar {
 }
 
 #workspaces button {
-    font-size: 14px;
     padding: 0 8px;
     background-color: transparent;
     color: #888888;
@@ -25,18 +25,15 @@ window#waybar {
 }
 
 #mpris {
-    font-size: 10px;
     color: #ffffff;
     padding: 0 10px;
 }
 
 #tray {
     padding: 0 10px;
-    font-size: 12px
 }
 
 #clock {
-    font-size: 10px;
     color: #ffffff;
     padding: 0 10px;
 }

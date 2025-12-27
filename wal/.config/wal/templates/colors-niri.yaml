@@ -1,0 +1,7 @@
+colors:
+  background: "{background}"
+  foreground: "{foreground}"
+  border: "{color1}"
+  focused: "{color2}"
+  urgent: "{color3}"
+  # add more as needed

@@ -1,132 +1,49 @@
-// -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": false,
-    "margin-top": 8,
-    "modules-center": [
-        "clock#date",
-        "clock#time",
-        "pulseaudio",
-        "custom/weather",
-        "custom/mail",
-        "tray"
-    ],
-    "custom/weather": {
-        "format": "{}°",
-        "tooltip": true,
-        "interval": 3600,
-        "exec": "wttrbar --location Kebomas",
-        "return-type": "json"
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["mpris"],
+  "modules-right": ["tray", "clock"],
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "main": "",
+      "side": "",
+      "almost-forgot": "",
+      "5": "",
+      "scratch": "<b></b>",
     },
-    "tray": {
-        "icon-size": 12,
-        "spacing": 10
+  },
+
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "player-icons": {
+      "default": "▶",
+      "spotify": "",
     },
-    "clock#time": {
-        "interval": 10,
-        "timezone": "Asia/Jakarta",
-        "format": "  {:%H:%M}",
-        "tooltip": true,
-        "tooltip-format": "{:%A, %d %B %Y}",
-        "on-click": "gnome-clocks"
+    "status-icons": {
+      "paused": "⏸",
     },
-    "clock#date": {
-        "format": " 󰸗  {:%a %d/%m}",
-        "timezone": "Asia/Jakarta",
-        "tooltip": true,
-        "tooltip-format": "{:%A, %d %B %Y}",
-        "on-click": "gnome-calendar"
+    "max-length": 50,
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8,
+  },
+
+  "clock": {
+    "format": "{:%H:%M   %Y-%m-%d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "format": {
+        "today": "<span color='#a6e3a1'><b><u>{}</u></b></span>",
+      },
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "cpu": {
-        "format": "  {usage}%",
-        "tooltip": false
-    },
-    "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "󰲝  {ipaddr}/{cidr}",
-        "tooltip-format": "󰲝  {ifname} via {gwaddr}",
-        "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "  Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "custom/media": {
-        "format": "{}",
-        "escape": true,
-        "interval": 1,
-        "tooltip": false,
-        "exec": "~/.config/waybar/media.sh",
-        "on-click": "playerctl play-pause",
-        "max-length": 35,
-    },
-    "custom/mail": {
-        "format": "{icon} {text}",
-        "format-icons": {
-            "unread": "📬",
-            "none": "📭"
-        },
-        "return-type": "json",
-        "escape": true,
-        "interval": 300,
-        "tooltip": true,
-        "exec": "~/.scripts/mail-count.sh",
-        "on-click": "thunderbird",
-    },
-    "custom/theme": {
-        "format": "{}",
-        "interval": 1,
-        "tooltip": false,
-        "exec": "~/.config/waybar/theme.sh",
-        "on-click": "sundial",
-        "max-length": 35,
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{} {icon}",
-        "format-icons": {
-          "notification": "<span foreground='red'><sup></sup></span>",
-          "none": "",
-          "dnd-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-none": "",
-          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "inhibited-none": "",
-          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    }
+  },
 }
